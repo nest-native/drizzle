@@ -1,0 +1,11 @@
+node_modules
+dist
+coverage
+.nyc_output
+complexity
+*.tsbuildinfo
+*.tgz
+.env
+.env.*
+!.env.example
+GUIDELINES_NEST_DRIZZLE.md

@@ -1,0 +1,118 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+permissions:
+  contents: read
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+jobs:
+  package-build:
+    name: Package build/typecheck (Node ${{ matrix.node-version }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        node-version: ['20', '22']
+
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build package
+        run: npm run build --workspace nest-drizzle-native
+
+      - name: Typecheck package
+        run: npm run typecheck --workspace nest-drizzle-native
+
+  package-quality:
+    name: Tests, coverage, and complexity
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '22'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run tests with coverage
+        run: |
+          START=$SECONDS
+          npm run test:cov
+          echo $(( (SECONDS - START) * 1000 )) > test-step-duration-ms.txt
+
+      - name: Enforce cognitive complexity threshold
+        run: npm run complexity:check
+
+      - name: Generate cognitive complexity report
+        run: npm run complexity:report
+
+      - name: Coverage and performance summary
+        run: |
+          node -e "
+          const fs = require('node:fs');
+          const summary = JSON.parse(fs.readFileSync('coverage/coverage-summary.json', 'utf8')).total;
+          const duration = fs.readFileSync('test-step-duration-ms.txt', 'utf8').trim();
+          const metrics = {
+            statements: summary.statements.pct,
+            branches: summary.branches.pct,
+            functions: summary.functions.pct,
+            lines: summary.lines.pct,
+          };
+          const report = [
+            '### Package Quality',
+            '',
+            '| Metric | Value |',
+            '| :--- | ---: |',
+            '| Statements | ' + metrics.statements + '% |',
+            '| Branches | ' + metrics.branches + '% |',
+            '| Functions | ' + metrics.functions + '% |',
+            '| Lines | ' + metrics.lines + '% |',
+            '| Test step duration | ' + duration + ' ms |',
+          ].join('\n');
+          fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, report + '\n');
+          "
+
+      - name: Upload quality artifacts
+        uses: actions/upload-artifact@v7
+        with:
+          name: package-quality
+          path: |
+            coverage/coverage-summary.json
+            coverage/lcov.info
+            complexity/cognitive-complexity-summary.json
+            test-step-duration-ms.txt
+          if-no-files-found: error
+
+  release-and-security:
+    name: Release and security checks
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '22'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Validate package tarball
+        run: npm run release:check
+
+      - name: Audit production supply chain
+        run: npm run security:audit

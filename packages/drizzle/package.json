@@ -1,0 +1,99 @@
+{
+  "name": "nest-drizzle-native",
+  "version": "0.1.0",
+  "description": "Nest-native Drizzle ORM integration with DI, repositories, and transaction decorators",
+  "keywords": [
+    "nestjs",
+    "drizzle",
+    "drizzle-orm",
+    "orm",
+    "sql",
+    "decorators",
+    "dependency-injection",
+    "transactions",
+    "typescript"
+  ],
+  "author": "Rodrigo Nogueira",
+  "license": "MIT",
+  "homepage": "https://github.com/rodrigobnogueira/nest-drizzle-native#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rodrigobnogueira/nest-drizzle-native.git",
+    "directory": "packages/drizzle"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist/**/*.d.ts",
+    "dist/**/*.js",
+    "dist/**/*.js.map"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "clean": "rimraf dist tsconfig.tsbuildinfo",
+    "build": "npm run clean && tsc -p tsconfig.build.json",
+    "typecheck": "tsc --noEmit -p tsconfig.json"
+  },
+  "peerDependencies": {
+    "@libsql/client": "*",
+    "@nestjs-cls/transactional": "*",
+    "@nestjs/common": "^11.0.0",
+    "@nestjs/core": "^11.0.0",
+    "@nestjs/swagger": "^11.0.0",
+    "better-sqlite3": "*",
+    "class-validator": "^0.14.0",
+    "drizzle-orm": ">=0.30.0 <2.0.0",
+    "drizzle-zod": "*",
+    "mysql2": "*",
+    "pg": "*",
+    "reflect-metadata": "^0.1.12 || ^0.2.0",
+    "rxjs": "^7.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@libsql/client": {
+      "optional": true
+    },
+    "@nestjs-cls/transactional": {
+      "optional": true
+    },
+    "@nestjs/swagger": {
+      "optional": true
+    },
+    "better-sqlite3": {
+      "optional": true
+    },
+    "class-validator": {
+      "optional": true
+    },
+    "drizzle-zod": {
+      "optional": true
+    },
+    "mysql2": {
+      "optional": true
+    },
+    "pg": {
+      "optional": true
+    }
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@nestjs/common": "^11.1.19",
+    "@nestjs/core": "^11.1.19",
+    "reflect-metadata": "^0.2.2",
+    "rxjs": "^7.8.1",
+    "typescript": "^6.0.3"
+  }
+}

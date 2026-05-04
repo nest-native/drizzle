@@ -1,0 +1,21 @@
+{
+  "extends": "./tsconfig.build.json",
+  "compilerOptions": {
+    "composite": false,
+    "incremental": false,
+    "noEmit": true,
+    "types": ["node"]
+  },
+  "include": [
+    "constants.ts",
+    "drizzle.module.ts",
+    "index.ts",
+    "interfaces.ts",
+    "tokens.ts",
+    "client/**/*.ts",
+    "decorators/**/*.ts",
+    "errors/**/*.ts",
+    "testing/**/*.ts"
+  ],
+  "exclude": ["dist", "node_modules", "test/**/*", "*.spec.ts"]
+}
