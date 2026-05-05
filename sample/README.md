@@ -11,6 +11,7 @@ The sample tree follows the same shape as the main quality strategy:
 npm run ci:sample
 npm run sample:focused
 npm run test --workspace nest-drizzle-native-sample-01-basic-client
+npm run test --workspace nest-drizzle-native-sample-02-repositories
 ```
 
 ## Catalog
@@ -19,7 +20,7 @@ npm run test --workspace nest-drizzle-native-sample-01-basic-client
 | --- | --- | --- | --- |
 | `00-showcase` | Full integration baseline | Planned in issue #7 | `npm run showcase` |
 | `01-basic-client-injection` | Direct `@InjectDrizzle()` client injection | Runnable | `npm run test --workspace nest-drizzle-native-sample-01-basic-client` |
-| `02-repositories` | `@DrizzleRepository()` and `forFeature()` | Planned in issue #5 | TBD |
+| `02-repositories` | `@DrizzleRepository()` and `forFeature()` | Runnable | `npm run test --workspace nest-drizzle-native-sample-02-repositories` |
 | `03-for-root-async` | Async configuration and shutdown | Planned in issue #4 | TBD |
 | `04-named-connections` | Multiple Drizzle clients | Planned in issue #9 | TBD |
 | `05-transactions-cls` | CLS-backed `@Transactional()` | Planned in issue #11 | TBD |
