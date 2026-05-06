@@ -82,6 +82,30 @@ Rollback behavior is owned by the configured CLS transaction adapter. In the
 package integration tests, a thrown error inside a `@Transactional()` method
 rolls back the real libSQL Drizzle transaction, and a successful method commits.
 
+See `sample/05-transactions-cls` for the standard service-level pattern.
+
+## Direct Transaction Injection
+
+Use `@InjectTransaction()` only when a low-level provider needs direct access to
+the current transaction object.
+
+```ts
+import { Injectable } from '@nestjs/common';
+import { InjectTransaction } from 'nest-drizzle-native';
+
+@Injectable()
+export class InventoryRepository {
+  constructor(@InjectTransaction() private readonly tx: AppDatabase) {}
+
+  async reserve(sku: string, quantity: number) {
+    await this.tx.insert(reservations).values({ sku, quantity });
+  }
+}
+```
+
+The service should still own the method-level `@Transactional()` boundary. See
+`sample/06-manual-transaction` for a runnable commit and rollback example.
+
 ## Testing Transactions
 
 Use real Drizzle clients for transaction tests. Mocking a transaction decorator
