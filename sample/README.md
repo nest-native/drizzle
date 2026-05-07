@@ -17,6 +17,7 @@ npm run test --workspace nest-drizzle-native-sample-04-named-connections
 npm run test --workspace nest-drizzle-native-sample-05-transactions-cls
 npm run test --workspace nest-drizzle-native-sample-06-manual-transaction
 npm run test --workspace nest-drizzle-native-sample-07-validation-drizzle-zod
+npm run test --workspace nest-drizzle-native-sample-08-validation-class-validator
 ```
 
 ## Catalog
@@ -31,7 +32,7 @@ npm run test --workspace nest-drizzle-native-sample-07-validation-drizzle-zod
 | `05-transactions-cls` | CLS-backed `@Transactional()` | Runnable | `npm run test --workspace nest-drizzle-native-sample-05-transactions-cls` |
 | `06-manual-transaction` | `@InjectTransaction()` escape hatch | Runnable | `npm run test --workspace nest-drizzle-native-sample-06-manual-transaction` |
 | `07-validation-drizzle-zod` | Drizzle schema to Zod validation | Runnable | `npm run test --workspace nest-drizzle-native-sample-07-validation-drizzle-zod` |
-| `08-validation-class-validator` | DTO validation with `ValidationPipe` | Planned in issue #16 | TBD |
+| `08-validation-class-validator` | DTO validation with `ValidationPipe` | Runnable | `npm run test --workspace nest-drizzle-native-sample-08-validation-class-validator` |
 | `09-error-mapping` | Opt-in database error mapping | Planned in issue #15 | TBD |
 | `10-testing-utilities` | Test module and mock helpers | Planned in issue #14 | TBD |
 | `11-raw-sql-escape-hatch` | Safe raw SQL patterns | Planned in issue #13 | TBD |

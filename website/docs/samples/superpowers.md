@@ -73,8 +73,18 @@ Inspect:
 - [`07-validation-drizzle-zod/src/tickets/ticket.validation.ts`](https://github.com/rodrigobnogueira/nest-drizzle-native/tree/main/sample/07-validation-drizzle-zod/src/tickets/ticket.validation.ts)
 - [`07-validation-drizzle-zod/scripts/smoke.ts`](https://github.com/rodrigobnogueira/nest-drizzle-native/tree/main/sample/07-validation-drizzle-zod/scripts/smoke.ts)
 
+## Classic Nest DTO Validation
+
+`ValidationPipe` and `class-validator` remain first-class options when the HTTP
+contract should be modeled as DTO classes.
+
+Inspect:
+
+- [`08-validation-class-validator/src/customers/create-customer.dto.ts`](https://github.com/rodrigobnogueira/nest-drizzle-native/tree/main/sample/08-validation-class-validator/src/customers/create-customer.dto.ts)
+- [`08-validation-class-validator/src/app.module.ts`](https://github.com/rodrigobnogueira/nest-drizzle-native/tree/main/sample/08-validation-class-validator/src/app.module.ts)
+
 ## Still Planned
 
-The sample plan also includes class-validator DTOs, database error mapping,
-testing utilities, safe raw SQL patterns, Swagger/OpenAPI integration, and the
-full showcase. Those pages should stay honest until the runnable samples land.
+The sample plan also includes database error mapping, testing utilities, safe
+raw SQL patterns, Swagger/OpenAPI integration, and the full showcase. Those
+pages should stay honest until the runnable samples land.

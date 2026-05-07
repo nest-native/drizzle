@@ -18,13 +18,13 @@ npm run sample:focused
 | [`05-transactions-cls`](https://github.com/rodrigobnogueira/nest-drizzle-native/tree/main/sample/05-transactions-cls) | CLS-backed `@Transactional()` commit and rollback | `npm run test --workspace nest-drizzle-native-sample-05-transactions-cls` |
 | [`06-manual-transaction`](https://github.com/rodrigobnogueira/nest-drizzle-native/tree/main/sample/06-manual-transaction) | `@InjectTransaction()` escape hatch | `npm run test --workspace nest-drizzle-native-sample-06-manual-transaction` |
 | [`07-validation-drizzle-zod`](https://github.com/rodrigobnogueira/nest-drizzle-native/tree/main/sample/07-validation-drizzle-zod) | Drizzle schema to Zod validation | `npm run test --workspace nest-drizzle-native-sample-07-validation-drizzle-zod` |
+| [`08-validation-class-validator`](https://github.com/rodrigobnogueira/nest-drizzle-native/tree/main/sample/08-validation-class-validator) | DTO validation with `ValidationPipe` | `npm run test --workspace nest-drizzle-native-sample-08-validation-class-validator` |
 
 ## Planned
 
 | Sample | Focus | Issue |
 | --- | --- | --- |
 | `00-showcase` | Full integration baseline | [#7](https://github.com/rodrigobnogueira/nest-drizzle-native/issues/7) |
-| `08-validation-class-validator` | DTO validation with `ValidationPipe` | [#16](https://github.com/rodrigobnogueira/nest-drizzle-native/issues/16) |
 | `09-error-mapping` | Opt-in database error mapping | [#15](https://github.com/rodrigobnogueira/nest-drizzle-native/issues/15) |
 | `10-testing-utilities` | Test module and mock helpers | [#14](https://github.com/rodrigobnogueira/nest-drizzle-native/issues/14) |
 | `11-raw-sql-escape-hatch` | Safe raw SQL patterns | [#13](https://github.com/rodrigobnogueira/nest-drizzle-native/issues/13) |
