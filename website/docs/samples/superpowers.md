@@ -63,8 +63,18 @@ Inspect:
 - [`06-manual-transaction/src/inventory/inventory.repository.ts`](https://github.com/rodrigobnogueira/nest-drizzle-native/tree/main/sample/06-manual-transaction/src/inventory/inventory.repository.ts)
 - [`06-manual-transaction/scripts/smoke.ts`](https://github.com/rodrigobnogueira/nest-drizzle-native/tree/main/sample/06-manual-transaction/scripts/smoke.ts)
 
+## Schema-Derived Validation
+
+`drizzle-zod` can derive request validation from Drizzle table schemas, keeping
+database shape and runtime validation close together.
+
+Inspect:
+
+- [`07-validation-drizzle-zod/src/tickets/ticket.validation.ts`](https://github.com/rodrigobnogueira/nest-drizzle-native/tree/main/sample/07-validation-drizzle-zod/src/tickets/ticket.validation.ts)
+- [`07-validation-drizzle-zod/scripts/smoke.ts`](https://github.com/rodrigobnogueira/nest-drizzle-native/tree/main/sample/07-validation-drizzle-zod/scripts/smoke.ts)
+
 ## Still Planned
 
-The sample plan also includes validation choices, database error mapping,
+The sample plan also includes class-validator DTOs, database error mapping,
 testing utilities, safe raw SQL patterns, Swagger/OpenAPI integration, and the
 full showcase. Those pages should stay honest until the runnable samples land.
