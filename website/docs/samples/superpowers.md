@@ -93,8 +93,18 @@ Inspect:
 - [`09-error-mapping/src/members/members.repository.ts`](https://github.com/rodrigobnogueira/nest-drizzle-native/tree/main/sample/09-error-mapping/src/members/members.repository.ts)
 - [`09-error-mapping/scripts/smoke.ts`](https://github.com/rodrigobnogueira/nest-drizzle-native/tree/main/sample/09-error-mapping/scripts/smoke.ts)
 
+## Honest Testing Utilities
+
+`DrizzleTestModule` registers test clients under production tokens, while the
+mock helpers stay intentionally shallow.
+
+Inspect:
+
+- [`10-testing-utilities/scripts/smoke.ts`](https://github.com/rodrigobnogueira/nest-drizzle-native/tree/main/sample/10-testing-utilities/scripts/smoke.ts)
+- [`10-testing-utilities/src/tasks/tasks.repository.ts`](https://github.com/rodrigobnogueira/nest-drizzle-native/tree/main/sample/10-testing-utilities/src/tasks/tasks.repository.ts)
+
 ## Still Planned
 
-The sample plan also includes testing utilities, safe raw SQL patterns,
-Swagger/OpenAPI integration, and the full showcase. Those pages should stay
-honest until the runnable samples land.
+The sample plan also includes safe raw SQL patterns, Swagger/OpenAPI
+integration, and the full showcase. Those pages should stay honest until the
+runnable samples land.
