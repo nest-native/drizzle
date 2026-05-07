@@ -10,8 +10,7 @@ Planned follow-up work:
 - `sample/00-showcase` with feature modules, repositories, services,
   controllers, request-scoped providers, enhancers, Express/Fastify mains,
   seeding, and Swagger.
-- Focused samples for transactions, named connections, testing, validation, and
-  driver-specific setup.
+- Additional focused samples for driver-specific setup.
 - Driver integration suites for PostgreSQL, MySQL, SQLite, and libSQL.
 - Drizzle-Zod and Swagger helpers for single-source-of-truth DTO/OpenAPI flows.
 - Documentation site deployment once the sample set is ready.

@@ -204,6 +204,25 @@ jobs:
       - name: Audit production supply chain
         run: npm run security:audit
 
+  samples:
+    name: Sample validation
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '22'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build package
+        run: npm run build --workspace nest-drizzle-native
+
+      - name: Run sample matrix
+        run: npm run ci:sample
+
   docs-site:
     name: Docusaurus build
     runs-on: ubuntu-latest

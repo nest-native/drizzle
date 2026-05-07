@@ -274,6 +274,8 @@ using `node:test` and `c8` for this package:
 - sticky PR comments for coverage, test performance, and cognitive complexity
 - cognitive complexity enforcement with SonarJS threshold `15`
 - package tarball validation
+- sample version sync and workspace resolution validation
+- dedicated CI sample validation
 - supply-chain audit for high-severity issues
 
 Run the local gate with:
@@ -287,8 +289,7 @@ npm run ci
 - `sample/00-showcase` with feature modules, repositories, services,
   controllers, request-scoped providers, enhancers, Express/Fastify mains,
   seeding, and Swagger.
-- Focused samples for validation, transactions, named connections, testing, and
-  driver differences.
+- Additional focused samples for driver differences.
 - Drizzle-Zod and Swagger helpers for single-source-of-truth DTO/OpenAPI flows.
 - Driver integration suites for PostgreSQL, MySQL, SQLite, and libSQL.
 

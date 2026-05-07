@@ -53,7 +53,8 @@ ESLint threshold.
 
 ## Release And Security
 
-Release validation checks README/docs links and the package tarball:
+Release validation checks README/docs links, sample version sync, workspace
+resolution, and the package tarball:
 
 ```bash
 npm run release:check
@@ -70,3 +71,16 @@ Run the complete local gate with:
 ```bash
 npm run ci
 ```
+
+## Samples
+
+Samples are release blockers. GitHub Actions runs them in the dedicated
+`Sample validation` job, and the local gate includes the same matrix:
+
+```bash
+npm run ci:sample
+```
+
+`release:check` also verifies every `sample/*/package.json` depends on the
+current `packages/drizzle` version and that npm workspace resolution agrees with
+the lockfile.
