@@ -81,6 +81,27 @@ jobs:
       - name: Generate cognitive complexity report
         run: npm run complexity:report
 
+      - name: Generate base cognitive complexity fallback
+        if: github.event_name == 'pull_request'
+        run: |
+          if [ -f base-cognitive-complexity-summary.json ]; then
+            exit 0
+          fi
+
+          BASE_DIR="$(mktemp -d)"
+          cleanup() {
+            git worktree remove --force "$BASE_DIR" >/dev/null 2>&1 || true
+          }
+          trap cleanup EXIT
+
+          git worktree add --detach "$BASE_DIR" "${{ github.event.pull_request.base.sha }}"
+          ln -s "$GITHUB_WORKSPACE/node_modules" "$BASE_DIR/node_modules"
+          (
+            cd "$BASE_DIR"
+            node scripts/collect-cognitive-complexity.mjs \
+              --output "$GITHUB_WORKSPACE/base-cognitive-complexity-summary.json"
+          )
+
       - name: Cache CI data for base branch
         if: github.event_name == 'push'
         run: |
