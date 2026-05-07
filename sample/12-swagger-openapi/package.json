@@ -1,0 +1,32 @@
+{
+  "name": "nest-drizzle-native-sample-12-swagger-openapi",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Sample 12 - Swagger and OpenAPI",
+  "license": "MIT",
+  "scripts": {
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "smoke": "ts-node --transpile-only scripts/smoke.ts",
+    "test": "npm run typecheck && npm run smoke",
+    "start": "npm run smoke"
+  },
+  "scarfSettings": {
+    "enabled": false
+  },
+  "dependencies": {
+    "@libsql/client": "^0.17.3",
+    "@nestjs/common": "11.1.19",
+    "@nestjs/core": "11.1.19",
+    "@nestjs/platform-express": "11.1.19",
+    "@nestjs/swagger": "11.4.2",
+    "drizzle-orm": "^0.45.2",
+    "nest-drizzle-native": "0.1.0",
+    "reflect-metadata": "0.2.2",
+    "rxjs": "7.8.2"
+  },
+  "devDependencies": {
+    "@types/node": "25.6.0",
+    "ts-node": "10.9.2",
+    "typescript": "6.0.3"
+  }
+}

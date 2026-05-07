@@ -83,8 +83,48 @@ Inspect:
 - [`08-validation-class-validator/src/customers/create-customer.dto.ts`](https://github.com/rodrigobnogueira/nest-drizzle-native/tree/main/sample/08-validation-class-validator/src/customers/create-customer.dto.ts)
 - [`08-validation-class-validator/src/app.module.ts`](https://github.com/rodrigobnogueira/nest-drizzle-native/tree/main/sample/08-validation-class-validator/src/app.module.ts)
 
+## OpenAPI Contracts
+
+`@nestjs/swagger` can document DTO-backed controllers while repositories keep
+Drizzle persistence explicit and type-safe behind the HTTP boundary.
+
+Inspect:
+
+- [`12-swagger-openapi/src/projects/projects.controller.ts`](https://github.com/rodrigobnogueira/nest-drizzle-native/tree/main/sample/12-swagger-openapi/src/projects/projects.controller.ts)
+- [`12-swagger-openapi/scripts/smoke.ts`](https://github.com/rodrigobnogueira/nest-drizzle-native/tree/main/sample/12-swagger-openapi/scripts/smoke.ts)
+
+## Opt-In Error Mapping
+
+`mapDrizzleError()` lets applications translate known database constraint
+failures into Nest exceptions where persistence meets application semantics.
+
+Inspect:
+
+- [`09-error-mapping/src/members/members.repository.ts`](https://github.com/rodrigobnogueira/nest-drizzle-native/tree/main/sample/09-error-mapping/src/members/members.repository.ts)
+- [`09-error-mapping/scripts/smoke.ts`](https://github.com/rodrigobnogueira/nest-drizzle-native/tree/main/sample/09-error-mapping/scripts/smoke.ts)
+
+## Honest Testing Utilities
+
+`DrizzleTestModule` registers test clients under production tokens, while the
+mock helpers stay intentionally shallow.
+
+Inspect:
+
+- [`10-testing-utilities/scripts/smoke.ts`](https://github.com/rodrigobnogueira/nest-drizzle-native/tree/main/sample/10-testing-utilities/scripts/smoke.ts)
+- [`10-testing-utilities/src/tasks/tasks.repository.ts`](https://github.com/rodrigobnogueira/nest-drizzle-native/tree/main/sample/10-testing-utilities/src/tasks/tasks.repository.ts)
+
+## Safe Raw SQL
+
+Drizzle's `sql` template remains available for advanced reporting and
+vendor-specific query shapes, with values parameterized through Drizzle instead
+of string concatenation.
+
+Inspect:
+
+- [`11-raw-sql-escape-hatch/src/reports/reports.repository.ts`](https://github.com/rodrigobnogueira/nest-drizzle-native/tree/main/sample/11-raw-sql-escape-hatch/src/reports/reports.repository.ts)
+- [`11-raw-sql-escape-hatch/scripts/smoke.ts`](https://github.com/rodrigobnogueira/nest-drizzle-native/tree/main/sample/11-raw-sql-escape-hatch/scripts/smoke.ts)
+
 ## Still Planned
 
-The sample plan also includes database error mapping, testing utilities, safe
-raw SQL patterns, Swagger/OpenAPI integration, and the full showcase. Those
-pages should stay honest until the runnable samples land.
+The sample plan also includes the full showcase. Those pages should stay honest
+until the runnable samples land.

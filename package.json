@@ -25,13 +25,16 @@
     "security:audit:docs": "npm --prefix website audit --audit-level=high",
     "security:audit": "npm run security:audit:package && npm run security:audit:docs",
     "showcase": "node scripts/run-optional-workspace.cjs nest-drizzle-native-showcase test",
-    "sample:focused": "npm run test --workspace nest-drizzle-native-sample-01-basic-client && npm run test --workspace nest-drizzle-native-sample-02-repositories && npm run test --workspace nest-drizzle-native-sample-03-for-root-async && npm run test --workspace nest-drizzle-native-sample-04-named-connections && npm run test --workspace nest-drizzle-native-sample-05-transactions-cls && npm run test --workspace nest-drizzle-native-sample-06-manual-transaction && npm run test --workspace nest-drizzle-native-sample-07-validation-drizzle-zod && npm run test --workspace nest-drizzle-native-sample-08-validation-class-validator",
+    "sample:focused": "npm run test --workspace nest-drizzle-native-sample-01-basic-client && npm run test --workspace nest-drizzle-native-sample-02-repositories && npm run test --workspace nest-drizzle-native-sample-03-for-root-async && npm run test --workspace nest-drizzle-native-sample-04-named-connections && npm run test --workspace nest-drizzle-native-sample-05-transactions-cls && npm run test --workspace nest-drizzle-native-sample-06-manual-transaction && npm run test --workspace nest-drizzle-native-sample-07-validation-drizzle-zod && npm run test --workspace nest-drizzle-native-sample-08-validation-class-validator && npm run test --workspace nest-drizzle-native-sample-09-error-mapping && npm run test --workspace nest-drizzle-native-sample-10-testing-utilities && npm run test --workspace nest-drizzle-native-sample-11-raw-sql-escape-hatch && npm run test --workspace nest-drizzle-native-sample-12-swagger-openapi",
     "sample": "npm run showcase && npm run sample:focused",
     "ci:sample": "npm run sample",
     "ci": "npm run typecheck && npm run test:cov && npm run complexity:check && npm run complexity:report && npm run release:check && npm run ci:docs && npm run security:audit && npm run ci:sample"
   },
   "engines": {
     "node": ">=20"
+  },
+  "scarfSettings": {
+    "enabled": false
   },
   "devDependencies": {
     "@libsql/client": "^0.17.3",

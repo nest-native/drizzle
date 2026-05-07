@@ -19,13 +19,13 @@ npm run sample:focused
 | [`06-manual-transaction`](https://github.com/rodrigobnogueira/nest-drizzle-native/tree/main/sample/06-manual-transaction) | `@InjectTransaction()` escape hatch | `npm run test --workspace nest-drizzle-native-sample-06-manual-transaction` |
 | [`07-validation-drizzle-zod`](https://github.com/rodrigobnogueira/nest-drizzle-native/tree/main/sample/07-validation-drizzle-zod) | Drizzle schema to Zod validation | `npm run test --workspace nest-drizzle-native-sample-07-validation-drizzle-zod` |
 | [`08-validation-class-validator`](https://github.com/rodrigobnogueira/nest-drizzle-native/tree/main/sample/08-validation-class-validator) | DTO validation with `ValidationPipe` | `npm run test --workspace nest-drizzle-native-sample-08-validation-class-validator` |
+| [`09-error-mapping`](https://github.com/rodrigobnogueira/nest-drizzle-native/tree/main/sample/09-error-mapping) | Opt-in database error mapping | `npm run test --workspace nest-drizzle-native-sample-09-error-mapping` |
+| [`10-testing-utilities`](https://github.com/rodrigobnogueira/nest-drizzle-native/tree/main/sample/10-testing-utilities) | Test module and mock helpers | `npm run test --workspace nest-drizzle-native-sample-10-testing-utilities` |
+| [`11-raw-sql-escape-hatch`](https://github.com/rodrigobnogueira/nest-drizzle-native/tree/main/sample/11-raw-sql-escape-hatch) | Safe raw SQL patterns | `npm run test --workspace nest-drizzle-native-sample-11-raw-sql-escape-hatch` |
+| [`12-swagger-openapi`](https://github.com/rodrigobnogueira/nest-drizzle-native/tree/main/sample/12-swagger-openapi) | Swagger/OpenAPI integration | `npm run test --workspace nest-drizzle-native-sample-12-swagger-openapi` |
 
 ## Planned
 
 | Sample | Focus | Issue |
 | --- | --- | --- |
 | `00-showcase` | Full integration baseline | [#7](https://github.com/rodrigobnogueira/nest-drizzle-native/issues/7) |
-| `09-error-mapping` | Opt-in database error mapping | [#15](https://github.com/rodrigobnogueira/nest-drizzle-native/issues/15) |
-| `10-testing-utilities` | Test module and mock helpers | [#14](https://github.com/rodrigobnogueira/nest-drizzle-native/issues/14) |
-| `11-raw-sql-escape-hatch` | Safe raw SQL patterns | [#13](https://github.com/rodrigobnogueira/nest-drizzle-native/issues/13) |
-| `12-swagger-openapi` | Swagger/OpenAPI integration | [#12](https://github.com/rodrigobnogueira/nest-drizzle-native/issues/12) |
