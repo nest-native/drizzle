@@ -8,8 +8,8 @@ without hiding Drizzle.
 `00-showcase` combines the complete first-version story: feature modules,
 repositories, services, controllers, request-scoped providers, guards,
 interceptors, pipes, filters, CLS transactions, `@InjectTransaction()`,
-Drizzle-Zod validation, class-validator DTOs, Swagger, Express smoke coverage,
-and a Fastify bootstrap file.
+class-validator DTOs, optional Drizzle-Zod validation, Swagger, Express smoke
+coverage, and a Fastify bootstrap file.
 
 Inspect:
 
@@ -76,25 +76,26 @@ Inspect:
 - [`06-manual-transaction/src/inventory/inventory.repository.ts`](https://github.com/rodrigobnogueira/nest-drizzle-native/tree/main/sample/06-manual-transaction/src/inventory/inventory.repository.ts)
 - [`06-manual-transaction/scripts/smoke.ts`](https://github.com/rodrigobnogueira/nest-drizzle-native/tree/main/sample/06-manual-transaction/scripts/smoke.ts)
 
-## Schema-Derived Validation
-
-`drizzle-zod` can derive request validation from Drizzle table schemas, keeping
-database shape and runtime validation close together.
-
-Inspect:
-
-- [`07-validation-drizzle-zod/src/tickets/ticket.validation.ts`](https://github.com/rodrigobnogueira/nest-drizzle-native/tree/main/sample/07-validation-drizzle-zod/src/tickets/ticket.validation.ts)
-- [`07-validation-drizzle-zod/scripts/smoke.ts`](https://github.com/rodrigobnogueira/nest-drizzle-native/tree/main/sample/07-validation-drizzle-zod/scripts/smoke.ts)
-
 ## Classic Nest DTO Validation
 
-`ValidationPipe` and `class-validator` remain first-class options when the HTTP
-contract should be modeled as DTO classes.
+`ValidationPipe` and `class-validator` are the canonical Nest-native validation
+path when the HTTP contract should be modeled as DTO classes.
 
 Inspect:
 
 - [`08-validation-class-validator/src/customers/create-customer.dto.ts`](https://github.com/rodrigobnogueira/nest-drizzle-native/tree/main/sample/08-validation-class-validator/src/customers/create-customer.dto.ts)
 - [`08-validation-class-validator/src/app.module.ts`](https://github.com/rodrigobnogueira/nest-drizzle-native/tree/main/sample/08-validation-class-validator/src/app.module.ts)
+
+## Optional Schema-Derived Validation
+
+`drizzle-zod` can derive request validation from Drizzle table schemas when an
+application wants that style. It remains optional and app-owned rather than a
+required library dependency or default Nest validation path.
+
+Inspect:
+
+- [`07-validation-drizzle-zod/src/tickets/ticket.validation.ts`](https://github.com/rodrigobnogueira/nest-drizzle-native/tree/main/sample/07-validation-drizzle-zod/src/tickets/ticket.validation.ts)
+- [`07-validation-drizzle-zod/scripts/smoke.ts`](https://github.com/rodrigobnogueira/nest-drizzle-native/tree/main/sample/07-validation-drizzle-zod/scripts/smoke.ts)
 
 ## OpenAPI Contracts
 
@@ -106,11 +107,13 @@ Inspect:
 - [`12-swagger-openapi/src/projects/projects.controller.ts`](https://github.com/rodrigobnogueira/nest-drizzle-native/tree/main/sample/12-swagger-openapi/src/projects/projects.controller.ts)
 - [`12-swagger-openapi/scripts/smoke.ts`](https://github.com/rodrigobnogueira/nest-drizzle-native/tree/main/sample/12-swagger-openapi/scripts/smoke.ts)
 
-## Zod Validation With OpenAPI Docs
+## Optional Zod Validation With OpenAPI Docs
 
 `drizzle-zod` can validate incoming bodies while explicit Swagger DTOs document
 the public contract. The bridge stays app-owned: Zod rejects bad input, DTOs
-describe the route, and smoke tests assert the two stay aligned.
+describe the route, and smoke tests assert the two stay aligned. Use this when
+your application has already chosen schema-derived validation; otherwise, start
+with DTOs and `ValidationPipe`.
 
 Inspect:
 

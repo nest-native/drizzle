@@ -69,8 +69,8 @@ This repository contains:
 
 Samples are part of the public learning path. The set includes the full
 showcase plus focused examples for direct client injection, repositories, async
-configuration, named connections, transactions, validation, testing, raw SQL,
-and Swagger.
+configuration, named connections, transactions, Nest DTO validation, optional
+Drizzle-Zod validation, testing, raw SQL, and Swagger.
 
 ## Installation
 
@@ -288,7 +288,9 @@ npm run ci
 ## Roadmap
 
 - Additional focused samples for driver differences.
-- Drizzle-Zod and Swagger helpers for single-source-of-truth DTO/OpenAPI flows.
+- Evaluate whether the optional Drizzle-Zod/OpenAPI bridge sample justifies a
+  tiny helper, or whether the explicit Nest DTO pattern is clearer as
+  documentation.
 
 ## Philosophy
 

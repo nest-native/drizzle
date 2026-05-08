@@ -44,7 +44,7 @@ npm run test --workspace nest-drizzle-native-sample-13-zod-openapi-bridge
 | `10-testing-utilities` | Test module and mock helpers | Runnable | `npm run test --workspace nest-drizzle-native-sample-10-testing-utilities` |
 | `11-raw-sql-escape-hatch` | Safe raw SQL patterns | Runnable | `npm run test --workspace nest-drizzle-native-sample-11-raw-sql-escape-hatch` |
 | `12-swagger-openapi` | Swagger/OpenAPI integration | Runnable | `npm run test --workspace nest-drizzle-native-sample-12-swagger-openapi` |
-| `13-zod-openapi-bridge` | Drizzle-Zod validation with Swagger contracts | Runnable | `npm run test --workspace nest-drizzle-native-sample-13-zod-openapi-bridge` |
+| `13-zod-openapi-bridge` | Optional Drizzle-Zod validation with Swagger contracts | Runnable | `npm run test --workspace nest-drizzle-native-sample-13-zod-openapi-bridge` |
 
 ## Sample Rules
 
