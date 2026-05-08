@@ -67,9 +67,10 @@ This repository contains:
 - `scripts`: release, quality, coverage, and report-generation helpers
 - `CONTRIBUTING.md`: contributor workflow, including sample/library PR separation
 
-Samples are part of the public learning path. The current set includes direct
-client injection, repositories, async configuration, named connections, and
-transaction patterns.
+Samples are part of the public learning path. The set includes the full
+showcase plus focused examples for direct client injection, repositories, async
+configuration, named connections, transactions, validation, testing, raw SQL,
+and Swagger.
 
 ## Installation
 
@@ -286,9 +287,6 @@ npm run ci
 
 ## Roadmap
 
-- `sample/00-showcase` with feature modules, repositories, services,
-  controllers, request-scoped providers, enhancers, Express/Fastify mains,
-  seeding, and Swagger.
 - Additional focused samples for driver differences.
 - Drizzle-Zod and Swagger helpers for single-source-of-truth DTO/OpenAPI flows.
 - Driver integration suites for PostgreSQL, MySQL, SQLite, and libSQL.

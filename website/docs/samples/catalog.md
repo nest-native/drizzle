@@ -11,6 +11,7 @@ npm run sample:focused
 
 | Sample | Focus | Command |
 | --- | --- | --- |
+| [`00-showcase`](https://github.com/rodrigobnogueira/nest-drizzle-native/tree/main/sample/00-showcase) | Full Nest-native integration baseline | `npm run showcase` |
 | [`01-basic-client-injection`](https://github.com/rodrigobnogueira/nest-drizzle-native/tree/main/sample/01-basic-client-injection) | Direct `@InjectDrizzle()` client injection | `npm run test --workspace nest-drizzle-native-sample-01-basic-client` |
 | [`02-repositories`](https://github.com/rodrigobnogueira/nest-drizzle-native/tree/main/sample/02-repositories) | `@DrizzleRepository()` and `DrizzleModule.forFeature()` | `npm run test --workspace nest-drizzle-native-sample-02-repositories` |
 | [`03-for-root-async`](https://github.com/rodrigobnogueira/nest-drizzle-native/tree/main/sample/03-for-root-async) | Async configuration and shutdown hooks | `npm run test --workspace nest-drizzle-native-sample-03-for-root-async` |
@@ -26,6 +27,6 @@ npm run sample:focused
 
 ## Planned
 
-| Sample | Focus | Issue |
-| --- | --- | --- |
-| `00-showcase` | Full integration baseline | [#7](https://github.com/rodrigobnogueira/nest-drizzle-native/issues/7) |
+The current sample plan is implemented through the showcase and focused sample
+set. Future sample issues should cover driver-specific setups or new public
+features as they land.

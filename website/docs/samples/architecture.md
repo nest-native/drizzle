@@ -2,6 +2,9 @@
 
 The samples deliberately use ordinary Nest building blocks.
 
+`00-showcase` is the full reference app. The focused samples then isolate each
+piece of the same architecture.
+
 ## Root Modules Own Connections
 
 The app module registers database clients with `DrizzleModule.forRoot()` or
@@ -12,7 +15,8 @@ The app module registers database clients with `DrizzleModule.forRoot()` or
 - close owned drivers with `shutdown`
 - use `connectionName` for multi-database apps
 
-See [`03-for-root-async`](https://github.com/rodrigobnogueira/nest-drizzle-native/tree/main/sample/03-for-root-async) and
+See [`00-showcase`](https://github.com/rodrigobnogueira/nest-drizzle-native/tree/main/sample/00-showcase),
+[`03-for-root-async`](https://github.com/rodrigobnogueira/nest-drizzle-native/tree/main/sample/03-for-root-async), and
 [`04-named-connections`](https://github.com/rodrigobnogueira/nest-drizzle-native/tree/main/sample/04-named-connections).
 
 ## Feature Modules Own Repositories

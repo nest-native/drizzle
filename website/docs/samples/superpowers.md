@@ -3,6 +3,19 @@
 The library is small on purpose. Its strengths come from fitting into Nest
 without hiding Drizzle.
 
+## Full Showcase
+
+`00-showcase` combines the complete first-version story: feature modules,
+repositories, services, controllers, request-scoped providers, guards,
+interceptors, pipes, filters, CLS transactions, `@InjectTransaction()`,
+Drizzle-Zod validation, class-validator DTOs, Swagger, Express smoke coverage,
+and a Fastify bootstrap file.
+
+Inspect:
+
+- [`00-showcase/src/app.module.ts`](https://github.com/rodrigobnogueira/nest-drizzle-native/tree/main/sample/00-showcase/src/app.module.ts)
+- [`00-showcase/scripts/smoke.ts`](https://github.com/rodrigobnogueira/nest-drizzle-native/tree/main/sample/00-showcase/scripts/smoke.ts)
+
 ## Nest-Native Database Registration
 
 `DrizzleModule.forRoot()` and `forRootAsync()` let applications register Drizzle
@@ -123,8 +136,3 @@ Inspect:
 
 - [`11-raw-sql-escape-hatch/src/reports/reports.repository.ts`](https://github.com/rodrigobnogueira/nest-drizzle-native/tree/main/sample/11-raw-sql-escape-hatch/src/reports/reports.repository.ts)
 - [`11-raw-sql-escape-hatch/scripts/smoke.ts`](https://github.com/rodrigobnogueira/nest-drizzle-native/tree/main/sample/11-raw-sql-escape-hatch/scripts/smoke.ts)
-
-## Still Planned
-
-The sample plan also includes the full showcase. Those pages should stay honest
-until the runnable samples land.

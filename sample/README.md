@@ -2,14 +2,16 @@
 
 The sample tree follows the same shape as the main quality strategy:
 
-- `00-showcase`: the planned full integration baseline.
+- `00-showcase`: the full integration baseline.
 - `01-*` onward: focused samples that isolate one topic each.
 
 ## Commands
 
 ```bash
 npm run ci:sample
+npm run showcase
 npm run sample:focused
+npm run test --workspace nest-drizzle-native-showcase
 npm run test --workspace nest-drizzle-native-sample-01-basic-client
 npm run test --workspace nest-drizzle-native-sample-02-repositories
 npm run test --workspace nest-drizzle-native-sample-03-for-root-async
@@ -28,7 +30,7 @@ npm run test --workspace nest-drizzle-native-sample-12-swagger-openapi
 
 | Folder | Focus | State | Command |
 | --- | --- | --- | --- |
-| `00-showcase` | Full integration baseline | Planned in issue #7 | `npm run showcase` |
+| `00-showcase` | Full integration baseline | Runnable | `npm run showcase` |
 | `01-basic-client-injection` | Direct `@InjectDrizzle()` client injection | Runnable | `npm run test --workspace nest-drizzle-native-sample-01-basic-client` |
 | `02-repositories` | `@DrizzleRepository()` and `forFeature()` | Runnable | `npm run test --workspace nest-drizzle-native-sample-02-repositories` |
 | `03-for-root-async` | Async configuration and shutdown | Runnable | `npm run test --workspace nest-drizzle-native-sample-03-for-root-async` |
