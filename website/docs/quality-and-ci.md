@@ -61,7 +61,8 @@ containers for the coverage job. Local runs skip those networked drivers unless
 ## Release And Security
 
 Release validation checks README/docs links, sample version sync, workspace
-resolution, and the package tarball:
+resolution, the package tarball, and a temporary consumer app that installs the
+packed tarball:
 
 ```bash
 npm run release:check
