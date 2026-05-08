@@ -285,6 +285,11 @@ Run the local gate with:
 npm run ci
 ```
 
+## Changelog
+
+See [CHANGELOG.md](CHANGELOG.md) for release history and unreleased user-facing
+changes.
+
 ## Roadmap
 
 The package is intentionally small. The current public surface focuses on:

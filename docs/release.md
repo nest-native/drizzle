@@ -18,6 +18,7 @@ npm run security:audit
 
 Review the diff for:
 
+- `CHANGELOG.md` entries that describe user-facing changes
 - public API changes
 - dependency and lockfile churn
 - install or lifecycle scripts
@@ -40,6 +41,9 @@ npm run release:check:sample-versions
 
 `npm install` refreshes the workspace lockfile so samples resolve the same
 version that will be packed.
+
+Move relevant `CHANGELOG.md` entries from `Unreleased` into the new version
+section before opening the release PR.
 
 ## Release Checks
 
