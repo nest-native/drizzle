@@ -28,6 +28,10 @@ npm run test --workspace nest-drizzle-native-sample-13-zod-openapi-bridge
 npm run test --workspace nest-drizzle-native-sample-14-better-sqlite3-driver
 ```
 
+`npm run sample:focused` discovers focused samples from `sample/*/package.json`
+and runs them in folder order. Keep the explicit workspace commands above for
+targeted local debugging.
+
 ## Catalog
 
 | Folder | Focus | State | Command |
