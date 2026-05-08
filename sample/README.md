@@ -26,6 +26,7 @@ npm run test --workspace nest-drizzle-native-sample-11-raw-sql-escape-hatch
 npm run test --workspace nest-drizzle-native-sample-12-swagger-openapi
 npm run test --workspace nest-drizzle-native-sample-13-zod-openapi-bridge
 npm run test --workspace nest-drizzle-native-sample-14-better-sqlite3-driver
+npm run test --workspace nest-drizzle-native-sample-15-postgres-driver
 ```
 
 `npm run sample:focused` discovers focused samples from `sample/*/package.json`
@@ -51,6 +52,7 @@ targeted local debugging.
 | `12-swagger-openapi` | Swagger/OpenAPI integration | Runnable | `npm run test --workspace nest-drizzle-native-sample-12-swagger-openapi` |
 | `13-zod-openapi-bridge` | Optional Drizzle-Zod validation with Swagger contracts | Runnable | `npm run test --workspace nest-drizzle-native-sample-13-zod-openapi-bridge` |
 | `14-better-sqlite3-driver` | better-sqlite3 driver setup and shutdown | Runnable | `npm run test --workspace nest-drizzle-native-sample-14-better-sqlite3-driver` |
+| `15-postgres-driver` | PostgreSQL pool setup and shutdown | Runnable with `NEST_DRIZZLE_NATIVE_POSTGRES_URL` | `npm run test --workspace nest-drizzle-native-sample-15-postgres-driver` |
 
 ## Sample Rules
 
@@ -87,3 +89,7 @@ the published package API.
 
 If more samples repeat the same setup, prefer shared guidance or helper code
 inside `sample/` over changes in `packages/drizzle`.
+
+Service-backed samples, such as PostgreSQL, should skip their smoke test when
+the required connection URL is not configured locally. CI provides those
+services so the same sample still gets a real driver round trip before merge.

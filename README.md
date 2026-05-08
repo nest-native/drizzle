@@ -287,7 +287,7 @@ npm run ci
 
 ## Roadmap
 
-- Additional focused samples for PostgreSQL and MySQL setup patterns.
+- Additional focused samples for MySQL setup patterns.
 - Evaluate whether the optional Drizzle-Zod/OpenAPI bridge sample justifies a
   tiny helper, or whether the explicit Nest DTO pattern is clearer as
   documentation.

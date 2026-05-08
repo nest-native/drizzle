@@ -238,6 +238,20 @@ jobs:
   samples:
     name: Sample validation
     runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_DB: drizzle
+          POSTGRES_PASSWORD: drizzle
+          POSTGRES_USER: drizzle
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U drizzle -d drizzle"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
 
     steps:
       - uses: actions/checkout@v6
@@ -252,6 +266,8 @@ jobs:
         run: npm run build --workspace nest-drizzle-native
 
       - name: Run sample matrix
+        env:
+          NEST_DRIZZLE_NATIVE_POSTGRES_URL: postgresql://drizzle:drizzle@127.0.0.1:5432/drizzle
         run: npm run ci:sample
 
   docs-site:

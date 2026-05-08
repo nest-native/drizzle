@@ -1,0 +1,31 @@
+{
+  "name": "nest-drizzle-native-sample-15-postgres-driver",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Sample 15 - PostgreSQL driver setup",
+  "license": "MIT",
+  "scripts": {
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "smoke": "ts-node --transpile-only scripts/smoke.ts",
+    "test": "npm run typecheck && npm run smoke",
+    "start": "ts-node --transpile-only src/main.ts"
+  },
+  "scarfSettings": {
+    "enabled": false
+  },
+  "dependencies": {
+    "@nestjs/common": "11.1.19",
+    "@nestjs/core": "11.1.19",
+    "@nestjs/platform-express": "11.1.19",
+    "drizzle-orm": "^0.45.2",
+    "nest-drizzle-native": "0.1.0",
+    "pg": "^8.20.0",
+    "reflect-metadata": "0.2.2",
+    "rxjs": "7.8.2"
+  },
+  "devDependencies": {
+    "@types/node": "25.6.0",
+    "ts-node": "10.9.2",
+    "typescript": "6.0.3"
+  }
+}
