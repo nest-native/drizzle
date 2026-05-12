@@ -37,8 +37,55 @@ jobs:
       - name: Typecheck package
         run: npm run typecheck --workspace nest-drizzle-native
 
+  package-test-node-20:
+    name: Package tests/coverage (Node 20)
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_DB: drizzle
+          POSTGRES_PASSWORD: drizzle
+          POSTGRES_USER: drizzle
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U drizzle -d drizzle"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+      mysql:
+        image: mysql:8.4
+        env:
+          MYSQL_DATABASE: drizzle
+          MYSQL_PASSWORD: drizzle
+          MYSQL_ROOT_PASSWORD: drizzle_root
+          MYSQL_USER: drizzle
+        ports:
+          - 3306:3306
+        options: >-
+          --health-cmd "mysqladmin ping -h 127.0.0.1 -uroot -pdrizzle_root"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 10
+
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run tests with coverage
+        env:
+          NEST_DRIZZLE_NATIVE_MYSQL_URL: mysql://drizzle:drizzle@127.0.0.1:3306/drizzle
+          NEST_DRIZZLE_NATIVE_POSTGRES_URL: postgresql://drizzle:drizzle@127.0.0.1:5432/drizzle
+        run: npm run test:cov
+
   package-quality:
-    name: Tests, coverage, and complexity
+    name: Tests, coverage, and complexity (Node 22)
     runs-on: ubuntu-latest
     services:
       postgres:

@@ -21,6 +21,7 @@ package release is useful for users.
 - Clarified that DTO classes with `ValidationPipe` are the default Nest-native
   HTTP validation path, while Zod and `drizzle-zod` remain optional and
   app-owned.
+- CI now runs package coverage on both Node.js 20 and Node.js 22.
 - Documented that driver-specific samples should own driver pools/clients in
   application code and pass ready Drizzle clients into `DrizzleModule`.
 
