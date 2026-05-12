@@ -292,29 +292,12 @@ changes.
 
 ## Roadmap
 
-The package is intentionally small. The current public surface focuses on:
+The package stays intentionally small: Nest-native module registration,
+injection, repositories, transaction bridges, testing helpers, and focused
+samples without making driver or validation choices mandatory.
 
-- `DrizzleModule` registration, including async options and named connections
-- `@InjectDrizzle()` and repository providers for Nest-friendly query classes
-- transaction decorator bridges for applications that use CLS
-- testing helpers that keep unit tests override-friendly
-- focused samples for validation, error mapping, transactions, Swagger, and
-  driver-owned lifecycle setup
-
-Intentional choices:
-
-- DTO classes with `ValidationPipe` remain the canonical Nest-native HTTP
-  validation path.
-- Zod and `drizzle-zod` stay optional and app-owned. The bridge sample documents
-  the pattern without adding package-level magic.
-- Driver clients, pools, and shutdown behavior stay in application code; the
-  module receives a ready Drizzle client.
-
-Possible future work:
-
-- Additional focused samples for new drivers or public features as they land.
-- A tiny optional helper only if repeated samples prove it removes real
-  boilerplate without weakening the Nest-native API.
+See [website/docs/roadmap.md](website/docs/roadmap.md) for the current roadmap
+and API boundaries.
 
 ## Philosophy
 
