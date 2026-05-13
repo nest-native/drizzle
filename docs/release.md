@@ -81,12 +81,14 @@ git push origin nest-drizzle-native@<version>
 
 ## Post-Publish Verification
 
-Verify the registry artifact and consumer path:
+Verify the registry artifact, clean consumer path, and samples against the
+published package:
 
 ```bash
-npm view nest-drizzle-native@<version> version
-npm pack nest-drizzle-native@<version>
+npm run release:check:published -- <version>
 ```
 
-Then test a clean consumer or sample flow against the published version before
-closing the release.
+The post-publish check fails if npm does not expose the version as `latest`, if
+the published tarball is missing package entrypoints, if a clean consumer cannot
+compile a Nest testing module with the package, or if samples accidentally
+resolve a local workspace link instead of the registry package.

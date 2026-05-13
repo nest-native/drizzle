@@ -21,6 +21,7 @@
     "release:check:sample-versions": "node scripts/check-sample-version-sync.mjs",
     "release:check:pack": "npm run build --workspace nest-drizzle-native && node scripts/check-package-pack.mjs",
     "release:check:consumer": "node scripts/check-packed-consumer.mjs",
+    "release:check:published": "node scripts/check-published-release.mjs",
     "release:check": "npm run release:check:readme-links && npm run release:check:sample-versions && npm run release:check:pack && npm run release:check:consumer",
     "ci:docs": "npm --prefix website ci && npm --prefix website run build",
     "security:audit:package": "npm audit --audit-level=high",

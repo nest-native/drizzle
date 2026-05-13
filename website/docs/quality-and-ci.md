@@ -75,6 +75,16 @@ npm run release:check
 For the publish checklist, version sync rules, and post-publish verification,
 see [Release Guide](release.md).
 
+After publishing, verify the registry package with:
+
+```bash
+npm run release:check:published -- <version>
+```
+
+That command installs the published package in a clean consumer and in a
+temporary sample workspace so the checks cannot accidentally pass through a
+local workspace link.
+
 Supply-chain auditing checks high-severity production risk:
 
 ```bash
