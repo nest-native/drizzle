@@ -15,6 +15,7 @@ const sidebars: SidebarsConfig = {
         'samples/catalog',
         'samples/architecture',
         'samples/superpowers',
+        'samples/zod-openapi-bridge',
         'samples/how-to-review',
       ],
     },
