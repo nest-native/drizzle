@@ -1,8 +1,8 @@
 blank_issues_enabled: true
 contact_links:
   - name: Documentation
-    url: https://rodrigobnogueira.github.io/nest-drizzle-native/
+    url: https://nest-native.github.io/nest-drizzle-native/
     about: Read the guides and samples before opening a support issue.
   - name: Samples catalog
-    url: https://rodrigobnogueira.github.io/nest-drizzle-native/docs/samples/catalog
+    url: https://nest-native.github.io/nest-drizzle-native/docs/samples/catalog
     about: Find runnable examples for supported patterns.
