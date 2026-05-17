@@ -211,4 +211,5 @@ Inspect the implementation:
 There is intentionally no `nest-drizzle-native/zod` export today. A helper can
 be considered later only if more focused samples show the same boilerplate
 repeating and a small Nest-native helper can remove that friction without making
-Zod a default dependency or hiding the Drizzle and Zod primitives.
+Zod a default dependency or hiding the Drizzle and Zod primitives. See
+[Zod Helper Evaluation](zod-helper-evaluation.md) for the current decision.

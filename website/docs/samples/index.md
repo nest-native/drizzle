@@ -10,6 +10,8 @@ focused samples when you want one concept at a time:
 - [Architecture](architecture.md) explains the patterns that repeat across
   samples.
 - [Superpowers](superpowers.md) maps library strengths to concrete files.
+- [Zod Helper Evaluation](zod-helper-evaluation.md) explains why the optional
+  Zod bridge stays app-owned for now.
 - [How To Review](how-to-review.md) captures the sample review rules used for
   each PR.
 

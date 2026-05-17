@@ -17,6 +17,7 @@ const sidebars: SidebarsConfig = {
         'samples/architecture',
         'samples/superpowers',
         'samples/zod-openapi-bridge',
+        'samples/zod-helper-evaluation',
         'samples/zod-migration-guide',
         'samples/zod-large-codebase-checklist',
         'samples/zod-diff-examples',
