@@ -8,6 +8,7 @@ body:
     attributes:
       value: |
         Thanks for taking the time to report a bug. Please include enough detail for maintainers to reproduce it without guessing about your Nest, Drizzle, driver, or transaction setup.
+        Do not paste secrets, production connection strings, tokens, private certificates, customer data, or unredacted hostnames.
   - type: textarea
     id: problem
     attributes:
@@ -60,6 +61,20 @@ body:
         - other
     validations:
       required: true
+  - type: input
+    id: driver-version
+    attributes:
+      label: Driver version
+      description: For example, pg 8.x, mysql2 3.x, better-sqlite3 12.x, or @libsql/client 0.x.
+      placeholder: "pg 8.x"
+    validations:
+      required: true
+  - type: input
+    id: database-engine
+    attributes:
+      label: Database engine/version
+      description: Include the database server or local engine version when relevant.
+      placeholder: "PostgreSQL 17, MySQL 8.4, SQLite 3.x"
   - type: dropdown
     id: area
     attributes:
@@ -77,6 +92,16 @@ body:
         - other
     validations:
       required: true
+  - type: textarea
+    id: transaction-setup
+    attributes:
+      label: Transaction setup, if relevant
+      description: Mention @Transactional, @InjectTransaction, @nestjs-cls/transactional setup, or whether this bug happens outside transactions.
+  - type: textarea
+    id: migration-setup
+    attributes:
+      label: Migration/table setup, if relevant
+      description: Mention drizzle-kit, migration command, schema/table setup, or whether the issue happens before migrations run.
   - type: textarea
     id: logs
     attributes:

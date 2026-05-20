@@ -1,0 +1,123 @@
+name: Production/runtime issue
+description: Report a production-like problem with drivers, migrations, transactions, deployment, or dependency updates.
+title: "prod: "
+labels:
+  - bug
+  - production
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this template for issues that appear in production, staging, CI, or production-like environments.
+
+        Do not paste secrets, production connection strings, tokens, private certificates, customer data, or unredacted hostnames. Redact values before submitting.
+  - type: dropdown
+    id: production-area
+    attributes:
+      label: Production area
+      options:
+        - driver or connection lifecycle
+        - migrations or schema state
+        - transaction behavior
+        - named connections or multi-database setup
+        - health/readiness checks
+        - dependency update or supply-chain change
+        - release or package consumption
+        - other
+    validations:
+      required: true
+  - type: textarea
+    id: impact
+    attributes:
+      label: Impact
+      description: What failed, who is affected, and what workaround exists?
+      placeholder: "Readiness fails after deploy, but the app works after restart."
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Minimal reproduction or failing flow
+      description: Link a reproduction repo or describe the smallest production-like flow that fails.
+    validations:
+      required: true
+  - type: input
+    id: package-version
+    attributes:
+      label: nest-drizzle-native version
+      placeholder: "0.2.1"
+    validations:
+      required: true
+  - type: input
+    id: nest-version
+    attributes:
+      label: NestJS version
+      placeholder: "11.x"
+    validations:
+      required: true
+  - type: input
+    id: drizzle-version
+    attributes:
+      label: Drizzle ORM version
+      placeholder: "0.45.x"
+    validations:
+      required: true
+  - type: input
+    id: node-version
+    attributes:
+      label: Node.js version
+      placeholder: "20.x, 22.x, 24.x"
+    validations:
+      required: true
+  - type: input
+    id: driver-version
+    attributes:
+      label: Driver and version
+      placeholder: "pg 8.x, mysql2 3.x, better-sqlite3 12.x, @libsql/client 0.x"
+    validations:
+      required: true
+  - type: input
+    id: database-engine
+    attributes:
+      label: Database engine/version
+      placeholder: "PostgreSQL 17, MySQL 8.4, SQLite 3.x"
+  - type: textarea
+    id: module-setup
+    attributes:
+      label: DrizzleModule setup
+      description: Paste the relevant forRoot/forRootAsync/forFeature shape with secrets redacted.
+      render: ts
+    validations:
+      required: true
+  - type: textarea
+    id: transaction-setup
+    attributes:
+      label: Transaction setup
+      description: Mention @Transactional, @InjectTransaction, @nestjs-cls/transactional setup, or state that transactions are not involved.
+  - type: textarea
+    id: migration-setup
+    attributes:
+      label: Migration setup
+      description: Mention drizzle-kit, migration command, deployment step, and whether migrations run before traffic.
+  - type: textarea
+    id: dependency-change
+    attributes:
+      label: Recent dependency or lockfile change
+      description: Mention Dependabot PRs, manual upgrades, or lockfile churn if the problem started after a dependency change.
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant logs
+      description: Paste stack traces or command output with secrets, tokens, hostnames, and connection strings redacted.
+      render: text
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Safety checklist
+      options:
+        - label: I removed or redacted secrets, tokens, hostnames, private certificates, and production connection strings.
+          required: true
+        - label: I did not include customer data or personally identifiable information.
+          required: true
+        - label: I included enough version and driver information for maintainers to reproduce the issue.
+          required: true
