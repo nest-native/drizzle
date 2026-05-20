@@ -235,6 +235,9 @@ function runPublishedSampleSmoke() {
   fs.cpSync(path.join(repoRoot, 'sample'), path.join(sampleWorkspace, 'sample'), {
     recursive: true,
   });
+  const pinnedSamples = pinSampleDependencies(
+    path.join(sampleWorkspace, 'sample'),
+  );
   fs.cpSync(path.join(repoRoot, 'scripts'), path.join(sampleWorkspace, 'scripts'), {
     recursive: true,
     filter: source => !source.includes(`${path.sep}node_modules${path.sep}`),
@@ -244,11 +247,7 @@ function runPublishedSampleSmoke() {
     path.join(sampleWorkspace, 'tsconfig.base.json'),
   );
 
-  execFileSync(npmExecutable, ['install', '--package-lock=false'], {
-    cwd: sampleWorkspace,
-    stdio: 'inherit',
-    env: npmEnv(),
-  });
+  installPublishedSampleWorkspace(sampleWorkspace);
 
   const resolutionOutput = execFileSync(
     npmExecutable,
@@ -263,10 +262,19 @@ function runPublishedSampleSmoke() {
   const localPackageLinkPattern = new RegExp(
     `${escapeRegExp(packageName)}@[^\\s]+\\s+->`,
   );
+  const requestedVersionPattern = new RegExp(
+    `${escapeRegExp(packageName)}@${escapeRegExp(version)}\\b`,
+  );
 
   if (localPackageLinkPattern.test(resolutionOutput)) {
     throw new Error(
       `Sample workspace resolved ${packageName} through a local workspace link:\n${resolutionOutput}`,
+    );
+  }
+
+  if (!requestedVersionPattern.test(resolutionOutput)) {
+    throw new Error(
+      `Sample workspace did not resolve ${packageName}@${version}:\n${resolutionOutput}`,
     );
   }
 
@@ -276,7 +284,73 @@ function runPublishedSampleSmoke() {
     env: npmEnv(),
   });
 
-  console.log('Published sample validation OK.');
+  console.log(
+    `Published sample validation OK: pinned ${pinnedSamples} sample workspaces to ${packageName}@${version}.`,
+  );
+}
+
+function pinSampleDependencies(sampleRoot) {
+  const packageFiles = fs
+    .readdirSync(sampleRoot, { withFileTypes: true })
+    .filter(entry => entry.isDirectory())
+    .map(entry => path.join(sampleRoot, entry.name, 'package.json'))
+    .filter(packageFile => fs.existsSync(packageFile));
+  let pinnedSamples = 0;
+
+  for (const packageFile of packageFiles) {
+    const packageJson = JSON.parse(fs.readFileSync(packageFile, 'utf8'));
+    const pinned = pinPackageDependency(packageJson);
+
+    if (pinned) {
+      pinnedSamples += 1;
+      fs.writeFileSync(packageFile, `${JSON.stringify(packageJson, null, 2)}\n`);
+    }
+  }
+
+  if (pinnedSamples === 0) {
+    throw new Error(
+      `No sample package.json files declare ${packageName}; post-publish sample validation cannot prove registry consumption.`,
+    );
+  }
+
+  return pinnedSamples;
+}
+
+function pinPackageDependency(packageJson) {
+  let pinned = false;
+
+  for (const field of [
+    'dependencies',
+    'devDependencies',
+    'peerDependencies',
+    'optionalDependencies',
+  ]) {
+    if (packageJson[field]?.[packageName]) {
+      packageJson[field][packageName] = version;
+      pinned = true;
+    }
+  }
+
+  return pinned;
+}
+
+function installPublishedSampleWorkspace(sampleWorkspace) {
+  try {
+    execFileSync(npmExecutable, ['install', '--package-lock=false'], {
+      cwd: sampleWorkspace,
+      stdio: 'inherit',
+      env: npmEnv(),
+    });
+  } catch (error) {
+    throw new Error(
+      [
+        `Sample installation failed after pinning samples to ${packageName}@${version}.`,
+        'This usually means the current sample workspace expects package peer dependency metadata that differs from the published version being checked.',
+        'Run this check from the matching release commit, or after publishing the version that matches the current repository state.',
+      ].join(' '),
+      { cause: error },
+    );
+  }
 }
 
 function writeSampleWorkspacePackage(sampleWorkspace) {

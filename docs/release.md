@@ -92,3 +92,11 @@ The post-publish check fails if npm does not expose the version as `latest`, if
 the published tarball is missing package entrypoints, if a clean consumer cannot
 compile a Nest testing module with the package, or if samples accidentally
 resolve a local workspace link instead of the registry package.
+
+When a version is passed, the script copies the sample workspace into a
+temporary directory and pins every sample dependency on `nest-drizzle-native` to
+that exact published version before installing. This keeps the verification tied
+to the release being checked, even after the repository moves on to the next
+development version. Run the check from the release commit, or immediately after
+publishing a version that matches the current repository state, so sample peer
+dependencies and the published package metadata agree.
