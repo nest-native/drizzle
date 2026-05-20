@@ -31,6 +31,7 @@ const sidebars: SidebarsConfig = {
         'support-policy',
         'adoption-guide',
         'production-patterns',
+        'deployment',
         'api-reference',
         'quality-and-ci',
         'release',

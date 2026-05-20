@@ -17,6 +17,7 @@ Before treating an app as production-ready:
 - pass a ready Drizzle client to `DrizzleModule`
 - provide a shutdown hook for owned driver resources
 - generate and apply migrations with standard Drizzle tooling
+- expose separate liveness and readiness endpoints for deployment platforms
 - place `@Transactional()` on workflow service methods, not every query method
 - keep validation and OpenAPI concerns at the HTTP boundary
 - prefer real database tests for migrations, transactions, and driver behavior
@@ -89,6 +90,32 @@ changed.
 See the runnable
 [`17-drizzle-kit-migrations`](https://github.com/nest-native/nest-drizzle-native/tree/main/sample/17-drizzle-kit-migrations)
 sample for the minimal pattern.
+
+## Health And Readiness
+
+Keep liveness and readiness separate:
+
+- liveness should answer whether the process can respond
+- readiness should answer whether traffic can be safely routed to the app
+- readiness may check database connectivity, migrations, or required startup
+  state
+- readiness checks should use cheap reads and fail closed when state is missing
+
+```ts
+@Get('ready')
+ready() {
+  return this.healthService.ready();
+}
+```
+
+Use normal Nest providers for readiness checks. A repository can run a cheap
+Drizzle read against a marker table, a migration table, or a driver-specific
+ping query. Applications using `@nestjs/terminus` can wrap the same provider in
+a Terminus health indicator.
+
+See
+[`18-health-readiness`](https://github.com/nest-native/nest-drizzle-native/tree/main/sample/18-health-readiness)
+for a focused liveness/readiness sample.
 
 ## Request Scope
 

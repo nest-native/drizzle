@@ -30,6 +30,7 @@ policy:
 - [Zod + Swagger/OpenAPI Bridge](https://nest-native.github.io/nest-drizzle-native/docs/samples/zod-openapi-bridge)
 - [Adoption Guide](https://nest-native.github.io/nest-drizzle-native/docs/adoption-guide)
 - [Production Patterns](https://nest-native.github.io/nest-drizzle-native/docs/production-patterns)
+- [Deployment](https://nest-native.github.io/nest-drizzle-native/docs/deployment)
 - [API Reference](https://nest-native.github.io/nest-drizzle-native/docs/api-reference)
 - [Quality and CI](https://nest-native.github.io/nest-drizzle-native/docs/quality-and-ci)
 - [Contributing](https://nest-native.github.io/nest-drizzle-native/docs/contributing)
@@ -74,7 +75,8 @@ This repository contains:
 Samples are part of the public learning path. The set includes the full
 showcase plus focused examples for direct client injection, repositories, async
 configuration, named connections, transactions, Nest DTO validation, optional
-Drizzle-Zod validation, driver setup, testing, raw SQL, and Swagger.
+Drizzle-Zod validation, driver setup, migrations, health checks, testing, raw
+SQL, and Swagger.
 
 ## Installation
 

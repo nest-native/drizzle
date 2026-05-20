@@ -30,3 +30,4 @@ npm run sample:focused
 | [`15-postgres-driver`](https://github.com/nest-native/nest-drizzle-native/tree/main/sample/15-postgres-driver) | PostgreSQL pool setup and shutdown | `npm run test --workspace nest-drizzle-native-sample-15-postgres-driver` |
 | [`16-mysql-driver`](https://github.com/nest-native/nest-drizzle-native/tree/main/sample/16-mysql-driver) | MySQL pool setup and shutdown | `npm run test --workspace nest-drizzle-native-sample-16-mysql-driver` |
 | [`17-drizzle-kit-migrations`](https://github.com/nest-native/nest-drizzle-native/tree/main/sample/17-drizzle-kit-migrations) | drizzle-kit migrations and migrated startup | `npm run test --workspace nest-drizzle-native-sample-17-drizzle-kit-migrations` |
+| [`18-health-readiness`](https://github.com/nest-native/nest-drizzle-native/tree/main/sample/18-health-readiness) | Liveness and database readiness checks | `npm run test --workspace nest-drizzle-native-sample-18-health-readiness` |

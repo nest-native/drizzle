@@ -83,6 +83,18 @@ Inspect:
 - [`17-drizzle-kit-migrations/drizzle`](https://github.com/nest-native/nest-drizzle-native/tree/main/sample/17-drizzle-kit-migrations/drizzle)
 - [`17-drizzle-kit-migrations/src/database.ts`](https://github.com/nest-native/nest-drizzle-native/tree/main/sample/17-drizzle-kit-migrations/src/database.ts)
 
+## Deployment Readiness
+
+Health endpoints can use normal Nest controllers and injected repositories.
+Keep liveness cheap and process-only; use readiness for database and migration
+state before routing traffic.
+
+Inspect:
+
+- [`18-health-readiness/src/health/health.controller.ts`](https://github.com/nest-native/nest-drizzle-native/tree/main/sample/18-health-readiness/src/health/health.controller.ts)
+- [`18-health-readiness/src/health/health.repository.ts`](https://github.com/nest-native/nest-drizzle-native/tree/main/sample/18-health-readiness/src/health/health.repository.ts)
+- [`18-health-readiness/scripts/smoke.ts`](https://github.com/nest-native/nest-drizzle-native/tree/main/sample/18-health-readiness/scripts/smoke.ts)
+
 ## Transaction Decorators
 
 `@Transactional()` bridges to the CLS transaction stack so workflow services can
