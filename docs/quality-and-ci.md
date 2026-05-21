@@ -62,6 +62,17 @@ PostgreSQL, and MySQL. GitHub Actions provides PostgreSQL and MySQL service
 containers for the coverage job. Local runs skip those networked drivers unless
 `NEST_DRIZZLE_NATIVE_POSTGRES_URL` and `NEST_DRIZZLE_NATIVE_MYSQL_URL` are set.
 
+| Driver | Package test | Focused sample | Local behavior | CI behavior | Required env/service |
+| --- | --- | --- | --- | --- | --- |
+| libSQL | `driver-integration.spec.ts` | Most local samples use `@libsql/client` | Always runs with local file databases | Always runs with local file databases | None |
+| better-sqlite3 | `driver-integration.spec.ts` | [`14-better-sqlite3-driver`](https://github.com/nest-native/nest-drizzle-native/tree/main/sample/14-better-sqlite3-driver) | Always runs with a local SQLite file | Always runs with a local SQLite file | None |
+| PostgreSQL / `pg` | `driver-integration.spec.ts` | [`15-postgres-driver`](https://github.com/nest-native/nest-drizzle-native/tree/main/sample/15-postgres-driver) | Skips unless `NEST_DRIZZLE_NATIVE_POSTGRES_URL` is set | Runs against a PostgreSQL 16 service container | `NEST_DRIZZLE_NATIVE_POSTGRES_URL` or CI `postgres` service |
+| MySQL / `mysql2` | `driver-integration.spec.ts` | [`16-mysql-driver`](https://github.com/nest-native/nest-drizzle-native/tree/main/sample/16-mysql-driver) | Skips unless `NEST_DRIZZLE_NATIVE_MYSQL_URL` is set | Runs against a MySQL 8.4 service container | `NEST_DRIZZLE_NATIVE_MYSQL_URL` or CI `mysql` service |
+
+The package coverage jobs and the `Sample validation` job both receive
+workflow-generated PostgreSQL and MySQL URLs. Those URLs are test-only and must
+not be copied into docs, samples, or logs beyond generic matrix summaries.
+
 ## Release And Security
 
 Release validation checks README/docs links, the package tarball, and a
