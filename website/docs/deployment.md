@@ -55,6 +55,54 @@ unavailable. See the
 [`18-health-readiness`](https://github.com/nest-native/nest-drizzle-native/tree/main/sample/18-health-readiness)
 sample for a minimal implementation.
 
+### Optional Terminus Integration
+
+If your application already uses
+[`@nestjs/terminus`](https://docs.nestjs.com/recipes/terminus), keep the
+Drizzle readiness logic app-owned and wrap it in a custom Terminus indicator.
+Do not add Terminus to `nest-drizzle-native` itself; health policy belongs to
+the application.
+
+```ts
+import { Injectable } from '@nestjs/common';
+import { HealthIndicatorService } from '@nestjs/terminus';
+
+@Injectable()
+export class DrizzleHealthIndicator {
+  constructor(
+    private readonly healthIndicatorService: HealthIndicatorService,
+    private readonly healthRepository: HealthRepository,
+  ) {}
+
+  async isHealthy(key = 'database') {
+    const indicator = this.healthIndicatorService.check(key);
+
+    try {
+      await this.healthRepository.checkReady();
+      return indicator.up();
+    } catch {
+      return indicator.down({ reason: 'unavailable' });
+    }
+  }
+}
+```
+
+Then use the indicator only from readiness:
+
+```ts
+@Get('ready')
+@HealthCheck()
+ready() {
+  return this.health.check([
+    () => this.drizzleHealthIndicator.isHealthy(),
+  ]);
+}
+```
+
+Keep liveness process-only, even when Terminus is installed. Readiness failures
+should stay generic: do not return connection strings, hostnames, SQL text,
+driver errors, or migration internals in health responses.
+
 ## Deployment Checklist
 
 - `DATABASE_URL` or equivalent secret is configured by the platform.

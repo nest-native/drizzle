@@ -41,7 +41,10 @@ whether it is safe to route traffic to it. Keep these checks explicit:
 
 This sample avoids extra health-check dependencies so the core pattern is clear.
 Applications that use `@nestjs/terminus` can wrap the same repository check in a
-Terminus health indicator.
+Terminus health indicator. Keep Terminus app-owned: import `TerminusModule`,
+create a small custom indicator around `HealthRepository.checkReady()`, and use
+that indicator only from readiness. Do not return connection strings, hostnames,
+SQL text, driver errors, or migration internals in health responses.
 
 ## Post-Sample Review
 

@@ -113,6 +113,31 @@ Drizzle read against a marker table, a migration table, or a driver-specific
 ping query. Applications using `@nestjs/terminus` can wrap the same provider in
 a Terminus health indicator.
 
+```ts
+@Injectable()
+export class DrizzleHealthIndicator {
+  constructor(
+    private readonly healthIndicatorService: HealthIndicatorService,
+    private readonly healthRepository: HealthRepository,
+  ) {}
+
+  async isHealthy(key = 'database') {
+    const indicator = this.healthIndicatorService.check(key);
+
+    try {
+      await this.healthRepository.checkReady();
+      return indicator.up();
+    } catch {
+      return indicator.down({ reason: 'unavailable' });
+    }
+  }
+}
+```
+
+Use that indicator from `/health/ready`, not `/health/live`. Terminus is an
+application dependency in this shape; it is not part of the published package
+contract.
+
 See
 [`18-health-readiness`](https://github.com/nest-native/nest-drizzle-native/tree/main/sample/18-health-readiness)
 for a focused liveness/readiness sample.
