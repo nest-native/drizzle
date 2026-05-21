@@ -89,7 +89,9 @@ changed.
 
 See the runnable
 [`17-drizzle-kit-migrations`](https://github.com/nest-native/nest-drizzle-native/tree/main/sample/17-drizzle-kit-migrations)
-sample for the minimal pattern.
+sample for the minimal pattern, and use
+[Migration Operations](migration-operations.md) for production release
+sequencing, multi-replica safety, backfills, and readiness checks.
 
 ## Health And Readiness
 

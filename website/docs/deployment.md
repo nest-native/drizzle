@@ -40,7 +40,9 @@ scale-out event.
 The package intentionally does not hide Drizzle's migration model behind a Nest
 abstraction. See the
 [`17-drizzle-kit-migrations`](https://github.com/nest-native/nest-drizzle-native/tree/main/sample/17-drizzle-kit-migrations)
-sample for the app-owned pattern.
+sample for the app-owned pattern, and see
+[Migration Operations](migration-operations.md) for release-job, multi-replica,
+backfill, and readiness guidance.
 
 ## Health Checks
 
