@@ -29,6 +29,7 @@ const sidebars: SidebarsConfig = {
         'production-patterns',
         'multi-tenant',
         'deployment',
+        'deployment-recipes',
         'migration-operations',
       ],
     },

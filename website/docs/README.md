@@ -24,6 +24,7 @@ Use the shortest path for the decision in front of you.
 - [Production Patterns](production-patterns.md): connection ownership, errors, security, and performance
 - [Multi-Tenant Applications](multi-tenant.md): shared database, named connection, and dynamic routing patterns
 - [Deployment](deployment.md): release flow, environment, migrations, and health checks
+- [Deployment Recipes](deployment-recipes.md): Docker, Kubernetes, platform hooks, and GitHub Actions flows
 - [Migration Operations](migration-operations.md): safe migration execution before production traffic
 
 ## Samples

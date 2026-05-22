@@ -20,6 +20,7 @@ Use the shortest path for the decision in front of you.
 ## Production
 
 - [Multi-Tenant Applications](multi-tenant.md): shared database, named connection, and dynamic routing patterns
+- [Deployment Recipes](deployment-recipes.md): Docker, Kubernetes, platform hooks, and GitHub Actions flows
 - [Migration Operations](migration-operations.md): safe migration execution before production traffic
 
 ## Project Reference

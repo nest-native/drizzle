@@ -44,6 +44,9 @@ sample for the app-owned pattern, and see
 [Migration Operations](migration-operations.md) for release-job, multi-replica,
 backfill, and readiness guidance.
 
+For concrete Docker, Kubernetes, platform hook, and GitHub Actions shapes, use
+[Deployment Recipes](deployment-recipes.md).
+
 ## Health Checks
 
 Expose two different signals:
