@@ -311,20 +311,28 @@ changes.
 The documentation is the canonical source of truth for usage guides and support
 policy:
 
-- [Introduction](https://nest-native.github.io/nest-drizzle-native/docs/introduction)
-- [Why Native](https://nest-native.github.io/nest-drizzle-native/docs/why-native)
-- [Quick Start](https://nest-native.github.io/nest-drizzle-native/docs/quick-start)
-- [Repositories](https://nest-native.github.io/nest-drizzle-native/docs/repositories)
-- [Transactions](https://nest-native.github.io/nest-drizzle-native/docs/transactions)
-- [Testing](https://nest-native.github.io/nest-drizzle-native/docs/testing)
-- [Samples](https://nest-native.github.io/nest-drizzle-native/docs/samples/)
-- [Adoption Guide](https://nest-native.github.io/nest-drizzle-native/docs/adoption-guide)
-- [Production Patterns](https://nest-native.github.io/nest-drizzle-native/docs/production-patterns)
-- [Deployment](https://nest-native.github.io/nest-drizzle-native/docs/deployment)
-- [API Reference](https://nest-native.github.io/nest-drizzle-native/docs/api-reference)
-- [Quality and CI](https://nest-native.github.io/nest-drizzle-native/docs/quality-and-ci)
-- [Contributing](https://nest-native.github.io/nest-drizzle-native/docs/contributing)
-- [Support Policy](https://nest-native.github.io/nest-drizzle-native/docs/support-policy)
+- Start:
+  [Introduction](https://nest-native.github.io/nest-drizzle-native/docs/introduction),
+  [Why Native](https://nest-native.github.io/nest-drizzle-native/docs/why-native),
+  [Quick Start](https://nest-native.github.io/nest-drizzle-native/docs/quick-start),
+  [Adoption Guide](https://nest-native.github.io/nest-drizzle-native/docs/adoption-guide)
+- Core API:
+  [Repositories](https://nest-native.github.io/nest-drizzle-native/docs/repositories),
+  [Transactions](https://nest-native.github.io/nest-drizzle-native/docs/transactions),
+  [API Reference](https://nest-native.github.io/nest-drizzle-native/docs/api-reference)
+- Testing:
+  [Testing](https://nest-native.github.io/nest-drizzle-native/docs/testing),
+- Production:
+  [Production Patterns](https://nest-native.github.io/nest-drizzle-native/docs/production-patterns),
+  [Deployment](https://nest-native.github.io/nest-drizzle-native/docs/deployment),
+  [Migration Operations](https://nest-native.github.io/nest-drizzle-native/docs/migration-operations)
+- Learn by example:
+  [Samples](https://nest-native.github.io/nest-drizzle-native/docs/samples/)
+- Project reference:
+  [Quality and CI](https://nest-native.github.io/nest-drizzle-native/docs/quality-and-ci),
+  [Contributing](https://nest-native.github.io/nest-drizzle-native/docs/contributing),
+  [Support Policy](https://nest-native.github.io/nest-drizzle-native/docs/support-policy),
+  [Roadmap](https://nest-native.github.io/nest-drizzle-native/docs/roadmap)
 
 ## Roadmap
 

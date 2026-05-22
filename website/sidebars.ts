@@ -2,12 +2,35 @@ import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
 
 const sidebars: SidebarsConfig = {
   docsSidebar: [
-    'introduction',
-    'why-native',
-    'quick-start',
-    'repositories',
-    'transactions',
+    {
+      type: 'category',
+      label: 'Getting Started',
+      items: [
+        'introduction',
+        'why-native',
+        'quick-start',
+        'adoption-guide',
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Core API',
+      items: [
+        'repositories',
+        'transactions',
+        'api-reference',
+      ],
+    },
     'testing',
+    {
+      type: 'category',
+      label: 'Production',
+      items: [
+        'production-patterns',
+        'deployment',
+        'migration-operations',
+      ],
+    },
     {
       type: 'category',
       label: 'Samples',
@@ -26,14 +49,9 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
-      label: 'Support & Reference',
+      label: 'Project Reference',
       items: [
         'support-policy',
-        'adoption-guide',
-        'production-patterns',
-        'deployment',
-        'migration-operations',
-        'api-reference',
         'quality-and-ci',
         'release',
         'contributing',
