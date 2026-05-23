@@ -61,6 +61,14 @@ Do not accept a tenant ID from an untrusted header and pass it directly into a
 query. Validate it against authenticated user claims, session state, API key
 metadata, or an authorization service before query execution.
 
+The
+[`20-multi-tenancy-shared-db`](../sample/20-multi-tenancy-shared-db)
+sample turns this pattern into runnable proof. It includes a guard-populated
+`AuthenticatedUser`, a request-scoped `TenantContext`, repositories that always
+include a `tenant_id` predicate, a `@Transactional()` write that keeps the
+predicate inside the transaction, and negative smoke tests that prove
+cross-tenant reads and writes return `404` without leaking row existence.
+
 ## Small Known Set Of Tenant Databases
 
 When the set of databases is known at deploy time, named connections keep the
@@ -175,4 +183,6 @@ Cover tenant behavior with real integration tests where possible:
 - readiness fails when a required tenant database is unavailable
 
 Unit tests can mock the routing service, but isolation and migration behavior
-should use real driver-backed tests before production release.
+should use real driver-backed tests before production release. Sample
+[`20-multi-tenancy-shared-db`](../sample/20-multi-tenancy-shared-db)
+implements the first two checks against a real libSQL database.
