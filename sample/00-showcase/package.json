@@ -13,8 +13,8 @@
   },
   "dependencies": {
     "@libsql/client": "^0.17.3",
-    "@nestjs-cls/transactional": "^3.2.0",
-    "@nestjs-cls/transactional-adapter-drizzle-orm": "^1.2.3",
+    "@nestjs-cls/transactional": "^3.2.1",
+    "@nestjs-cls/transactional-adapter-drizzle-orm": "^1.2.4",
     "@nestjs/common": "11.1.24",
     "@nestjs/core": "11.1.24",
     "@nestjs/platform-express": "11.1.24",
@@ -24,7 +24,7 @@
     "drizzle-orm": "^0.45.2",
     "drizzle-zod": "^0.8.3",
     "nest-drizzle-native": "0.2.1",
-    "nestjs-cls": "^6.2.0",
+    "nestjs-cls": "^6.2.1",
     "reflect-metadata": "0.2.2",
     "rxjs": "7.8.2",
     "zod": "^4.4.3"
