@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200" role="img" aria-label="nest-drizzle-native">
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200" role="img" aria-label="@nest-native/drizzle">
   <rect width="200" height="200" rx="24" fill="#0f766e"/>
   <path d="M50 62h100v20H50V62Zm0 28h100v20H50V90Zm0 28h100v20H50v-20Z" fill="#ffffff"/>
   <circle cx="62" cy="72" r="4" fill="#0f766e"/>

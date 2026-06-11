@@ -1,6 +1,6 @@
 # Contributing
 
-Thanks for helping improve `nest-drizzle-native`.
+Thanks for helping improve `@nest-native/drizzle`.
 
 ## Sample Work Must Stay Separate From Library Fixes
 

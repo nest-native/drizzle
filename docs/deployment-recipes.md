@@ -1,6 +1,6 @@
 # Deployment Recipes
 
-These recipes show where `nest-drizzle-native` fits in common deployment
+These recipes show where `@nest-native/drizzle` fits in common deployment
 targets. They are intentionally app-owned: the package registers Drizzle clients
 inside Nest, while your deployment owns secrets, migration execution, health
 checks, process startup, and shutdown.

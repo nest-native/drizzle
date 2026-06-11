@@ -1,6 +1,6 @@
 import { Injectable, OnModuleInit } from '@nestjs/common';
 import { desc, sql } from 'drizzle-orm';
-import { InjectDrizzle } from 'nest-drizzle-native';
+import { InjectDrizzle } from '@nest-native/drizzle';
 import { notes } from '../schema';
 import type { AppDatabase } from '../database';
 

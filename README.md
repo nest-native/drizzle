@@ -1,10 +1,10 @@
-# nest-drizzle-native
+# @nest-native/drizzle
 
 <p align="center">Nest-native Drizzle ORM integration with dependency injection, repositories, and transaction decorators.</p>
 
 <p align="center">
-  <a href="https://www.npmjs.com/package/nest-drizzle-native"><img src="https://img.shields.io/npm/v/nest-drizzle-native.svg" alt="NPM Version" /></a>
-  <a href="https://www.npmjs.com/package/nest-drizzle-native"><img src="https://img.shields.io/npm/dm/nest-drizzle-native.svg" alt="NPM Downloads" /></a>
+  <a href="https://www.npmjs.com/package/@nest-native/drizzle"><img src="https://img.shields.io/npm/v/@nest-native/drizzle.svg" alt="NPM Version" /></a>
+  <a href="https://www.npmjs.com/package/@nest-native/drizzle"><img src="https://img.shields.io/npm/dm/@nest-native/drizzle.svg" alt="NPM Downloads" /></a>
   <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/license-MIT-green.svg" alt="Package License" /></a>
   <img src="https://img.shields.io/badge/coverage-100%25-brightgreen.svg" alt="Test Coverage" />
   <a href="https://nest-native.github.io/nest-drizzle-native/"><img src="https://img.shields.io/badge/docs-nest--drizzle--native-0f766e.svg" alt="Documentation" /></a>
@@ -12,7 +12,7 @@
 
 ## What This Is
 
-`nest-drizzle-native` is a community NestJS integration for applications that
+`@nest-native/drizzle` is a community NestJS integration for applications that
 want Drizzle ORM with Nest-style modules, dependency injection, repository
 classes, lifecycle cleanup, and transaction decorators without hiding Drizzle's
 SQL-first query builder.
@@ -31,7 +31,7 @@ First paths:
 
 ## Why Use It
 
-`nest-drizzle-native` keeps Drizzle explicit while giving Nest applications a
+`@nest-native/drizzle` keeps Drizzle explicit while giving Nest applications a
 native integration surface:
 
 - Module setup via `DrizzleModule.forRoot()` and `DrizzleModule.forRootAsync()`
@@ -59,7 +59,7 @@ For peer dependency policy and API stability, see
 
 This repository contains:
 
-- `packages/drizzle`: the `nest-drizzle-native` integration package
+- `packages/drizzle`: the `@nest-native/drizzle` integration package
 - `website/docs`: Docusaurus documentation for setup, APIs, samples, testing, quality gates, and support
 - `sample`: focused runnable examples for each supported feature
 - `scripts`: release, quality, coverage, and report-generation helpers
@@ -74,7 +74,7 @@ SQL, and Swagger.
 ## Installation
 
 ```bash
-npm i nest-drizzle-native drizzle-orm
+npm i @nest-native/drizzle drizzle-orm
 ```
 
 Required peers:
@@ -110,7 +110,7 @@ object as-is and does not introduce class entities.
 import { Module } from '@nestjs/common';
 import { drizzle } from 'drizzle-orm/node-postgres';
 import { Pool } from 'pg';
-import { DrizzleModule } from 'nest-drizzle-native';
+import { DrizzleModule } from '@nest-native/drizzle';
 import * as schema from './schema';
 
 const pool = new Pool({
@@ -133,7 +133,7 @@ Inject the client directly when a service needs the full Drizzle surface.
 
 ```ts
 import { Injectable } from '@nestjs/common';
-import { InjectDrizzle } from 'nest-drizzle-native';
+import { InjectDrizzle } from '@nest-native/drizzle';
 import type { NodePgDatabase } from 'drizzle-orm/node-postgres';
 import * as schema from './schema';
 
@@ -159,7 +159,7 @@ import {
   DrizzleModule,
   DrizzleRepository,
   InjectDrizzle,
-} from 'nest-drizzle-native';
+} from '@nest-native/drizzle';
 import type { NodePgDatabase } from 'drizzle-orm/node-postgres';
 import * as schema from './schema';
 
@@ -228,7 +228,7 @@ AsyncLocalStorage implementation.
 
 ```ts
 import { Injectable } from '@nestjs/common';
-import { Transactional } from 'nest-drizzle-native';
+import { Transactional } from '@nest-native/drizzle';
 
 @Injectable()
 export class BillingService {
@@ -262,7 +262,7 @@ import { Test } from '@nestjs/testing';
 import {
   DrizzleTestModule,
   createDrizzleMockClient,
-} from 'nest-drizzle-native';
+} from '@nest-native/drizzle';
 
 const db = createDrizzleMockClient({
   query: {

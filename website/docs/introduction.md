@@ -1,6 +1,6 @@
 # Introduction
 
-`nest-drizzle-native` is a NestJS integration for Drizzle ORM. It is designed
+`@nest-native/drizzle` is a NestJS integration for Drizzle ORM. It is designed
 for applications that want Drizzle's SQL-first model with the NestJS module,
 provider, lifecycle, and testing patterns they already use.
 

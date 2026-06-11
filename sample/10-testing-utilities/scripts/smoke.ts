@@ -5,7 +5,7 @@ import {
   createDrizzleMockClient,
   createDrizzleRepositoryMock,
   DrizzleTestModule,
-} from 'nest-drizzle-native';
+} from '@nest-native/drizzle';
 import { createDatabase } from '../src/database';
 import { schema } from '../src/schema';
 import {

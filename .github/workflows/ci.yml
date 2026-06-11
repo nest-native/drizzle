@@ -32,10 +32,10 @@ jobs:
         run: npm ci
 
       - name: Build package
-        run: npm run build --workspace nest-drizzle-native
+        run: npm run build --workspace @nest-native/drizzle
 
       - name: Typecheck package
-        run: npm run typecheck --workspace nest-drizzle-native
+        run: npm run typecheck --workspace @nest-native/drizzle
 
   package-test-node-20:
     name: Package tests/coverage (Node 20)
@@ -324,7 +324,7 @@ jobs:
         run: npm ci
 
       - name: Build package
-        run: npm run build --workspace nest-drizzle-native
+        run: npm run build --workspace @nest-native/drizzle
 
       - name: Run sample matrix
         env:

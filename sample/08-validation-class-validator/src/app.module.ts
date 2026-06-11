@@ -1,6 +1,6 @@
 import { Module, ValidationPipe } from '@nestjs/common';
 import { APP_PIPE } from '@nestjs/core';
-import { DrizzleModule } from 'nest-drizzle-native';
+import { DrizzleModule } from '@nest-native/drizzle';
 import { CustomersModule } from './customers/customers.module';
 import { createDatabase, type AppDatabase } from './database';
 import { schema } from './schema';

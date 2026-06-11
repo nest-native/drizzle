@@ -5,7 +5,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 const repoRoot = process.cwd();
-const packageName = 'nest-drizzle-native';
+const packageName = '@nest-native/drizzle';
 const packageJson = readJson('packages/drizzle/package.json');
 const packageVersion = packageJson.version;
 const packageLock = readJson('package-lock.json');

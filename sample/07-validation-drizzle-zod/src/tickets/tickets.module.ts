@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { DrizzleModule } from 'nest-drizzle-native';
+import { DrizzleModule } from '@nest-native/drizzle';
 import { TicketsController } from './tickets.controller';
 import { TicketsRepository } from './tickets.repository';
 import { TicketsService } from './tickets.service';

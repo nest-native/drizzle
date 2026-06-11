@@ -1,11 +1,11 @@
 ---
 title: Adoption Guide
-description: Move an existing Nest and Drizzle application onto nest-drizzle-native incrementally.
+description: Move an existing Nest and Drizzle application onto @nest-native/drizzle incrementally.
 ---
 
 # Adoption Guide
 
-Adopt `nest-drizzle-native` in small steps. The package should replace manual
+Adopt `@nest-native/drizzle` in small steps. The package should replace manual
 Nest provider wiring, not your Drizzle schemas or query style.
 
 ## Start With One Client

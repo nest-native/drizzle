@@ -3,7 +3,7 @@
 Install the package and Drizzle:
 
 ```bash
-npm i nest-drizzle-native drizzle-orm
+npm i @nest-native/drizzle drizzle-orm
 ```
 
 Install the Nest peers:
@@ -27,7 +27,7 @@ client.
 import { Module } from '@nestjs/common';
 import { drizzle } from 'drizzle-orm/node-postgres';
 import { Pool } from 'pg';
-import { DrizzleModule } from 'nest-drizzle-native';
+import { DrizzleModule } from '@nest-native/drizzle';
 import * as schema from './schema';
 
 const pool = new Pool({
@@ -53,7 +53,7 @@ entities.
 
 ```ts
 import { Injectable } from '@nestjs/common';
-import { InjectDrizzle } from 'nest-drizzle-native';
+import { InjectDrizzle } from '@nest-native/drizzle';
 import type { NodePgDatabase } from 'drizzle-orm/node-postgres';
 import * as schema from './schema';
 
@@ -77,7 +77,7 @@ beyond one service method, but they should still expose explicit Drizzle-shaped
 behavior.
 
 ```ts
-import { DrizzleRepository, InjectDrizzle } from 'nest-drizzle-native';
+import { DrizzleRepository, InjectDrizzle } from '@nest-native/drizzle';
 import type { NodePgDatabase } from 'drizzle-orm/node-postgres';
 import * as schema from './schema';
 
@@ -100,7 +100,7 @@ Register repositories through a feature module:
 
 ```ts
 import { Module } from '@nestjs/common';
-import { DrizzleModule } from 'nest-drizzle-native';
+import { DrizzleModule } from '@nest-native/drizzle';
 import { UsersRepository } from './users.repository';
 
 @Module({

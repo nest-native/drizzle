@@ -3,7 +3,7 @@ import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
-  title: 'nest-drizzle-native',
+  title: '@nest-native/drizzle',
   tagline: 'Nest-native Drizzle ORM integration with dependency injection, repositories, and transaction decorators',
   favicon: 'img/logo.svg',
 
@@ -47,7 +47,7 @@ const config: Config = {
       respectPrefersColorScheme: true,
     },
     navbar: {
-      title: 'nest-drizzle-native',
+      title: '@nest-native/drizzle',
       items: [
         {
           type: 'docSidebar',
@@ -56,7 +56,7 @@ const config: Config = {
           label: 'Docs',
         },
         {
-          href: 'https://www.npmjs.com/package/nest-drizzle-native',
+          href: 'https://www.npmjs.com/package/@nest-native/drizzle',
           label: 'npm',
           position: 'right',
         },
@@ -87,12 +87,12 @@ const config: Config = {
             },
             {
               label: 'npm',
-              href: 'https://www.npmjs.com/package/nest-drizzle-native',
+              href: 'https://www.npmjs.com/package/@nest-native/drizzle',
             },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} nest-drizzle-native contributors. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} @nest-native/drizzle contributors. Built with Docusaurus.`,
     },
     prism: {
       theme: prismThemes.github,

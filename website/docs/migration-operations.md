@@ -5,7 +5,7 @@ description: Production migration operations for Nest applications using Drizzle
 
 # Migration Operations
 
-`nest-drizzle-native` does not run or generate migrations for you. Drizzle owns
+`@nest-native/drizzle` does not run or generate migrations for you. Drizzle owns
 schema and migration files; your application owns when database state changes.
 That boundary keeps deploy behavior visible and driver-aware.
 

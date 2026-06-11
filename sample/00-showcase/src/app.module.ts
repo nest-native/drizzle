@@ -8,7 +8,7 @@ import { ClsModule } from 'nestjs-cls';
 import {
   DrizzleModule,
   getDrizzleClientToken,
-} from 'nest-drizzle-native';
+} from '@nest-native/drizzle';
 import { AccountsModule } from './accounts/accounts.module';
 import { createDatabase, type AppDatabase } from './database';
 import { DatabaseSeedService } from './database-seed.service';

@@ -1,6 +1,6 @@
 # Release Guide
 
-Use this checklist when publishing `nest-drizzle-native`. A release is worth
+Use this checklist when publishing `@nest-native/drizzle`. A release is worth
 doing when the package metadata, README, public API, docs shipped in the npm
 tarball, or runtime behavior has changed in a way users benefit from.
 
@@ -32,7 +32,7 @@ integrations belong in `peerDependencies`; package-local tooling belongs in
 ## Version Sync
 
 When bumping `packages/drizzle/package.json`, update every sample dependency on
-`nest-drizzle-native` to the exact same version:
+`@nest-native/drizzle` to the exact same version:
 
 ```bash
 npm install
@@ -51,7 +51,7 @@ Run the release gate before publishing:
 
 ```bash
 npm run release:check
-npm ls nest-drizzle-native --workspaces --depth=0
+npm ls @nest-native/drizzle --workspaces --depth=0
 npm run ci
 ```
 
@@ -65,7 +65,7 @@ Publish from a clean, reviewed, merged `main` branch:
 
 ```bash
 git status --short --branch
-npm publish --workspace nest-drizzle-native --access public
+npm publish --workspace @nest-native/drizzle --access public
 ```
 
 Do not publish from a feature branch or with uncommitted files.
@@ -75,8 +75,8 @@ Do not publish from a feature branch or with uncommitted files.
 After the registry version is confirmed, tag the exact release commit:
 
 ```bash
-git tag nest-drizzle-native@<version>
-git push origin nest-drizzle-native@<version>
+git tag @nest-native/drizzle@<version>
+git push origin @nest-native/drizzle@<version>
 ```
 
 ## Post-Publish Verification
@@ -94,7 +94,7 @@ compile a Nest testing module with the package, or if samples accidentally
 resolve a local workspace link instead of the registry package.
 
 When a version is passed, the script copies the sample workspace into a
-temporary directory and pins every sample dependency on `nest-drizzle-native` to
+temporary directory and pins every sample dependency on `@nest-native/drizzle` to
 that exact published version before installing. This keeps the verification tied
 to the release being checked, even after the repository moves on to the next
 development version. Run the check from the release commit, or immediately after

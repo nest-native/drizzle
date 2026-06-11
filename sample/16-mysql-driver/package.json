@@ -19,7 +19,7 @@
     "@nestjs/platform-express": "11.1.21",
     "drizzle-orm": "^0.45.2",
     "mysql2": "^3.22.3",
-    "nest-drizzle-native": "0.2.1",
+    "@nest-native/drizzle": "0.3.0",
     "reflect-metadata": "0.2.2",
     "rxjs": "7.8.2"
   },

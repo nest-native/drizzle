@@ -1,4 +1,4 @@
-# nest-drizzle-native
+# @nest-native/drizzle
 
 Nest-native Drizzle ORM integration with `DrizzleModule`, `@InjectDrizzle()`,
 `@DrizzleRepository()`, transaction decorator bridges, and testing helpers.

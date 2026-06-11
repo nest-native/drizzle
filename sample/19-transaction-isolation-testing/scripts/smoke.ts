@@ -5,7 +5,7 @@ import { ClsPluginTransactional } from '@nestjs-cls/transactional';
 import { TransactionalAdapterDrizzleOrm } from '@nestjs-cls/transactional-adapter-drizzle-orm';
 import { Test, type TestingModule } from '@nestjs/testing';
 import { ClsModule } from 'nestjs-cls';
-import { DrizzleModule, getDrizzleClientToken } from 'nest-drizzle-native';
+import { DrizzleModule, getDrizzleClientToken } from '@nest-native/drizzle';
 import { createDatabase, type AppDatabase } from '../src/database';
 import { InventoryRepository } from '../src/inventory/inventory.repository';
 import { InventoryService } from '../src/inventory/inventory.service';

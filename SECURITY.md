@@ -1,6 +1,6 @@
 # Security Policy
 
-Thank you for helping keep `nest-drizzle-native` safe for NestJS and Drizzle
+Thank you for helping keep `@nest-native/drizzle` safe for NestJS and Drizzle
 applications.
 
 ## Supported Versions
@@ -9,7 +9,7 @@ Security fixes target the current published package line.
 
 | Package | Supported |
 | --- | --- |
-| `nest-drizzle-native` latest minor | Yes |
+| `@nest-native/drizzle` latest minor | Yes |
 | Older unpublished branches | No |
 
 ## Reporting A Vulnerability

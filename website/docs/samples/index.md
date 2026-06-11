@@ -1,6 +1,6 @@
 # Samples
 
-Samples are the fastest way to understand how `nest-drizzle-native` is meant to
+Samples are the fastest way to understand how `@nest-native/drizzle` is meant to
 feel inside a real Nest application.
 
 Start with `00-showcase` when you want the full application shape, then use the

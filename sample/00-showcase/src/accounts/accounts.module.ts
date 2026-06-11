@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { DrizzleModule } from 'nest-drizzle-native';
+import { DrizzleModule } from '@nest-native/drizzle';
 import { AccountsController } from './accounts.controller';
 import { AccountsRepository } from './accounts.repository';
 import { AccountsService } from './accounts.service';

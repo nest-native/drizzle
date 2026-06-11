@@ -10,7 +10,7 @@ const tempCache = fs.mkdtempSync(path.join(os.tmpdir(), 'nest-drizzle-native-pac
 try {
   const rawOutput = execFileSync(
     npmExecutable,
-    ['pack', '--dry-run', '--json', '--workspace', 'nest-drizzle-native'],
+    ['pack', '--dry-run', '--json', '--workspace', '@nest-native/drizzle'],
     {
       cwd: repoRoot,
       encoding: 'utf8',

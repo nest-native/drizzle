@@ -16,7 +16,7 @@ page:
 - Explicit Swagger DTO classes document the public API contract.
 - Controllers make the validation and documentation choices visible.
 
-There is no `nest-drizzle-native/zod` import in this migration. Keep the bridge
+There is no `@nest-native/drizzle/zod` import in this migration. Keep the bridge
 inside the application until repeated samples prove that a tiny public helper is
 worth adding.
 
@@ -27,7 +27,7 @@ npm i drizzle-zod zod @nestjs/swagger
 ```
 
 These dependencies belong to the application or sample that uses the bridge.
-They are not required for normal `nest-drizzle-native` usage.
+They are not required for normal `@nest-native/drizzle` usage.
 
 ## 2. Move Validation Into A Named Schema File
 

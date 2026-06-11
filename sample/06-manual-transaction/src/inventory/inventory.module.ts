@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { DrizzleModule } from 'nest-drizzle-native';
+import { DrizzleModule } from '@nest-native/drizzle';
 import { InventoryController } from './inventory.controller';
 import { InventoryRepository } from './inventory.repository';
 import { InventoryService } from './inventory.service';

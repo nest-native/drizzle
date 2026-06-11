@@ -54,7 +54,7 @@ function packTarball() {
       'pack',
       '--json',
       '--workspace',
-      'nest-drizzle-native',
+      '@nest-native/drizzle',
       '--pack-destination',
       tempRoot,
     ],
@@ -86,7 +86,7 @@ function writeConsumerPackage(tarballPath) {
     '@nestjs/core': devDependencies['@nestjs/core'],
     '@nestjs/testing': devDependencies['@nestjs/testing'],
     'drizzle-orm': devDependencies['drizzle-orm'],
-    'nest-drizzle-native': `file:${tarballPath}`,
+    '@nest-native/drizzle': `file:${tarballPath}`,
     'reflect-metadata': devDependencies['reflect-metadata'],
     rxjs: devDependencies.rxjs,
   };
@@ -129,8 +129,8 @@ const {
   DrizzleModule,
   InjectDrizzle,
   getDrizzleClientToken,
-} = require('nest-drizzle-native');
-const packageJson = require('nest-drizzle-native/package.json');
+} = require('@nest-native/drizzle');
+const packageJson = require('@nest-native/drizzle/package.json');
 
 const fakeClient = {
   query: {

@@ -1,6 +1,6 @@
 # Multi-Tenant Applications
 
-`nest-drizzle-native` gives tenant-aware applications stable Nest provider
+`@nest-native/drizzle` gives tenant-aware applications stable Nest provider
 tokens, but it does not choose tenants for you. Keep tenant resolution,
 authorization, connection caching, and eviction in application code so the
 security boundary stays visible.

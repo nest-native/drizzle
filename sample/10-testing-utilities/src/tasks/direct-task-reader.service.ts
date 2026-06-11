@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { InjectDrizzle } from 'nest-drizzle-native';
+import { InjectDrizzle } from '@nest-native/drizzle';
 
 export type DirectTaskClient = Record<PropertyKey, unknown> & {
   query: {

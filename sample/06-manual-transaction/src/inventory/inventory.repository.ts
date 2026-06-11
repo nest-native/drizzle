@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { count, eq, sql } from 'drizzle-orm';
-import { InjectDrizzle, InjectTransaction } from 'nest-drizzle-native';
+import { InjectDrizzle, InjectTransaction } from '@nest-native/drizzle';
 import type { AppDatabase } from '../database';
 import { inventoryItems, reservations } from '../schema';
 

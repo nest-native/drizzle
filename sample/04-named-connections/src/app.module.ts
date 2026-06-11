@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { DrizzleModule } from 'nest-drizzle-native';
+import { DrizzleModule } from '@nest-native/drizzle';
 import { analyticsSchema } from './analytics.schema';
 import { appSchema } from './app.schema';
 import {
