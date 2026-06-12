@@ -19,7 +19,7 @@ leakage.
 
 Use GitHub's private vulnerability reporting for this repository when available:
 
-<https://github.com/nest-native/nest-drizzle-native/security/advisories/new>
+<https://github.com/nest-native/drizzle/security/advisories/new>
 
 If private reporting is unavailable, contact the maintainer through the GitHub
 profile and include only the minimum information needed to establish a private

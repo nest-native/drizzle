@@ -90,7 +90,7 @@ schema and migration files; the application owns when and how database state is
 changed.
 
 See the runnable
-[`17-drizzle-kit-migrations`](https://github.com/nest-native/nest-drizzle-native/tree/main/sample/17-drizzle-kit-migrations)
+[`17-drizzle-kit-migrations`](https://github.com/nest-native/drizzle/tree/main/sample/17-drizzle-kit-migrations)
 sample for the minimal pattern, and use
 [Migration Operations](migration-operations.md) for production release
 sequencing, multi-replica safety, backfills, and readiness checks.
@@ -143,7 +143,7 @@ application dependency in this shape; it is not part of the published package
 contract.
 
 See
-[`18-health-readiness`](https://github.com/nest-native/nest-drizzle-native/tree/main/sample/18-health-readiness)
+[`18-health-readiness`](https://github.com/nest-native/drizzle/tree/main/sample/18-health-readiness)
 for a focused liveness/readiness sample.
 
 ## Request Scope

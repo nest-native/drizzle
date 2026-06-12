@@ -1,6 +1,6 @@
 {
   "name": "@nest-native/drizzle",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Nest-native Drizzle ORM integration with DI, repositories, and transaction decorators",
   "keywords": [
     "nestjs",
@@ -15,14 +15,14 @@
   ],
   "author": "Rodrigo Nogueira",
   "license": "MIT",
-  "homepage": "https://github.com/nest-native/nest-drizzle-native#readme",
+  "homepage": "https://github.com/nest-native/drizzle#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nest-native/nest-drizzle-native.git",
+    "url": "git+https://github.com/nest-native/drizzle.git",
     "directory": "packages/drizzle"
   },
   "bugs": {
-    "url": "https://github.com/nest-native/nest-drizzle-native/issues"
+    "url": "https://github.com/nest-native/drizzle/issues"
   },
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",

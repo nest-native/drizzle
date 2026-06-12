@@ -5,7 +5,7 @@ schema and migration files; your application owns when database state changes.
 That boundary keeps deploy behavior visible and driver-aware.
 
 The runnable
-[`17-drizzle-kit-migrations`](https://github.com/nest-native/nest-drizzle-native/tree/main/sample/17-drizzle-kit-migrations)
+[`17-drizzle-kit-migrations`](https://github.com/nest-native/drizzle/tree/main/sample/17-drizzle-kit-migrations)
 sample shows the basic pattern. This page covers the production decisions that
 usually come next.
 
@@ -118,9 +118,9 @@ Recommended coverage:
 - service-backed drivers run in CI when dialect behavior matters
 
 The focused
-[`17-drizzle-kit-migrations`](https://github.com/nest-native/nest-drizzle-native/tree/main/sample/17-drizzle-kit-migrations)
+[`17-drizzle-kit-migrations`](https://github.com/nest-native/drizzle/tree/main/sample/17-drizzle-kit-migrations)
 sample demonstrates migrated startup against a local database. The
-[`15-postgres-driver`](https://github.com/nest-native/nest-drizzle-native/tree/main/sample/15-postgres-driver)
+[`15-postgres-driver`](https://github.com/nest-native/drizzle/tree/main/sample/15-postgres-driver)
 and
-[`16-mysql-driver`](https://github.com/nest-native/nest-drizzle-native/tree/main/sample/16-mysql-driver)
+[`16-mysql-driver`](https://github.com/nest-native/drizzle/tree/main/sample/16-mysql-driver)
 samples show how CI-backed service databases fit into the same app-owned model.

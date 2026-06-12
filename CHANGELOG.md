@@ -10,6 +10,16 @@ package release is useful for users.
 
 No user-facing changes yet.
 
+## 0.3.1 - 2026-06-12
+
+### Changed
+
+- Renamed the GitHub repository from `nest-native/nest-drizzle-native` to
+  `nest-native/drizzle` to match the npm package name. Stars, forks, issues,
+  and history are preserved, and the old repository URL redirects.
+- Updated all repository, homepage, bugs, badge, and documentation links to
+  the new repository and the new docs path (`nest-native.dev/drizzle/`).
+
 ## 0.3.0 - 2026-06-11
 
 ### Changed

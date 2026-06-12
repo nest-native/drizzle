@@ -7,7 +7,7 @@
   <a href="https://www.npmjs.com/package/@nest-native/drizzle"><img src="https://img.shields.io/npm/dm/@nest-native/drizzle.svg" alt="NPM Downloads" /></a>
   <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/license-MIT-green.svg" alt="Package License" /></a>
   <img src="https://img.shields.io/badge/coverage-100%25-brightgreen.svg" alt="Test Coverage" />
-  <a href="https://nest-native.github.io/nest-drizzle-native/"><img src="https://img.shields.io/badge/docs-nest--drizzle--native-0f766e.svg" alt="Documentation" /></a>
+  <a href="https://nest-native.github.io/drizzle/"><img src="https://img.shields.io/badge/docs-%40nest--native%2Fdrizzle-0f766e.svg" alt="Documentation" /></a>
 </p>
 
 ## What This Is
@@ -23,11 +23,11 @@ the package gives those pieces a clean Nest home.
 
 First paths:
 
-- [Quick Start](https://nest-native.github.io/nest-drizzle-native/docs/quick-start)
-- [Samples](https://nest-native.github.io/nest-drizzle-native/docs/samples/)
-- [Transactions](https://nest-native.github.io/nest-drizzle-native/docs/transactions)
-- [Testing](https://nest-native.github.io/nest-drizzle-native/docs/testing)
-- [Deployment](https://nest-native.github.io/nest-drizzle-native/docs/deployment)
+- [Quick Start](https://nest-native.github.io/drizzle/docs/quick-start)
+- [Samples](https://nest-native.github.io/drizzle/docs/samples/)
+- [Transactions](https://nest-native.github.io/drizzle/docs/transactions)
+- [Testing](https://nest-native.github.io/drizzle/docs/testing)
+- [Deployment](https://nest-native.github.io/drizzle/docs/deployment)
 
 ## Why Use It
 
@@ -252,7 +252,7 @@ See [website/docs/transactions.md](website/docs/transactions.md) for the require
 
 Runnable samples cover migrations, health checks, drivers, transactions,
 testing, validation, raw SQL, and Swagger. Start with the
-[sample catalog](https://nest-native.github.io/nest-drizzle-native/docs/samples/catalog)
+[sample catalog](https://nest-native.github.io/drizzle/docs/samples/catalog)
 when you want a complete working pattern.
 
 ## Testing
@@ -312,29 +312,29 @@ The documentation is the canonical source of truth for usage guides and support
 policy:
 
 - Start:
-  [Introduction](https://nest-native.github.io/nest-drizzle-native/docs/introduction),
-  [Why Native](https://nest-native.github.io/nest-drizzle-native/docs/why-native),
-  [Quick Start](https://nest-native.github.io/nest-drizzle-native/docs/quick-start),
-  [Adoption Guide](https://nest-native.github.io/nest-drizzle-native/docs/adoption-guide)
+  [Introduction](https://nest-native.github.io/drizzle/docs/introduction),
+  [Why Native](https://nest-native.github.io/drizzle/docs/why-native),
+  [Quick Start](https://nest-native.github.io/drizzle/docs/quick-start),
+  [Adoption Guide](https://nest-native.github.io/drizzle/docs/adoption-guide)
 - Core API:
-  [Repositories](https://nest-native.github.io/nest-drizzle-native/docs/repositories),
-  [Transactions](https://nest-native.github.io/nest-drizzle-native/docs/transactions),
-  [API Reference](https://nest-native.github.io/nest-drizzle-native/docs/api-reference)
+  [Repositories](https://nest-native.github.io/drizzle/docs/repositories),
+  [Transactions](https://nest-native.github.io/drizzle/docs/transactions),
+  [API Reference](https://nest-native.github.io/drizzle/docs/api-reference)
 - Testing:
-  [Testing](https://nest-native.github.io/nest-drizzle-native/docs/testing),
+  [Testing](https://nest-native.github.io/drizzle/docs/testing),
 - Production:
-  [Production Patterns](https://nest-native.github.io/nest-drizzle-native/docs/production-patterns),
-  [Multi-Tenant Applications](https://nest-native.github.io/nest-drizzle-native/docs/multi-tenant),
-  [Deployment](https://nest-native.github.io/nest-drizzle-native/docs/deployment),
-  [Deployment Recipes](https://nest-native.github.io/nest-drizzle-native/docs/deployment-recipes),
-  [Migration Operations](https://nest-native.github.io/nest-drizzle-native/docs/migration-operations)
+  [Production Patterns](https://nest-native.github.io/drizzle/docs/production-patterns),
+  [Multi-Tenant Applications](https://nest-native.github.io/drizzle/docs/multi-tenant),
+  [Deployment](https://nest-native.github.io/drizzle/docs/deployment),
+  [Deployment Recipes](https://nest-native.github.io/drizzle/docs/deployment-recipes),
+  [Migration Operations](https://nest-native.github.io/drizzle/docs/migration-operations)
 - Learn by example:
-  [Samples](https://nest-native.github.io/nest-drizzle-native/docs/samples/)
+  [Samples](https://nest-native.github.io/drizzle/docs/samples/)
 - Project reference:
-  [Quality and CI](https://nest-native.github.io/nest-drizzle-native/docs/quality-and-ci),
-  [Contributing](https://nest-native.github.io/nest-drizzle-native/docs/contributing),
-  [Support Policy](https://nest-native.github.io/nest-drizzle-native/docs/support-policy),
-  [Roadmap](https://nest-native.github.io/nest-drizzle-native/docs/roadmap)
+  [Quality and CI](https://nest-native.github.io/drizzle/docs/quality-and-ci),
+  [Contributing](https://nest-native.github.io/drizzle/docs/contributing),
+  [Support Policy](https://nest-native.github.io/drizzle/docs/support-policy),
+  [Roadmap](https://nest-native.github.io/drizzle/docs/roadmap)
 
 ## Roadmap
 

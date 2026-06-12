@@ -13,8 +13,8 @@ coverage, and a Fastify bootstrap file.
 
 Inspect:
 
-- [`00-showcase/src/app.module.ts`](https://github.com/nest-native/nest-drizzle-native/tree/main/sample/00-showcase/src/app.module.ts)
-- [`00-showcase/scripts/smoke.ts`](https://github.com/nest-native/nest-drizzle-native/tree/main/sample/00-showcase/scripts/smoke.ts)
+- [`00-showcase/src/app.module.ts`](https://github.com/nest-native/drizzle/tree/main/sample/00-showcase/src/app.module.ts)
+- [`00-showcase/scripts/smoke.ts`](https://github.com/nest-native/drizzle/tree/main/sample/00-showcase/scripts/smoke.ts)
 
 ## Nest-Native Database Registration
 
@@ -23,8 +23,8 @@ clients through normal Nest modules.
 
 Inspect:
 
-- [`01-basic-client-injection/src/app.module.ts`](https://github.com/nest-native/nest-drizzle-native/tree/main/sample/01-basic-client-injection/src/app.module.ts)
-- [`03-for-root-async/src/app.module.ts`](https://github.com/nest-native/nest-drizzle-native/tree/main/sample/03-for-root-async/src/app.module.ts)
+- [`01-basic-client-injection/src/app.module.ts`](https://github.com/nest-native/drizzle/tree/main/sample/01-basic-client-injection/src/app.module.ts)
+- [`03-for-root-async/src/app.module.ts`](https://github.com/nest-native/drizzle/tree/main/sample/03-for-root-async/src/app.module.ts)
 
 ## Explicit Drizzle Queries
 
@@ -33,8 +33,8 @@ translation layers.
 
 Inspect:
 
-- [`01-basic-client-injection/src/schema.ts`](https://github.com/nest-native/nest-drizzle-native/tree/main/sample/01-basic-client-injection/src/schema.ts)
-- [`02-repositories/src/notes/notes.repository.ts`](https://github.com/nest-native/nest-drizzle-native/tree/main/sample/02-repositories/src/notes/notes.repository.ts)
+- [`01-basic-client-injection/src/schema.ts`](https://github.com/nest-native/drizzle/tree/main/sample/01-basic-client-injection/src/schema.ts)
+- [`02-repositories/src/notes/notes.repository.ts`](https://github.com/nest-native/drizzle/tree/main/sample/02-repositories/src/notes/notes.repository.ts)
 
 ## Repository Providers Without Active Record Magic
 
@@ -43,8 +43,8 @@ providers. `DrizzleModule.forFeature()` handles feature-module registration.
 
 Inspect:
 
-- [`02-repositories/src/notes/notes.module.ts`](https://github.com/nest-native/nest-drizzle-native/tree/main/sample/02-repositories/src/notes/notes.module.ts)
-- [`02-repositories/src/notes/notes.repository.ts`](https://github.com/nest-native/nest-drizzle-native/tree/main/sample/02-repositories/src/notes/notes.repository.ts)
+- [`02-repositories/src/notes/notes.module.ts`](https://github.com/nest-native/drizzle/tree/main/sample/02-repositories/src/notes/notes.module.ts)
+- [`02-repositories/src/notes/notes.repository.ts`](https://github.com/nest-native/drizzle/tree/main/sample/02-repositories/src/notes/notes.repository.ts)
 
 ## Multiple Connections
 
@@ -53,8 +53,8 @@ manual token plumbing in application code.
 
 Inspect:
 
-- [`04-named-connections/src/app.module.ts`](https://github.com/nest-native/nest-drizzle-native/tree/main/sample/04-named-connections/src/app.module.ts)
-- [`04-named-connections/src/products/products.service.ts`](https://github.com/nest-native/nest-drizzle-native/tree/main/sample/04-named-connections/src/products/products.service.ts)
+- [`04-named-connections/src/app.module.ts`](https://github.com/nest-native/drizzle/tree/main/sample/04-named-connections/src/app.module.ts)
+- [`04-named-connections/src/products/products.service.ts`](https://github.com/nest-native/drizzle/tree/main/sample/04-named-connections/src/products/products.service.ts)
 
 ## Driver-Owned Lifecycle
 
@@ -64,12 +64,12 @@ handle.
 
 Inspect:
 
-- [`14-better-sqlite3-driver/src/database.ts`](https://github.com/nest-native/nest-drizzle-native/tree/main/sample/14-better-sqlite3-driver/src/database.ts)
-- [`14-better-sqlite3-driver/src/app.module.ts`](https://github.com/nest-native/nest-drizzle-native/tree/main/sample/14-better-sqlite3-driver/src/app.module.ts)
-- [`15-postgres-driver/src/database.ts`](https://github.com/nest-native/nest-drizzle-native/tree/main/sample/15-postgres-driver/src/database.ts)
-- [`15-postgres-driver/src/app.module.ts`](https://github.com/nest-native/nest-drizzle-native/tree/main/sample/15-postgres-driver/src/app.module.ts)
-- [`16-mysql-driver/src/database.ts`](https://github.com/nest-native/nest-drizzle-native/tree/main/sample/16-mysql-driver/src/database.ts)
-- [`16-mysql-driver/src/app.module.ts`](https://github.com/nest-native/nest-drizzle-native/tree/main/sample/16-mysql-driver/src/app.module.ts)
+- [`14-better-sqlite3-driver/src/database.ts`](https://github.com/nest-native/drizzle/tree/main/sample/14-better-sqlite3-driver/src/database.ts)
+- [`14-better-sqlite3-driver/src/app.module.ts`](https://github.com/nest-native/drizzle/tree/main/sample/14-better-sqlite3-driver/src/app.module.ts)
+- [`15-postgres-driver/src/database.ts`](https://github.com/nest-native/drizzle/tree/main/sample/15-postgres-driver/src/database.ts)
+- [`15-postgres-driver/src/app.module.ts`](https://github.com/nest-native/drizzle/tree/main/sample/15-postgres-driver/src/app.module.ts)
+- [`16-mysql-driver/src/database.ts`](https://github.com/nest-native/drizzle/tree/main/sample/16-mysql-driver/src/database.ts)
+- [`16-mysql-driver/src/app.module.ts`](https://github.com/nest-native/drizzle/tree/main/sample/16-mysql-driver/src/app.module.ts)
 
 ## App-Owned Migrations
 
@@ -79,9 +79,9 @@ inside the package.
 
 Inspect:
 
-- [`17-drizzle-kit-migrations/drizzle.config.ts`](https://github.com/nest-native/nest-drizzle-native/tree/main/sample/17-drizzle-kit-migrations/drizzle.config.ts)
-- [`17-drizzle-kit-migrations/drizzle`](https://github.com/nest-native/nest-drizzle-native/tree/main/sample/17-drizzle-kit-migrations/drizzle)
-- [`17-drizzle-kit-migrations/src/database.ts`](https://github.com/nest-native/nest-drizzle-native/tree/main/sample/17-drizzle-kit-migrations/src/database.ts)
+- [`17-drizzle-kit-migrations/drizzle.config.ts`](https://github.com/nest-native/drizzle/tree/main/sample/17-drizzle-kit-migrations/drizzle.config.ts)
+- [`17-drizzle-kit-migrations/drizzle`](https://github.com/nest-native/drizzle/tree/main/sample/17-drizzle-kit-migrations/drizzle)
+- [`17-drizzle-kit-migrations/src/database.ts`](https://github.com/nest-native/drizzle/tree/main/sample/17-drizzle-kit-migrations/src/database.ts)
 
 ## Deployment Readiness
 
@@ -91,9 +91,9 @@ state before routing traffic.
 
 Inspect:
 
-- [`18-health-readiness/src/health/health.controller.ts`](https://github.com/nest-native/nest-drizzle-native/tree/main/sample/18-health-readiness/src/health/health.controller.ts)
-- [`18-health-readiness/src/health/health.repository.ts`](https://github.com/nest-native/nest-drizzle-native/tree/main/sample/18-health-readiness/src/health/health.repository.ts)
-- [`18-health-readiness/scripts/smoke.ts`](https://github.com/nest-native/nest-drizzle-native/tree/main/sample/18-health-readiness/scripts/smoke.ts)
+- [`18-health-readiness/src/health/health.controller.ts`](https://github.com/nest-native/drizzle/tree/main/sample/18-health-readiness/src/health/health.controller.ts)
+- [`18-health-readiness/src/health/health.repository.ts`](https://github.com/nest-native/drizzle/tree/main/sample/18-health-readiness/src/health/health.repository.ts)
+- [`18-health-readiness/scripts/smoke.ts`](https://github.com/nest-native/drizzle/tree/main/sample/18-health-readiness/scripts/smoke.ts)
 
 ## Transaction Decorators
 
@@ -102,8 +102,8 @@ coordinate commits and rollbacks across injected providers.
 
 Inspect:
 
-- [`05-transactions-cls/src/transfers/transfers.service.ts`](https://github.com/nest-native/nest-drizzle-native/tree/main/sample/05-transactions-cls/src/transfers/transfers.service.ts)
-- [`05-transactions-cls/scripts/smoke.ts`](https://github.com/nest-native/nest-drizzle-native/tree/main/sample/05-transactions-cls/scripts/smoke.ts)
+- [`05-transactions-cls/src/transfers/transfers.service.ts`](https://github.com/nest-native/drizzle/tree/main/sample/05-transactions-cls/src/transfers/transfers.service.ts)
+- [`05-transactions-cls/scripts/smoke.ts`](https://github.com/nest-native/drizzle/tree/main/sample/05-transactions-cls/scripts/smoke.ts)
 
 ## Transaction Escape Hatch
 
@@ -112,8 +112,8 @@ transaction object when query composition really needs it.
 
 Inspect:
 
-- [`06-manual-transaction/src/inventory/inventory.repository.ts`](https://github.com/nest-native/nest-drizzle-native/tree/main/sample/06-manual-transaction/src/inventory/inventory.repository.ts)
-- [`06-manual-transaction/scripts/smoke.ts`](https://github.com/nest-native/nest-drizzle-native/tree/main/sample/06-manual-transaction/scripts/smoke.ts)
+- [`06-manual-transaction/src/inventory/inventory.repository.ts`](https://github.com/nest-native/drizzle/tree/main/sample/06-manual-transaction/src/inventory/inventory.repository.ts)
+- [`06-manual-transaction/scripts/smoke.ts`](https://github.com/nest-native/drizzle/tree/main/sample/06-manual-transaction/scripts/smoke.ts)
 
 ## Classic Nest DTO Validation
 
@@ -122,8 +122,8 @@ path when the HTTP contract should be modeled as DTO classes.
 
 Inspect:
 
-- [`08-validation-class-validator/src/customers/create-customer.dto.ts`](https://github.com/nest-native/nest-drizzle-native/tree/main/sample/08-validation-class-validator/src/customers/create-customer.dto.ts)
-- [`08-validation-class-validator/src/app.module.ts`](https://github.com/nest-native/nest-drizzle-native/tree/main/sample/08-validation-class-validator/src/app.module.ts)
+- [`08-validation-class-validator/src/customers/create-customer.dto.ts`](https://github.com/nest-native/drizzle/tree/main/sample/08-validation-class-validator/src/customers/create-customer.dto.ts)
+- [`08-validation-class-validator/src/app.module.ts`](https://github.com/nest-native/drizzle/tree/main/sample/08-validation-class-validator/src/app.module.ts)
 
 ## Optional Schema-Derived Validation
 
@@ -133,8 +133,8 @@ required library dependency or default Nest validation path.
 
 Inspect:
 
-- [`07-validation-drizzle-zod/src/tickets/ticket.validation.ts`](https://github.com/nest-native/nest-drizzle-native/tree/main/sample/07-validation-drizzle-zod/src/tickets/ticket.validation.ts)
-- [`07-validation-drizzle-zod/scripts/smoke.ts`](https://github.com/nest-native/nest-drizzle-native/tree/main/sample/07-validation-drizzle-zod/scripts/smoke.ts)
+- [`07-validation-drizzle-zod/src/tickets/ticket.validation.ts`](https://github.com/nest-native/drizzle/tree/main/sample/07-validation-drizzle-zod/src/tickets/ticket.validation.ts)
+- [`07-validation-drizzle-zod/scripts/smoke.ts`](https://github.com/nest-native/drizzle/tree/main/sample/07-validation-drizzle-zod/scripts/smoke.ts)
 
 ## OpenAPI Contracts
 
@@ -143,8 +143,8 @@ Drizzle persistence explicit and type-safe behind the HTTP boundary.
 
 Inspect:
 
-- [`12-swagger-openapi/src/projects/projects.controller.ts`](https://github.com/nest-native/nest-drizzle-native/tree/main/sample/12-swagger-openapi/src/projects/projects.controller.ts)
-- [`12-swagger-openapi/scripts/smoke.ts`](https://github.com/nest-native/nest-drizzle-native/tree/main/sample/12-swagger-openapi/scripts/smoke.ts)
+- [`12-swagger-openapi/src/projects/projects.controller.ts`](https://github.com/nest-native/drizzle/tree/main/sample/12-swagger-openapi/src/projects/projects.controller.ts)
+- [`12-swagger-openapi/scripts/smoke.ts`](https://github.com/nest-native/drizzle/tree/main/sample/12-swagger-openapi/scripts/smoke.ts)
 
 ## Optional Zod Validation With Swagger/OpenAPI Docs
 
@@ -156,8 +156,8 @@ with DTOs and `ValidationPipe`.
 
 Inspect:
 
-- [`13-zod-openapi-bridge/src/tickets/tickets.controller.ts`](https://github.com/nest-native/nest-drizzle-native/tree/main/sample/13-zod-openapi-bridge/src/tickets/tickets.controller.ts)
-- [`13-zod-openapi-bridge/scripts/smoke.ts`](https://github.com/nest-native/nest-drizzle-native/tree/main/sample/13-zod-openapi-bridge/scripts/smoke.ts)
+- [`13-zod-openapi-bridge/src/tickets/tickets.controller.ts`](https://github.com/nest-native/drizzle/tree/main/sample/13-zod-openapi-bridge/src/tickets/tickets.controller.ts)
+- [`13-zod-openapi-bridge/scripts/smoke.ts`](https://github.com/nest-native/drizzle/tree/main/sample/13-zod-openapi-bridge/scripts/smoke.ts)
 
 ## Opt-In Error Mapping
 
@@ -166,8 +166,8 @@ failures into Nest exceptions where persistence meets application semantics.
 
 Inspect:
 
-- [`09-error-mapping/src/members/members.repository.ts`](https://github.com/nest-native/nest-drizzle-native/tree/main/sample/09-error-mapping/src/members/members.repository.ts)
-- [`09-error-mapping/scripts/smoke.ts`](https://github.com/nest-native/nest-drizzle-native/tree/main/sample/09-error-mapping/scripts/smoke.ts)
+- [`09-error-mapping/src/members/members.repository.ts`](https://github.com/nest-native/drizzle/tree/main/sample/09-error-mapping/src/members/members.repository.ts)
+- [`09-error-mapping/scripts/smoke.ts`](https://github.com/nest-native/drizzle/tree/main/sample/09-error-mapping/scripts/smoke.ts)
 
 ## Honest Testing Utilities
 
@@ -176,8 +176,8 @@ mock helpers stay intentionally shallow.
 
 Inspect:
 
-- [`10-testing-utilities/scripts/smoke.ts`](https://github.com/nest-native/nest-drizzle-native/tree/main/sample/10-testing-utilities/scripts/smoke.ts)
-- [`10-testing-utilities/src/tasks/tasks.repository.ts`](https://github.com/nest-native/nest-drizzle-native/tree/main/sample/10-testing-utilities/src/tasks/tasks.repository.ts)
+- [`10-testing-utilities/scripts/smoke.ts`](https://github.com/nest-native/drizzle/tree/main/sample/10-testing-utilities/scripts/smoke.ts)
+- [`10-testing-utilities/src/tasks/tasks.repository.ts`](https://github.com/nest-native/drizzle/tree/main/sample/10-testing-utilities/src/tasks/tasks.repository.ts)
 
 ## Transaction Isolation Tests
 
@@ -187,8 +187,8 @@ rollback, and CLS context cleanup.
 
 Inspect:
 
-- [`19-transaction-isolation-testing/scripts/smoke.ts`](https://github.com/nest-native/nest-drizzle-native/tree/main/sample/19-transaction-isolation-testing/scripts/smoke.ts)
-- [`19-transaction-isolation-testing/src/inventory/inventory.service.ts`](https://github.com/nest-native/nest-drizzle-native/tree/main/sample/19-transaction-isolation-testing/src/inventory/inventory.service.ts)
+- [`19-transaction-isolation-testing/scripts/smoke.ts`](https://github.com/nest-native/drizzle/tree/main/sample/19-transaction-isolation-testing/scripts/smoke.ts)
+- [`19-transaction-isolation-testing/src/inventory/inventory.service.ts`](https://github.com/nest-native/drizzle/tree/main/sample/19-transaction-isolation-testing/src/inventory/inventory.service.ts)
 
 ## Safe Raw SQL
 
@@ -198,5 +198,5 @@ of string concatenation.
 
 Inspect:
 
-- [`11-raw-sql-escape-hatch/src/reports/reports.repository.ts`](https://github.com/nest-native/nest-drizzle-native/tree/main/sample/11-raw-sql-escape-hatch/src/reports/reports.repository.ts)
-- [`11-raw-sql-escape-hatch/scripts/smoke.ts`](https://github.com/nest-native/nest-drizzle-native/tree/main/sample/11-raw-sql-escape-hatch/scripts/smoke.ts)
+- [`11-raw-sql-escape-hatch/src/reports/reports.repository.ts`](https://github.com/nest-native/drizzle/tree/main/sample/11-raw-sql-escape-hatch/src/reports/reports.repository.ts)
+- [`11-raw-sql-escape-hatch/scripts/smoke.ts`](https://github.com/nest-native/drizzle/tree/main/sample/11-raw-sql-escape-hatch/scripts/smoke.ts)

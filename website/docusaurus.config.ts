@@ -12,10 +12,10 @@ const config: Config = {
   },
 
   url: 'https://nest-native.github.io',
-  baseUrl: '/nest-drizzle-native/',
+  baseUrl: '/drizzle/',
 
   organizationName: 'nest-native',
-  projectName: 'nest-drizzle-native',
+  projectName: 'drizzle',
 
   onBrokenLinks: 'throw',
 
@@ -31,7 +31,7 @@ const config: Config = {
         docs: {
           sidebarPath: './sidebars.ts',
           editUrl:
-            'https://github.com/nest-native/nest-drizzle-native/tree/main/website/',
+            'https://github.com/nest-native/drizzle/tree/main/website/',
         },
         blog: false,
         theme: {
@@ -61,7 +61,7 @@ const config: Config = {
           position: 'right',
         },
         {
-          href: 'https://github.com/nest-native/nest-drizzle-native',
+          href: 'https://github.com/nest-native/drizzle',
           label: 'GitHub',
           position: 'right',
         },
@@ -83,7 +83,7 @@ const config: Config = {
           items: [
             {
               label: 'GitHub',
-              href: 'https://github.com/nest-native/nest-drizzle-native',
+              href: 'https://github.com/nest-native/drizzle',
             },
             {
               label: 'npm',

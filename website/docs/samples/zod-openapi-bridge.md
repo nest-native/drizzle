@@ -202,9 +202,9 @@ npm run test --workspace nest-native-drizzle-sample-13-zod-openapi-bridge
 
 Inspect the implementation:
 
-- [`sample/13-zod-openapi-bridge/src/tickets/ticket.validation.ts`](https://github.com/nest-native/nest-drizzle-native/tree/main/sample/13-zod-openapi-bridge/src/tickets/ticket.validation.ts)
-- [`sample/13-zod-openapi-bridge/src/tickets/tickets.controller.ts`](https://github.com/nest-native/nest-drizzle-native/tree/main/sample/13-zod-openapi-bridge/src/tickets/tickets.controller.ts)
-- [`sample/13-zod-openapi-bridge/scripts/smoke.ts`](https://github.com/nest-native/nest-drizzle-native/tree/main/sample/13-zod-openapi-bridge/scripts/smoke.ts)
+- [`sample/13-zod-openapi-bridge/src/tickets/ticket.validation.ts`](https://github.com/nest-native/drizzle/tree/main/sample/13-zod-openapi-bridge/src/tickets/ticket.validation.ts)
+- [`sample/13-zod-openapi-bridge/src/tickets/tickets.controller.ts`](https://github.com/nest-native/drizzle/tree/main/sample/13-zod-openapi-bridge/src/tickets/tickets.controller.ts)
+- [`sample/13-zod-openapi-bridge/scripts/smoke.ts`](https://github.com/nest-native/drizzle/tree/main/sample/13-zod-openapi-bridge/scripts/smoke.ts)
 
 ## Public Helper Boundary
 

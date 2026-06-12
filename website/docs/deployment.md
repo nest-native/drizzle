@@ -39,7 +39,7 @@ scale-out event.
 
 The package intentionally does not hide Drizzle's migration model behind a Nest
 abstraction. See the
-[`17-drizzle-kit-migrations`](https://github.com/nest-native/nest-drizzle-native/tree/main/sample/17-drizzle-kit-migrations)
+[`17-drizzle-kit-migrations`](https://github.com/nest-native/drizzle/tree/main/sample/17-drizzle-kit-migrations)
 sample for the app-owned pattern, and see
 [Migration Operations](migration-operations.md) for release-job, multi-replica,
 backfill, and readiness guidance.
@@ -57,7 +57,7 @@ Expose two different signals:
 
 Readiness should fail closed when the database or required migration state is
 unavailable. See the
-[`18-health-readiness`](https://github.com/nest-native/nest-drizzle-native/tree/main/sample/18-health-readiness)
+[`18-health-readiness`](https://github.com/nest-native/drizzle/tree/main/sample/18-health-readiness)
 sample for a minimal implementation.
 
 ### Optional Terminus Integration
