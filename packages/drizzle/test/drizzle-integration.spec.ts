@@ -123,7 +123,7 @@ async function createIntegrationModule(
 ): Promise<TestingModule> {
   const databaseFile = join(
     tmpdir(),
-    `nest-drizzle-native-${process.pid}-${Date.now()}-${Math.random()}.db`,
+    `nest-native-drizzle-${process.pid}-${Date.now()}-${Math.random()}.db`,
   );
   databaseFiles.push(databaseFile);
   const client = createClient({ url: `file:${databaseFile}` });

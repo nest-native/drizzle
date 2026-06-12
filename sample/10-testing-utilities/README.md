@@ -15,13 +15,13 @@ This sample shows the official test helpers and where mocks are appropriate.
 ## Run
 
 ```bash
-npm run start --workspace nest-drizzle-native-sample-10-testing-utilities
+npm run start --workspace nest-native-drizzle-sample-10-testing-utilities
 ```
 
 ## Validate
 
 ```bash
-npm run test --workspace nest-drizzle-native-sample-10-testing-utilities
+npm run test --workspace nest-native-drizzle-sample-10-testing-utilities
 ```
 
 ## Why This Matters

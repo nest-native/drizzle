@@ -17,13 +17,13 @@ This sample shows `@Transactional()` with the real
 ## Run
 
 ```bash
-npm run start --workspace nest-drizzle-native-sample-05-transactions-cls
+npm run start --workspace nest-native-drizzle-sample-05-transactions-cls
 ```
 
 ## Validate
 
 ```bash
-npm run test --workspace nest-drizzle-native-sample-05-transactions-cls
+npm run test --workspace nest-native-drizzle-sample-05-transactions-cls
 ```
 
 ## Why This Matters

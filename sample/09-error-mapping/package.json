@@ -1,5 +1,5 @@
 {
-  "name": "nest-drizzle-native-sample-09-error-mapping",
+  "name": "nest-native-drizzle-sample-09-error-mapping",
   "version": "0.0.0",
   "private": true,
   "description": "Sample 09 - database error mapping",

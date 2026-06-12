@@ -16,13 +16,13 @@ This sample shows classic NestJS DTO validation with `class-validator`,
 ## Run
 
 ```bash
-npm run start --workspace nest-drizzle-native-sample-08-validation-class-validator
+npm run start --workspace nest-native-drizzle-sample-08-validation-class-validator
 ```
 
 ## Validate
 
 ```bash
-npm run test --workspace nest-drizzle-native-sample-08-validation-class-validator
+npm run test --workspace nest-native-drizzle-sample-08-validation-class-validator
 ```
 
 ## Why This Matters

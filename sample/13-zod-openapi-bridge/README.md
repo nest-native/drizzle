@@ -33,13 +33,13 @@ stay aligned without adding package-level magic.
 ## Run
 
 ```bash
-npm run start --workspace nest-drizzle-native-sample-13-zod-openapi-bridge
+npm run start --workspace nest-native-drizzle-sample-13-zod-openapi-bridge
 ```
 
 ## Validate
 
 ```bash
-npm run test --workspace nest-drizzle-native-sample-13-zod-openapi-bridge
+npm run test --workspace nest-native-drizzle-sample-13-zod-openapi-bridge
 ```
 
 ## Why This Matters

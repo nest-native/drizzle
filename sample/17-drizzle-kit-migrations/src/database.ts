@@ -19,7 +19,7 @@ export interface DatabaseHandle {
 export function createDatabase(): DatabaseHandle {
   const path = join(
     tmpdir(),
-    `nest-drizzle-native-sample-17-${process.pid}.db`,
+    `nest-native-drizzle-sample-17-${process.pid}.db`,
   );
 
   if (existsSync(path)) {

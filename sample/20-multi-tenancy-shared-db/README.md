@@ -20,13 +20,13 @@ that prove cross-tenant reads and writes are rejected**.
 ## Run
 
 ```bash
-npm run start --workspace nest-drizzle-native-sample-20-multi-tenancy-shared-db
+npm run start --workspace nest-native-drizzle-sample-20-multi-tenancy-shared-db
 ```
 
 ## Validate
 
 ```bash
-npm run test --workspace nest-drizzle-native-sample-20-multi-tenancy-shared-db
+npm run test --workspace nest-native-drizzle-sample-20-multi-tenancy-shared-db
 ```
 
 ## Scenario

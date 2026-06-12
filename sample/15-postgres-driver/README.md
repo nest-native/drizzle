@@ -21,13 +21,13 @@ pool through the module shutdown hook.
 
 ```bash
 NEST_DRIZZLE_NATIVE_POSTGRES_URL=postgresql://drizzle:drizzle@127.0.0.1:5432/drizzle \
-  npm run start --workspace nest-drizzle-native-sample-15-postgres-driver
+  npm run start --workspace nest-native-drizzle-sample-15-postgres-driver
 ```
 
 ## Validate
 
 ```bash
-npm run test --workspace nest-drizzle-native-sample-15-postgres-driver
+npm run test --workspace nest-native-drizzle-sample-15-postgres-driver
 ```
 
 The smoke test skips when `NEST_DRIZZLE_NATIVE_POSTGRES_URL` is not set, so the

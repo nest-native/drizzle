@@ -13,7 +13,7 @@ export interface DatabaseHandle {
 
 export function createDatabase(): DatabaseHandle {
   const sqlite = new Database(
-    join(tmpdir(), `nest-drizzle-native-sample-14-${process.pid}.db`),
+    join(tmpdir(), `nest-native-drizzle-sample-14-${process.pid}.db`),
   );
   const db = drizzle(sqlite, { schema });
 

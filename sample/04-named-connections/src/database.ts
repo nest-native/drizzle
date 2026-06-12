@@ -32,6 +32,6 @@ export function createAnalyticsDatabase(): AnalyticsDatabase {
 function databaseFile(name: string): string {
   return join(
     tmpdir(),
-    `nest-drizzle-native-sample-04-${name}-${process.pid}.db`,
+    `nest-native-drizzle-sample-04-${name}-${process.pid}.db`,
   );
 }

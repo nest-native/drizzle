@@ -17,13 +17,13 @@ real Drizzle database client.
 ## Run
 
 ```bash
-npm run start --workspace nest-drizzle-native-sample-01-basic-client
+npm run start --workspace nest-native-drizzle-sample-01-basic-client
 ```
 
 ## Validate
 
 ```bash
-npm run test --workspace nest-drizzle-native-sample-01-basic-client
+npm run test --workspace nest-native-drizzle-sample-01-basic-client
 ```
 
 ## Why This Matters

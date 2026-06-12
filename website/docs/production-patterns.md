@@ -77,7 +77,7 @@ migrations as part of your deployment workflow before normal traffic reaches
 the app.
 
 ```bash
-npm run db:generate --workspace nest-drizzle-native-sample-17-drizzle-kit-migrations
+npm run db:generate --workspace nest-native-drizzle-sample-17-drizzle-kit-migrations
 ```
 
 For local samples or single-process tools, applying migrations during bootstrap

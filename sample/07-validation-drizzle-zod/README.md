@@ -16,13 +16,13 @@ This sample shows request validation derived from a Drizzle table schema with
 ## Run
 
 ```bash
-npm run start --workspace nest-drizzle-native-sample-07-validation-drizzle-zod
+npm run start --workspace nest-native-drizzle-sample-07-validation-drizzle-zod
 ```
 
 ## Validate
 
 ```bash
-npm run test --workspace nest-drizzle-native-sample-07-validation-drizzle-zod
+npm run test --workspace nest-native-drizzle-sample-07-validation-drizzle-zod
 ```
 
 ## Why This Matters

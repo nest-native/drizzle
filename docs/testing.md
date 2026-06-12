@@ -122,10 +122,10 @@ disposable services and run the real round trip before merge.
 
 ```bash
 NEST_DRIZZLE_NATIVE_POSTGRES_URL=postgresql://user:password@127.0.0.1:5432/app \
-  npm run test --workspace nest-drizzle-native-sample-15-postgres-driver
+  npm run test --workspace nest-native-drizzle-sample-15-postgres-driver
 
 NEST_DRIZZLE_NATIVE_MYSQL_URL=mysql://user:password@127.0.0.1:3306/app \
-  npm run test --workspace nest-drizzle-native-sample-16-mysql-driver
+  npm run test --workspace nest-native-drizzle-sample-16-mysql-driver
 ```
 
 Use local-only credentials or disposable CI credentials for these commands.

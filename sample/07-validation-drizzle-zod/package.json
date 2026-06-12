@@ -1,5 +1,5 @@
 {
-  "name": "nest-drizzle-native-sample-07-validation-drizzle-zod",
+  "name": "nest-native-drizzle-sample-07-validation-drizzle-zod",
   "version": "0.0.0",
   "private": true,
   "description": "Sample 07 - Drizzle-Zod validation",

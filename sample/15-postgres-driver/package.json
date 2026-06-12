@@ -1,5 +1,5 @@
 {
-  "name": "nest-drizzle-native-sample-15-postgres-driver",
+  "name": "nest-native-drizzle-sample-15-postgres-driver",
   "version": "0.0.0",
   "private": true,
   "description": "Sample 15 - PostgreSQL driver setup",

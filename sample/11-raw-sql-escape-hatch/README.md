@@ -16,13 +16,13 @@ queries while still using Nest modules, providers, and repository boundaries.
 ## Run
 
 ```bash
-npm run start --workspace nest-drizzle-native-sample-11-raw-sql-escape-hatch
+npm run start --workspace nest-native-drizzle-sample-11-raw-sql-escape-hatch
 ```
 
 ## Validate
 
 ```bash
-npm run test --workspace nest-drizzle-native-sample-11-raw-sql-escape-hatch
+npm run test --workspace nest-native-drizzle-sample-11-raw-sql-escape-hatch
 ```
 
 ## Why This Matters

@@ -1,5 +1,5 @@
 {
-  "name": "nest-drizzle-native-sample-20-multi-tenancy-shared-db",
+  "name": "nest-native-drizzle-sample-20-multi-tenancy-shared-db",
   "version": "0.0.0",
   "private": true,
   "description": "Sample 20 - shared-database multi-tenancy with tenant predicates and negative tests",

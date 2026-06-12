@@ -21,13 +21,13 @@ database-safe.
 ## Run
 
 ```bash
-npm run start --workspace nest-drizzle-native-sample-17-drizzle-kit-migrations
+npm run start --workspace nest-native-drizzle-sample-17-drizzle-kit-migrations
 ```
 
 ## Validate
 
 ```bash
-npm run test --workspace nest-drizzle-native-sample-17-drizzle-kit-migrations
+npm run test --workspace nest-native-drizzle-sample-17-drizzle-kit-migrations
 ```
 
 ## Regenerate Migrations
@@ -35,7 +35,7 @@ npm run test --workspace nest-drizzle-native-sample-17-drizzle-kit-migrations
 After changing `src/schema.ts`, regenerate migrations with:
 
 ```bash
-npm run db:generate --workspace nest-drizzle-native-sample-17-drizzle-kit-migrations
+npm run db:generate --workspace nest-native-drizzle-sample-17-drizzle-kit-migrations
 ```
 
 Commit the generated SQL and metadata. In real deployments, apply migrations as

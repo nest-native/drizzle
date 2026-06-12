@@ -20,13 +20,13 @@ check.
 ## Run
 
 ```bash
-npm run start --workspace nest-drizzle-native-sample-18-health-readiness
+npm run start --workspace nest-native-drizzle-sample-18-health-readiness
 ```
 
 ## Validate
 
 ```bash
-npm run test --workspace nest-drizzle-native-sample-18-health-readiness
+npm run test --workspace nest-native-drizzle-sample-18-health-readiness
 ```
 
 ## Why This Matters

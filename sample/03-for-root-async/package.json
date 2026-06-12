@@ -1,5 +1,5 @@
 {
-  "name": "nest-drizzle-native-sample-03-for-root-async",
+  "name": "nest-native-drizzle-sample-03-for-root-async",
   "version": "0.0.0",
   "private": true,
   "description": "Sample 03 - Async configuration and shutdown",

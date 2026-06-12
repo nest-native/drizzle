@@ -1,5 +1,5 @@
 {
-  "name": "nest-drizzle-native-workspace",
+  "name": "nest-native-drizzle-workspace",
   "version": "0.0.0",
   "private": true,
   "description": "Community standalone monorepo for @nest-native/drizzle and samples",
@@ -27,7 +27,7 @@
     "security:audit:package": "npm audit --audit-level=high",
     "security:audit:docs": "npm --prefix website audit --audit-level=high",
     "security:audit": "npm run security:audit:package && npm run security:audit:docs",
-    "showcase": "node scripts/run-optional-workspace.cjs nest-drizzle-native-showcase test",
+    "showcase": "node scripts/run-optional-workspace.cjs nest-native-drizzle-showcase test",
     "sample:focused": "node scripts/run-focused-samples.mjs",
     "sample": "npm run showcase && npm run sample:focused",
     "ci:sample": "npm run sample",
