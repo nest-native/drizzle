@@ -100,7 +100,7 @@ export class EuReportsRepository {
 ```
 
 Use the
-[`04-named-connections`](https://github.com/nest-native/nest-drizzle-native/tree/main/sample/04-named-connections)
+[`04-named-connections`](https://github.com/nest-native/drizzle/tree/main/sample/04-named-connections)
 sample as the baseline. It proves that schemas and queries stay isolated when
 repositories inject the named client they own.
 

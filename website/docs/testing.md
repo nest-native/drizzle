@@ -66,7 +66,7 @@ The smallest useful pattern is:
 5. assert inserts, updates, filters, ordering, and constraints with real rows
 
 The
-[`10-testing-utilities`](https://github.com/nest-native/nest-drizzle-native/tree/main/sample/10-testing-utilities)
+[`10-testing-utilities`](https://github.com/nest-native/drizzle/tree/main/sample/10-testing-utilities)
 sample shows this split: service orchestration uses repository mocks, while the
 repository query shape uses a real libSQL database.
 
@@ -106,9 +106,9 @@ parallel-friendly and prevents previous runs from leaving hidden state behind.
 
 Inspect:
 
-- [`10-testing-utilities/scripts/smoke.ts`](https://github.com/nest-native/nest-drizzle-native/tree/main/sample/10-testing-utilities/scripts/smoke.ts)
-- [`17-drizzle-kit-migrations/scripts/smoke.ts`](https://github.com/nest-native/nest-drizzle-native/tree/main/sample/17-drizzle-kit-migrations/scripts/smoke.ts)
-- [`19-transaction-isolation-testing/scripts/smoke.ts`](https://github.com/nest-native/nest-drizzle-native/tree/main/sample/19-transaction-isolation-testing/scripts/smoke.ts)
+- [`10-testing-utilities/scripts/smoke.ts`](https://github.com/nest-native/drizzle/tree/main/sample/10-testing-utilities/scripts/smoke.ts)
+- [`17-drizzle-kit-migrations/scripts/smoke.ts`](https://github.com/nest-native/drizzle/tree/main/sample/17-drizzle-kit-migrations/scripts/smoke.ts)
+- [`19-transaction-isolation-testing/scripts/smoke.ts`](https://github.com/nest-native/drizzle/tree/main/sample/19-transaction-isolation-testing/scripts/smoke.ts)
 
 ### Service-Backed Driver Tests
 
@@ -137,8 +137,8 @@ Never commit production database URLs or captured production data.
 
 Inspect:
 
-- [`15-postgres-driver`](https://github.com/nest-native/nest-drizzle-native/tree/main/sample/15-postgres-driver)
-- [`16-mysql-driver`](https://github.com/nest-native/nest-drizzle-native/tree/main/sample/16-mysql-driver)
+- [`15-postgres-driver`](https://github.com/nest-native/drizzle/tree/main/sample/15-postgres-driver)
+- [`16-mysql-driver`](https://github.com/nest-native/drizzle/tree/main/sample/16-mysql-driver)
 
 ### Transaction Behavior Tests
 
@@ -171,7 +171,7 @@ extra setup.
 For transaction behavior, prefer a fresh local database per scenario until the
 application has enough test volume to justify a shared rollback fixture. The
 focused
-[`19-transaction-isolation-testing`](https://github.com/nest-native/nest-drizzle-native/tree/main/sample/19-transaction-isolation-testing)
+[`19-transaction-isolation-testing`](https://github.com/nest-native/drizzle/tree/main/sample/19-transaction-isolation-testing)
 sample demonstrates the recreate-per-test pattern with real `@Transactional()`
 calls.
 

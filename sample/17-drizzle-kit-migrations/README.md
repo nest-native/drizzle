@@ -41,7 +41,7 @@ npm run db:generate --workspace nest-native-drizzle-sample-17-drizzle-kit-migrat
 Commit the generated SQL and metadata. In real deployments, apply migrations as
 a release step before serving traffic, or during controlled startup only when
 your platform guarantees a single migration runner. See the production
-[Migration Operations](https://nest-native.dev/nest-drizzle-native/docs/migration-operations)
+[Migration Operations](https://nest-native.dev/drizzle/docs/migration-operations)
 guide for multi-replica safety, backfills, and readiness guidance.
 
 ## Why This Matters
