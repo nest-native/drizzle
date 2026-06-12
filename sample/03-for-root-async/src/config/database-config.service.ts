@@ -6,7 +6,7 @@ import { join } from 'node:path';
 export class DatabaseConfigService {
   readonly databaseFile = join(
     tmpdir(),
-    `nest-drizzle-native-sample-03-${process.pid}.db`,
+    `nest-native-drizzle-sample-03-${process.pid}.db`,
   );
 
   readonly databaseUrl = `file:${this.databaseFile}`;

@@ -197,7 +197,7 @@ The focused sample asserts three things:
 Run the sample directly:
 
 ```bash
-npm run test --workspace nest-drizzle-native-sample-13-zod-openapi-bridge
+npm run test --workspace nest-native-drizzle-sample-13-zod-openapi-bridge
 ```
 
 Inspect the implementation:

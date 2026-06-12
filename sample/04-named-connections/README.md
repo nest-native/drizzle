@@ -18,13 +18,13 @@ mixing their schemas or queries.
 ## Run
 
 ```bash
-npm run start --workspace nest-drizzle-native-sample-04-named-connections
+npm run start --workspace nest-native-drizzle-sample-04-named-connections
 ```
 
 ## Validate
 
 ```bash
-npm run test --workspace nest-drizzle-native-sample-04-named-connections
+npm run test --workspace nest-native-drizzle-sample-04-named-connections
 ```
 
 ## Why This Matters

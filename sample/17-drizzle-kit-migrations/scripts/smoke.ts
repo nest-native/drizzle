@@ -27,11 +27,11 @@ async function smoke(): Promise<void> {
     assert.deepEqual(await listProjects(baseUrl), []);
 
     const project = await createProject(baseUrl, {
-      slug: 'nest-drizzle-native',
+      slug: 'nest-native-drizzle',
       name: 'Nest Drizzle Native',
     });
 
-    assert.equal(project.slug, 'nest-drizzle-native');
+    assert.equal(project.slug, 'nest-native-drizzle');
 
     const release = await createRelease(baseUrl, project.slug, {
       version: '0.2.1',

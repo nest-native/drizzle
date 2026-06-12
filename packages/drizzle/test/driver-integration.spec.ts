@@ -336,7 +336,7 @@ async function assertRepositoryRoundTrip<TRepository extends {
 function createDatabaseFile(driver: string): string {
   const databaseFile = join(
     tmpdir(),
-    `nest-drizzle-native-${driver}-${process.pid}-${Date.now()}-${Math.random()}.db`,
+    `nest-native-drizzle-${driver}-${process.pid}-${Date.now()}-${Math.random()}.db`,
   );
   databaseFiles.push(databaseFile);
   return databaseFile;

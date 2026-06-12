@@ -1,5 +1,5 @@
 {
-  "name": "nest-drizzle-native-sample-08-validation-class-validator",
+  "name": "nest-native-drizzle-sample-08-validation-class-validator",
   "version": "0.0.0",
   "private": true,
   "description": "Sample 08 - class-validator DTO validation",

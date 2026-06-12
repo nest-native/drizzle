@@ -20,13 +20,13 @@ and closing it through the Drizzle module shutdown hook.
 ## Run
 
 ```bash
-npm run start --workspace nest-drizzle-native-sample-14-better-sqlite3-driver
+npm run start --workspace nest-native-drizzle-sample-14-better-sqlite3-driver
 ```
 
 ## Validate
 
 ```bash
-npm run test --workspace nest-drizzle-native-sample-14-better-sqlite3-driver
+npm run test --workspace nest-native-drizzle-sample-14-better-sqlite3-driver
 ```
 
 ## Why This Matters

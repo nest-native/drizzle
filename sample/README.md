@@ -11,27 +11,27 @@ The sample tree follows the same shape as the main quality strategy:
 npm run ci:sample
 npm run showcase
 npm run sample:focused
-npm run test --workspace nest-drizzle-native-showcase
-npm run test --workspace nest-drizzle-native-sample-01-basic-client
-npm run test --workspace nest-drizzle-native-sample-02-repositories
-npm run test --workspace nest-drizzle-native-sample-03-for-root-async
-npm run test --workspace nest-drizzle-native-sample-04-named-connections
-npm run test --workspace nest-drizzle-native-sample-05-transactions-cls
-npm run test --workspace nest-drizzle-native-sample-06-manual-transaction
-npm run test --workspace nest-drizzle-native-sample-07-validation-drizzle-zod
-npm run test --workspace nest-drizzle-native-sample-08-validation-class-validator
-npm run test --workspace nest-drizzle-native-sample-09-error-mapping
-npm run test --workspace nest-drizzle-native-sample-10-testing-utilities
-npm run test --workspace nest-drizzle-native-sample-11-raw-sql-escape-hatch
-npm run test --workspace nest-drizzle-native-sample-12-swagger-openapi
-npm run test --workspace nest-drizzle-native-sample-13-zod-openapi-bridge
-npm run test --workspace nest-drizzle-native-sample-14-better-sqlite3-driver
-npm run test --workspace nest-drizzle-native-sample-15-postgres-driver
-npm run test --workspace nest-drizzle-native-sample-16-mysql-driver
-npm run test --workspace nest-drizzle-native-sample-17-drizzle-kit-migrations
-npm run test --workspace nest-drizzle-native-sample-18-health-readiness
-npm run test --workspace nest-drizzle-native-sample-19-transaction-isolation-testing
-npm run test --workspace nest-drizzle-native-sample-20-multi-tenancy-shared-db
+npm run test --workspace nest-native-drizzle-showcase
+npm run test --workspace nest-native-drizzle-sample-01-basic-client
+npm run test --workspace nest-native-drizzle-sample-02-repositories
+npm run test --workspace nest-native-drizzle-sample-03-for-root-async
+npm run test --workspace nest-native-drizzle-sample-04-named-connections
+npm run test --workspace nest-native-drizzle-sample-05-transactions-cls
+npm run test --workspace nest-native-drizzle-sample-06-manual-transaction
+npm run test --workspace nest-native-drizzle-sample-07-validation-drizzle-zod
+npm run test --workspace nest-native-drizzle-sample-08-validation-class-validator
+npm run test --workspace nest-native-drizzle-sample-09-error-mapping
+npm run test --workspace nest-native-drizzle-sample-10-testing-utilities
+npm run test --workspace nest-native-drizzle-sample-11-raw-sql-escape-hatch
+npm run test --workspace nest-native-drizzle-sample-12-swagger-openapi
+npm run test --workspace nest-native-drizzle-sample-13-zod-openapi-bridge
+npm run test --workspace nest-native-drizzle-sample-14-better-sqlite3-driver
+npm run test --workspace nest-native-drizzle-sample-15-postgres-driver
+npm run test --workspace nest-native-drizzle-sample-16-mysql-driver
+npm run test --workspace nest-native-drizzle-sample-17-drizzle-kit-migrations
+npm run test --workspace nest-native-drizzle-sample-18-health-readiness
+npm run test --workspace nest-native-drizzle-sample-19-transaction-isolation-testing
+npm run test --workspace nest-native-drizzle-sample-20-multi-tenancy-shared-db
 ```
 
 `npm run sample:focused` discovers focused samples from `sample/*/package.json`
@@ -43,26 +43,26 @@ targeted local debugging.
 | Folder | Focus | State | Command |
 | --- | --- | --- | --- |
 | `00-showcase` | Full integration baseline | Runnable | `npm run showcase` |
-| `01-basic-client-injection` | Direct `@InjectDrizzle()` client injection | Runnable | `npm run test --workspace nest-drizzle-native-sample-01-basic-client` |
-| `02-repositories` | `@DrizzleRepository()` and `forFeature()` | Runnable | `npm run test --workspace nest-drizzle-native-sample-02-repositories` |
-| `03-for-root-async` | Async configuration and shutdown | Runnable | `npm run test --workspace nest-drizzle-native-sample-03-for-root-async` |
-| `04-named-connections` | Multiple Drizzle clients | Runnable | `npm run test --workspace nest-drizzle-native-sample-04-named-connections` |
-| `05-transactions-cls` | CLS-backed `@Transactional()` | Runnable | `npm run test --workspace nest-drizzle-native-sample-05-transactions-cls` |
-| `06-manual-transaction` | `@InjectTransaction()` escape hatch | Runnable | `npm run test --workspace nest-drizzle-native-sample-06-manual-transaction` |
-| `07-validation-drizzle-zod` | Drizzle schema to Zod validation | Runnable | `npm run test --workspace nest-drizzle-native-sample-07-validation-drizzle-zod` |
-| `08-validation-class-validator` | DTO validation with `ValidationPipe` | Runnable | `npm run test --workspace nest-drizzle-native-sample-08-validation-class-validator` |
-| `09-error-mapping` | Opt-in database error mapping | Runnable | `npm run test --workspace nest-drizzle-native-sample-09-error-mapping` |
-| `10-testing-utilities` | Test module and mock helpers | Runnable | `npm run test --workspace nest-drizzle-native-sample-10-testing-utilities` |
-| `11-raw-sql-escape-hatch` | Safe raw SQL patterns | Runnable | `npm run test --workspace nest-drizzle-native-sample-11-raw-sql-escape-hatch` |
-| `12-swagger-openapi` | Swagger/OpenAPI integration | Runnable | `npm run test --workspace nest-drizzle-native-sample-12-swagger-openapi` |
-| `13-zod-openapi-bridge` | Optional Zod + Swagger/OpenAPI bridge | Runnable | `npm run test --workspace nest-drizzle-native-sample-13-zod-openapi-bridge` |
-| `14-better-sqlite3-driver` | better-sqlite3 driver setup and shutdown | Runnable | `npm run test --workspace nest-drizzle-native-sample-14-better-sqlite3-driver` |
-| `15-postgres-driver` | PostgreSQL pool setup and shutdown | Runnable with `NEST_DRIZZLE_NATIVE_POSTGRES_URL` | `npm run test --workspace nest-drizzle-native-sample-15-postgres-driver` |
-| `16-mysql-driver` | MySQL pool setup and shutdown | Runnable with `NEST_DRIZZLE_NATIVE_MYSQL_URL` | `npm run test --workspace nest-drizzle-native-sample-16-mysql-driver` |
-| `17-drizzle-kit-migrations` | drizzle-kit migrations and migrated startup | Runnable | `npm run test --workspace nest-drizzle-native-sample-17-drizzle-kit-migrations` |
-| `18-health-readiness` | Liveness and database readiness checks | Runnable | `npm run test --workspace nest-drizzle-native-sample-18-health-readiness` |
-| `19-transaction-isolation-testing` | Real database transaction isolation tests | Runnable | `npm run test --workspace nest-drizzle-native-sample-19-transaction-isolation-testing` |
-| `20-multi-tenancy-shared-db` | Shared-database multi-tenancy with tenant predicates and negative tests | Runnable | `npm run test --workspace nest-drizzle-native-sample-20-multi-tenancy-shared-db` |
+| `01-basic-client-injection` | Direct `@InjectDrizzle()` client injection | Runnable | `npm run test --workspace nest-native-drizzle-sample-01-basic-client` |
+| `02-repositories` | `@DrizzleRepository()` and `forFeature()` | Runnable | `npm run test --workspace nest-native-drizzle-sample-02-repositories` |
+| `03-for-root-async` | Async configuration and shutdown | Runnable | `npm run test --workspace nest-native-drizzle-sample-03-for-root-async` |
+| `04-named-connections` | Multiple Drizzle clients | Runnable | `npm run test --workspace nest-native-drizzle-sample-04-named-connections` |
+| `05-transactions-cls` | CLS-backed `@Transactional()` | Runnable | `npm run test --workspace nest-native-drizzle-sample-05-transactions-cls` |
+| `06-manual-transaction` | `@InjectTransaction()` escape hatch | Runnable | `npm run test --workspace nest-native-drizzle-sample-06-manual-transaction` |
+| `07-validation-drizzle-zod` | Drizzle schema to Zod validation | Runnable | `npm run test --workspace nest-native-drizzle-sample-07-validation-drizzle-zod` |
+| `08-validation-class-validator` | DTO validation with `ValidationPipe` | Runnable | `npm run test --workspace nest-native-drizzle-sample-08-validation-class-validator` |
+| `09-error-mapping` | Opt-in database error mapping | Runnable | `npm run test --workspace nest-native-drizzle-sample-09-error-mapping` |
+| `10-testing-utilities` | Test module and mock helpers | Runnable | `npm run test --workspace nest-native-drizzle-sample-10-testing-utilities` |
+| `11-raw-sql-escape-hatch` | Safe raw SQL patterns | Runnable | `npm run test --workspace nest-native-drizzle-sample-11-raw-sql-escape-hatch` |
+| `12-swagger-openapi` | Swagger/OpenAPI integration | Runnable | `npm run test --workspace nest-native-drizzle-sample-12-swagger-openapi` |
+| `13-zod-openapi-bridge` | Optional Zod + Swagger/OpenAPI bridge | Runnable | `npm run test --workspace nest-native-drizzle-sample-13-zod-openapi-bridge` |
+| `14-better-sqlite3-driver` | better-sqlite3 driver setup and shutdown | Runnable | `npm run test --workspace nest-native-drizzle-sample-14-better-sqlite3-driver` |
+| `15-postgres-driver` | PostgreSQL pool setup and shutdown | Runnable with `NEST_DRIZZLE_NATIVE_POSTGRES_URL` | `npm run test --workspace nest-native-drizzle-sample-15-postgres-driver` |
+| `16-mysql-driver` | MySQL pool setup and shutdown | Runnable with `NEST_DRIZZLE_NATIVE_MYSQL_URL` | `npm run test --workspace nest-native-drizzle-sample-16-mysql-driver` |
+| `17-drizzle-kit-migrations` | drizzle-kit migrations and migrated startup | Runnable | `npm run test --workspace nest-native-drizzle-sample-17-drizzle-kit-migrations` |
+| `18-health-readiness` | Liveness and database readiness checks | Runnable | `npm run test --workspace nest-native-drizzle-sample-18-health-readiness` |
+| `19-transaction-isolation-testing` | Real database transaction isolation tests | Runnable | `npm run test --workspace nest-native-drizzle-sample-19-transaction-isolation-testing` |
+| `20-multi-tenancy-shared-db` | Shared-database multi-tenancy with tenant predicates and negative tests | Runnable | `npm run test --workspace nest-native-drizzle-sample-20-multi-tenancy-shared-db` |
 
 ## Sample Rules
 

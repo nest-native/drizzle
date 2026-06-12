@@ -1,5 +1,5 @@
 {
-  "name": "nest-drizzle-native-sample-01-basic-client",
+  "name": "nest-native-drizzle-sample-01-basic-client",
   "version": "0.0.0",
   "private": true,
   "description": "Sample 01 - Basic Drizzle client injection",

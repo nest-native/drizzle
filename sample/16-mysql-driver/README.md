@@ -21,13 +21,13 @@ through the module shutdown hook.
 
 ```bash
 NEST_DRIZZLE_NATIVE_MYSQL_URL=mysql://drizzle:drizzle@127.0.0.1:3306/drizzle \
-  npm run start --workspace nest-drizzle-native-sample-16-mysql-driver
+  npm run start --workspace nest-native-drizzle-sample-16-mysql-driver
 ```
 
 ## Validate
 
 ```bash
-npm run test --workspace nest-drizzle-native-sample-16-mysql-driver
+npm run test --workspace nest-native-drizzle-sample-16-mysql-driver
 ```
 
 The smoke test skips when `NEST_DRIZZLE_NATIVE_MYSQL_URL` is not set, so the

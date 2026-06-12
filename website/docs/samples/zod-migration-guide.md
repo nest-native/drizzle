@@ -130,7 +130,7 @@ Add smoke coverage before migrating many endpoints:
 Run the focused sample as a reference:
 
 ```bash
-npm run test --workspace nest-drizzle-native-sample-13-zod-openapi-bridge
+npm run test --workspace nest-native-drizzle-sample-13-zod-openapi-bridge
 ```
 
 ## 6. Repeat Endpoint By Endpoint

@@ -12,7 +12,7 @@ export type AppDatabase = LibSQLDatabase<typeof schema> & {
 export function createDatabase(label = 'default'): AppDatabase {
   const databaseFile = join(
     tmpdir(),
-    `nest-drizzle-native-sample-20-${process.pid}-${label}-${randomUUID()}.db`,
+    `nest-native-drizzle-sample-20-${process.pid}-${label}-${randomUUID()}.db`,
   );
   const client = createClient({ url: `file:${databaseFile}` });
   return drizzle(client, { schema });

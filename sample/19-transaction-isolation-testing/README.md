@@ -17,13 +17,13 @@ database instead of mocks.
 ## Run
 
 ```bash
-npm run start --workspace nest-drizzle-native-sample-19-transaction-isolation-testing
+npm run start --workspace nest-native-drizzle-sample-19-transaction-isolation-testing
 ```
 
 ## Validate
 
 ```bash
-npm run test --workspace nest-drizzle-native-sample-19-transaction-isolation-testing
+npm run test --workspace nest-native-drizzle-sample-19-transaction-isolation-testing
 ```
 
 ## Why This Matters

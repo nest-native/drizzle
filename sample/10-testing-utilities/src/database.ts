@@ -12,7 +12,7 @@ export function createDatabase(): AppDatabase {
   const client = createClient({
     url: `file:${join(
       tmpdir(),
-      `nest-drizzle-native-sample-10-${process.pid}.db`,
+      `nest-native-drizzle-sample-10-${process.pid}.db`,
     )}`,
   });
   return drizzle(client, { schema });

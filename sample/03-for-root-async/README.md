@@ -17,13 +17,13 @@ This sample shows production-style database setup with
 ## Run
 
 ```bash
-npm run start --workspace nest-drizzle-native-sample-03-for-root-async
+npm run start --workspace nest-native-drizzle-sample-03-for-root-async
 ```
 
 ## Validate
 
 ```bash
-npm run test --workspace nest-drizzle-native-sample-03-for-root-async
+npm run test --workspace nest-native-drizzle-sample-03-for-root-async
 ```
 
 ## Why This Matters

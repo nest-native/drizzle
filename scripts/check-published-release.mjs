@@ -13,7 +13,7 @@ const packageJson = JSON.parse(fs.readFileSync(packagePath, 'utf8'));
 const packageName = packageJson.name;
 const version = process.argv[2] ?? packageJson.version;
 const tempRoot = fs.mkdtempSync(
-  path.join(os.tmpdir(), 'nest-drizzle-native-published-release-'),
+  path.join(os.tmpdir(), 'nest-native-drizzle-published-release-'),
 );
 const npmCache = path.join(tempRoot, 'npm-cache');
 
@@ -144,7 +144,7 @@ function writeConsumerPackage(consumerRoot) {
     path.join(consumerRoot, 'package.json'),
     `${JSON.stringify(
       {
-        name: 'nest-drizzle-native-published-consumer',
+        name: 'nest-native-drizzle-published-consumer',
         private: true,
         type: 'commonjs',
         dependencies,
@@ -216,7 +216,7 @@ Module({
 
   assert.equal(moduleRef.get(getDrizzleClientToken()), fakeClient);
   assert.deepEqual(moduleRef.get(UsersService).findMany(), ['Ada', 'Grace']);
-  assert.deepEqual(packageJson.dependencies, {});
+  assert.deepEqual(packageJson.dependencies ?? {}, {});
 
   await moduleRef.close();
 })().catch(error => {
@@ -358,12 +358,12 @@ function writeSampleWorkspacePackage(sampleWorkspace) {
     path.join(sampleWorkspace, 'package.json'),
     `${JSON.stringify(
       {
-        name: 'nest-drizzle-native-published-samples',
+        name: 'nest-native-drizzle-published-samples',
         private: true,
         workspaces: ['sample/*'],
         scripts: {
           showcase:
-            'node scripts/run-optional-workspace.cjs nest-drizzle-native-showcase test',
+            'node scripts/run-optional-workspace.cjs nest-native-drizzle-showcase test',
           'sample:focused': 'node scripts/run-focused-samples.mjs',
           sample: 'npm run showcase && npm run sample:focused',
           'ci:sample': 'npm run sample',

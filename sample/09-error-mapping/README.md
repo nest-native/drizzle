@@ -15,13 +15,13 @@ This sample shows opt-in database error mapping with real constraint failures.
 ## Run
 
 ```bash
-npm run start --workspace nest-drizzle-native-sample-09-error-mapping
+npm run start --workspace nest-native-drizzle-sample-09-error-mapping
 ```
 
 ## Validate
 
 ```bash
-npm run test --workspace nest-drizzle-native-sample-09-error-mapping
+npm run test --workspace nest-native-drizzle-sample-09-error-mapping
 ```
 
 ## Why This Matters

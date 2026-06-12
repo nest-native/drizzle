@@ -24,9 +24,9 @@ application.
 ## Commands
 
 ```bash
-npm run test --workspace nest-drizzle-native-showcase
-npm run start --workspace nest-drizzle-native-showcase
-npm run start:fastify --workspace nest-drizzle-native-showcase
+npm run test --workspace nest-native-drizzle-showcase
+npm run start --workspace nest-native-drizzle-showcase
+npm run start:fastify --workspace nest-native-drizzle-showcase
 ```
 
 `start:fastify` expects `@nestjs/platform-fastify` to be installed by the

@@ -1,5 +1,5 @@
 {
-  "name": "nest-drizzle-native-sample-13-zod-openapi-bridge",
+  "name": "nest-native-drizzle-sample-13-zod-openapi-bridge",
   "version": "0.0.0",
   "private": true,
   "description": "Sample 13 - app-owned Zod validation with Swagger/OpenAPI contracts",

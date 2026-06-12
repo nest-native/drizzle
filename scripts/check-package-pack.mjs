@@ -5,7 +5,7 @@ import path from 'node:path';
 
 const npmExecutable = process.platform === 'win32' ? 'npm.cmd' : 'npm';
 const repoRoot = process.cwd();
-const tempCache = fs.mkdtempSync(path.join(os.tmpdir(), 'nest-drizzle-native-pack-'));
+const tempCache = fs.mkdtempSync(path.join(os.tmpdir(), 'nest-native-drizzle-pack-'));
 
 try {
   const rawOutput = execFileSync(

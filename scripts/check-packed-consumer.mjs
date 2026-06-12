@@ -7,7 +7,7 @@ const npmExecutable = process.platform === 'win32' ? 'npm.cmd' : 'npm';
 const nodeExecutable = process.execPath;
 const repoRoot = process.cwd();
 const tempRoot = fs.mkdtempSync(
-  path.join(os.tmpdir(), 'nest-drizzle-native-consumer-'),
+  path.join(os.tmpdir(), 'nest-native-drizzle-consumer-'),
 );
 const consumerRoot = path.join(tempRoot, 'consumer');
 const npmCache = path.join(tempRoot, 'npm-cache');
@@ -104,7 +104,7 @@ function writeConsumerPackage(tarballPath) {
     path.join(consumerRoot, 'package.json'),
     `${JSON.stringify(
       {
-        name: 'nest-drizzle-native-packed-consumer',
+        name: 'nest-native-drizzle-packed-consumer',
         private: true,
         type: 'commonjs',
         dependencies,
