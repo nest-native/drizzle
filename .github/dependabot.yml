@@ -21,7 +21,7 @@ updates:
           - "patch"
         patterns:
           - "*"
-      nest-drizzle-peer-minor-patch:
+      drizzle-peer-minor-patch:
         update-types:
           - "minor"
           - "patch"
