@@ -1,5 +1,5 @@
 import { desc, sql } from 'drizzle-orm';
-import { DrizzleRepository, InjectDrizzle } from 'nest-drizzle-native';
+import { DrizzleRepository, InjectDrizzle } from '@nest-native/drizzle';
 import { analyticsEvents } from '../analytics.schema';
 import {
   ANALYTICS_CONNECTION,

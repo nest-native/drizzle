@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { DrizzleModule } from 'nest-drizzle-native';
+import { DrizzleModule } from '@nest-native/drizzle';
 import { HealthController } from './health.controller';
 import { HealthRepository } from './health.repository';
 import { HealthService } from './health.service';

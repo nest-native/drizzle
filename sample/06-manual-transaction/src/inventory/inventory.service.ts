@@ -1,6 +1,6 @@
 import { Injectable, OnModuleInit } from '@nestjs/common';
 import { TransactionHost } from '@nestjs-cls/transactional';
-import { Transactional } from 'nest-drizzle-native';
+import { Transactional } from '@nest-native/drizzle';
 import { InventoryRepository } from './inventory.repository';
 import type { DrizzleTransactionalAdapter } from '../transaction.types';
 

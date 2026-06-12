@@ -1,6 +1,6 @@
 # Sample 00 - Full Showcase
 
-This is the full integration baseline for `nest-drizzle-native`. It keeps
+This is the full integration baseline for `@nest-native/drizzle`. It keeps
 Drizzle explicit while showing the Nest-native structure users expect in a real
 application.
 

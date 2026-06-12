@@ -1,7 +1,7 @@
 # Sample 17: drizzle-kit Migrations
 
 This sample shows the production migration boundary: Drizzle owns schema and
-migration files, while `nest-drizzle-native` owns Nest module registration,
+migration files, while `@nest-native/drizzle` owns Nest module registration,
 repository injection, and shutdown wiring.
 
 The library does not wrap `drizzle-kit`. Applications keep migration generation

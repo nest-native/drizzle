@@ -3,7 +3,7 @@ import {
   DrizzleRepository,
   InjectDrizzle,
   InjectTransaction,
-} from 'nest-drizzle-native';
+} from '@nest-native/drizzle';
 import type { AppDatabase } from '../database';
 import { accounts } from '../schema';
 

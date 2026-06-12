@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { rm } from 'node:fs/promises';
-import { DrizzleModule } from 'nest-drizzle-native';
+import { DrizzleModule } from '@nest-native/drizzle';
 import { createDatabase, type AppDatabase } from './config/database.factory';
 import { DatabaseConfigModule } from './config/database-config.module';
 import { DatabaseConfigService } from './config/database-config.service';

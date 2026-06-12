@@ -1,7 +1,7 @@
 # Sample 18: Health and Readiness
 
 This sample shows a small production readiness pattern for Nest applications
-using `nest-drizzle-native`.
+using `@nest-native/drizzle`.
 
 Liveness answers whether the process is running. Readiness answers whether the
 application should receive traffic, including a cheap Drizzle-backed database

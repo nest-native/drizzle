@@ -1,11 +1,11 @@
 ---
 title: Deployment
-description: Production deployment checklist for Nest applications using nest-drizzle-native.
+description: Production deployment checklist for Nest applications using @nest-native/drizzle.
 ---
 
 # Deployment
 
-`nest-drizzle-native` keeps deployment decisions in your application. The
+`@nest-native/drizzle` keeps deployment decisions in your application. The
 package wires Drizzle into Nest; your app still owns driver configuration,
 migrations, health checks, and runtime environment.
 
@@ -65,7 +65,7 @@ sample for a minimal implementation.
 If your application already uses
 [`@nestjs/terminus`](https://docs.nestjs.com/recipes/terminus), keep the
 Drizzle readiness logic app-owned and wrap it in a custom Terminus indicator.
-Do not add Terminus to `nest-drizzle-native` itself; health policy belongs to
+Do not add Terminus to `@nest-native/drizzle` itself; health policy belongs to
 the application.
 
 ```ts

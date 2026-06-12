@@ -1,6 +1,6 @@
 # Sample 01: Basic Client Injection
 
-This is the smallest runnable NestJS app that uses `nest-drizzle-native` with a
+This is the smallest runnable NestJS app that uses `@nest-native/drizzle` with a
 real Drizzle database client.
 
 ## What It Demonstrates

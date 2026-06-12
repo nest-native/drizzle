@@ -37,7 +37,7 @@ PostgreSQL service and runs the real round trip.
 ## Why This Matters
 
 PostgreSQL applications usually own a pool, not a single file-backed handle.
-`nest-drizzle-native` should not hide that. The package only needs the Drizzle
+`@nest-native/drizzle` should not hide that. The package only needs the Drizzle
 database object and a cleanup callback; connection pooling stays explicit in
 application code.
 

@@ -1,0 +1,33 @@
+{
+  "name": "nest-drizzle-native-sample-20-multi-tenancy-shared-db",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Sample 20 - shared-database multi-tenancy with tenant predicates and negative tests",
+  "license": "MIT",
+  "scripts": {
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "smoke": "ts-node --transpile-only scripts/smoke.ts",
+    "test": "npm run typecheck && npm run smoke",
+    "start": "ts-node --transpile-only src/main.ts"
+  },
+  "dependencies": {
+    "@libsql/client": "^0.17.3",
+    "@nestjs-cls/transactional": "^3.2.0",
+    "@nestjs-cls/transactional-adapter-drizzle-orm": "^1.2.3",
+    "@nestjs/common": "11.1.24",
+    "@nestjs/core": "11.1.24",
+    "@nestjs/platform-express": "11.1.24",
+    "class-transformer": "0.5.1",
+    "class-validator": "^0.15.1",
+    "drizzle-orm": "^0.45.2",
+    "@nest-native/drizzle": "0.3.0",
+    "nestjs-cls": "^6.2.0",
+    "reflect-metadata": "0.2.2",
+    "rxjs": "7.8.2"
+  },
+  "devDependencies": {
+    "@types/node": "25.9.0",
+    "ts-node": "10.9.2",
+    "typescript": "6.0.3"
+  }
+}

@@ -16,7 +16,7 @@ import { Test } from '@nestjs/testing';
 import {
   DrizzleTestModule,
   createDrizzleMockClient,
-} from 'nest-drizzle-native';
+} from '@nest-native/drizzle';
 
 const db = createDrizzleMockClient({
   query: {

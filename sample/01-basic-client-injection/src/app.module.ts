@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { DrizzleModule } from 'nest-drizzle-native';
+import { DrizzleModule } from '@nest-native/drizzle';
 import { createDatabase, type AppDatabase } from './database';
 import { NotesController } from './notes/notes.controller';
 import { NotesService } from './notes/notes.service';

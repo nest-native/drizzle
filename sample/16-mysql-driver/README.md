@@ -37,7 +37,7 @@ service and runs the real round trip.
 ## Why This Matters
 
 MySQL applications usually own a pool, just like PostgreSQL applications do.
-`nest-drizzle-native` keeps that explicit: the package receives the Drizzle
+`@nest-native/drizzle` keeps that explicit: the package receives the Drizzle
 database object and a cleanup callback, while driver-specific pooling stays in
 application code.
 

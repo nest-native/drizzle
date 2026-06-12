@@ -1,6 +1,6 @@
 # Changelog
 
-All notable user-facing changes to `nest-drizzle-native` are tracked here.
+All notable user-facing changes to `@nest-native/drizzle` are tracked here.
 
 This project follows semantic versioning for the published package. Sample,
 documentation, and CI-only changes may remain in `Unreleased` until the next
@@ -9,6 +9,19 @@ package release is useful for users.
 ## Unreleased
 
 No user-facing changes yet.
+
+## 0.3.0 - 2026-06-11
+
+### Changed
+
+- Renamed the published npm package from `nest-drizzle-native` to the scoped
+  `@nest-native/drizzle` as part of consolidating the `@nest-native` family.
+  Install and import `@nest-native/drizzle`; the public API is unchanged. The
+  old `nest-drizzle-native` package is deprecated on npm and no longer
+  maintained.
+- Updated samples, documentation, badges, and npm registry links to the new
+  package name. The GitHub repository stays `nest-native/nest-drizzle-native`,
+  so all repository URLs and metadata are intentionally unchanged.
 
 ## 0.2.1 - 2026-05-16
 

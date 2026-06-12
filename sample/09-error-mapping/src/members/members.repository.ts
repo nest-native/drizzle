@@ -4,7 +4,7 @@ import {
   DrizzleRepository,
   InjectDrizzle,
   mapDrizzleError,
-} from 'nest-drizzle-native';
+} from '@nest-native/drizzle';
 import type { AppDatabase } from '../database';
 import { members } from '../schema';
 

@@ -1,6 +1,6 @@
 # Support Policy
 
-`nest-drizzle-native` is a community package and does not claim official NestJS
+`@nest-native/drizzle` is a community package and does not claim official NestJS
 or Drizzle ORM status.
 
 ## Supported Runtime Lines

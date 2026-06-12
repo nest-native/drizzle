@@ -1,5 +1,5 @@
 import { eq, sql } from 'drizzle-orm';
-import { DrizzleRepository, InjectDrizzle } from 'nest-drizzle-native';
+import { DrizzleRepository, InjectDrizzle } from '@nest-native/drizzle';
 import type { AppDatabase } from '../database';
 import { inventoryEvents, inventoryItems } from '../schema';
 

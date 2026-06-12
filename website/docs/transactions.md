@@ -1,6 +1,6 @@
 # Transactions
 
-`nest-drizzle-native` bridges transaction decorators to
+`@nest-native/drizzle` bridges transaction decorators to
 `@nestjs-cls/transactional`. It does not implement a separate transaction
 context. That keeps transaction state on the same CLS stack used by other Nest
 integrations.
@@ -28,7 +28,7 @@ that the adapter points at the same Drizzle client token used by
 import { ClsModule } from 'nestjs-cls';
 import { ClsPluginTransactional } from '@nestjs-cls/transactional';
 import { TransactionalAdapterDrizzleOrm } from '@nestjs-cls/transactional-adapter-drizzle-orm';
-import { getDrizzleClientToken } from 'nest-drizzle-native';
+import { getDrizzleClientToken } from '@nest-native/drizzle';
 
 @Module({
   imports: [
@@ -63,7 +63,7 @@ getDrizzleClientToken('analytics')
 ```ts
 import { Injectable } from '@nestjs/common';
 import { TransactionHost } from '@nestjs-cls/transactional';
-import { Transactional } from 'nest-drizzle-native';
+import { Transactional } from '@nest-native/drizzle';
 
 @Injectable()
 export class UsersService {
@@ -92,7 +92,7 @@ the current transaction object.
 
 ```ts
 import { Injectable } from '@nestjs/common';
-import { InjectTransaction } from 'nest-drizzle-native';
+import { InjectTransaction } from '@nest-native/drizzle';
 
 @Injectable()
 export class InventoryRepository {

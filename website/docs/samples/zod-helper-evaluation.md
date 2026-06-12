@@ -5,7 +5,7 @@ description: Why the Zod bridge stays app-owned for now, and what would justify 
 
 # Zod Helper Evaluation
 
-`nest-drizzle-native` does not expose a `nest-drizzle-native/zod` helper today.
+`@nest-native/drizzle` does not expose a `@nest-native/drizzle/zod` helper today.
 That is intentional.
 
 The default Nest-native HTTP contract remains DTO classes, `ValidationPipe`, and

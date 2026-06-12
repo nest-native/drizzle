@@ -6,7 +6,7 @@ inference. The decorator exists so repository classes have an explicit Nest
 integration role and can later carry connection metadata.
 
 ```ts
-import { DrizzleRepository, InjectDrizzle } from 'nest-drizzle-native';
+import { DrizzleRepository, InjectDrizzle } from '@nest-native/drizzle';
 
 @DrizzleRepository()
 export class UsersRepository {

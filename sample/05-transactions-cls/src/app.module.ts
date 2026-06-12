@@ -4,11 +4,11 @@ import {
 } from '@nestjs-cls/transactional';
 import { TransactionalAdapterDrizzleOrm } from '@nestjs-cls/transactional-adapter-drizzle-orm';
 import { ClsModule } from 'nestjs-cls';
-import { DrizzleModule } from 'nest-drizzle-native';
+import { DrizzleModule } from '@nest-native/drizzle';
 import { createDatabase, type AppDatabase } from './database';
 import { schema } from './schema';
 import { TransfersModule } from './transfers/transfers.module';
-import { getDrizzleClientToken } from 'nest-drizzle-native';
+import { getDrizzleClientToken } from '@nest-native/drizzle';
 
 @Module({
   imports: [

@@ -1,6 +1,6 @@
 ---
 title: Why Native
-description: How nest-drizzle-native differs from raw providers, thin connection modules, and heavier ORM abstractions.
+description: How @nest-native/drizzle differs from raw providers, thin connection modules, and heavier ORM abstractions.
 ---
 
 # Why Native
@@ -10,7 +10,7 @@ toolkit. Nest applications need a second thing: a predictable integration with
 modules, providers, lifecycle hooks, test overrides, enhancers, and transaction
 boundaries.
 
-`nest-drizzle-native` exists for that Nest-facing layer. It should make Drizzle
+`@nest-native/drizzle` exists for that Nest-facing layer. It should make Drizzle
 feel at home in a Nest codebase without turning Drizzle into a different ORM.
 
 ## The Problem It Solves
@@ -53,7 +53,7 @@ API while leaving schemas and queries in ordinary Drizzle.
 | Raw Nest providers | Small apps, prototypes, one database client | Every project invents tokens, cleanup, tests, and multi-client conventions |
 | Thin connection modules | Apps that only need `provide: db` | Usually stop before repositories, testing utilities, transactions, and lifecycle guidance |
 | Heavy ORM-style wrappers | Teams that want entities and abstraction over SQL | Can hide Drizzle's explicit query model and make advanced SQL awkward |
-| `nest-drizzle-native` | Nest apps that want Drizzle plus Nest modules, DI, repositories, testing, and transaction decorators | Adds a small Nest-facing API that applications should learn |
+| `@nest-native/drizzle` | Nest apps that want Drizzle plus Nest modules, DI, repositories, testing, and transaction decorators | Adds a small Nest-facing API that applications should learn |
 
 The package does not compete with Drizzle. Drizzle remains the database layer.
 This package is the Nest integration layer around it.
@@ -115,7 +115,7 @@ the reason the package can stay small.
 
 ## Performance Posture
 
-`nest-drizzle-native` does not translate queries. Repository methods call the
+`@nest-native/drizzle` does not translate queries. Repository methods call the
 Drizzle client directly, and raw SQL escape hatches remain available through
 Drizzle.
 

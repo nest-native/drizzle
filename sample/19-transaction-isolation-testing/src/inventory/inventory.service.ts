@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { TransactionHost } from '@nestjs-cls/transactional';
-import { Transactional } from 'nest-drizzle-native';
+import { Transactional } from '@nest-native/drizzle';
 import type { AppDatabase } from '../database';
 import type { DrizzleTransactionalAdapter } from '../transaction.types';
 import {

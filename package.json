@@ -2,7 +2,7 @@
   "name": "nest-drizzle-native-workspace",
   "version": "0.0.0",
   "private": true,
-  "description": "Community standalone monorepo for nest-drizzle-native and samples",
+  "description": "Community standalone monorepo for @nest-native/drizzle and samples",
   "license": "MIT",
   "workspaces": [
     "packages/*",
@@ -19,7 +19,7 @@
     "complexity:report": "node scripts/collect-cognitive-complexity.mjs",
     "release:check:readme-links": "node scripts/check-readme-links.mjs",
     "release:check:sample-versions": "node scripts/check-sample-version-sync.mjs",
-    "release:check:pack": "npm run build --workspace nest-drizzle-native && node scripts/check-package-pack.mjs",
+    "release:check:pack": "npm run build --workspace @nest-native/drizzle && node scripts/check-package-pack.mjs",
     "release:check:consumer": "node scripts/check-packed-consumer.mjs",
     "release:check:published": "node scripts/check-published-release.mjs",
     "release:check": "npm run release:check:readme-links && npm run release:check:sample-versions && npm run release:check:pack && npm run release:check:consumer",
