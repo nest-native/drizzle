@@ -10,6 +10,15 @@
   <a href="https://nest-native.github.io/drizzle/"><img src="https://img.shields.io/badge/docs-%40nest--native%2Fdrizzle-0f766e.svg" alt="Documentation" /></a>
 </p>
 
+> [!IMPORTANT]
+> **Renamed package.** This project was previously published as `nest-drizzle-native`. It is now **`@nest-native/drizzle`** (repo: [`nest-native/drizzle`](https://github.com/nest-native/drizzle)).
+>
+> ```bash
+> npm uninstall nest-drizzle-native
+> npm install @nest-native/drizzle
+> ```
+> Update imports from `nest-drizzle-native` to `@nest-native/drizzle`. The old package is frozen at `0.2.1` and no longer maintained.
+
 ## What This Is
 
 `@nest-native/drizzle` is a community NestJS integration for applications that
