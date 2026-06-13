@@ -10,6 +10,23 @@ package release is useful for users.
 
 No user-facing changes yet.
 
+## 0.3.2 - 2026-06-13
+
+### Changed
+
+- Added a rename notice to the package README so the npm package page reflects
+  the move from `nest-drizzle-native` to `@nest-native/drizzle`, with migration
+  steps for users still on the old package.
+- Bumped development dependencies (`@nestjs/common`, `@nestjs/core` to
+  `^11.1.26`). No runtime, public API, or `peerDependencies` changes.
+
+### Security
+
+- Pinned development/build tooling via npm `overrides` (`esbuild` `^0.28.1`,
+  `ws` `^8.21.0`, `qs` `^6.15.2`) to clear high- and moderate-severity
+  advisories in transitive development dependencies. The published package has
+  no runtime dependencies, so consumers are unaffected.
+
 ## 0.3.1 - 2026-06-12
 
 ### Changed
