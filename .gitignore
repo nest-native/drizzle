@@ -18,7 +18,6 @@ changed-files.txt
 .env
 .env.*
 !.env.example
-GUIDELINES_NEST_DRIZZLE.md
 todo-*.txt
 announce.txt
 .devcontainer/
