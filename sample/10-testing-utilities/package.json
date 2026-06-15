@@ -12,9 +12,9 @@
   },
   "dependencies": {
     "@libsql/client": "^0.17.3",
-    "@nestjs/common": "11.1.26",
-    "@nestjs/core": "11.1.26",
-    "@nestjs/testing": "11.1.26",
+    "@nestjs/common": "11.1.27",
+    "@nestjs/core": "11.1.27",
+    "@nestjs/testing": "11.1.27",
     "drizzle-orm": "^0.45.2",
     "@nest-native/drizzle": "0.3.2",
     "reflect-metadata": "0.2.2",
