@@ -1,6 +1,7 @@
 import 'reflect-metadata';
 import assert from 'node:assert/strict';
 import { NestFactory } from '@nestjs/core';
+import { ExpressAdapter } from '@nestjs/platform-express';
 import { AppModule } from '../src/app.module';
 
 interface ProductResponse {
@@ -16,7 +17,15 @@ interface AnalyticsEventResponse {
 }
 
 async function smoke(): Promise<void> {
-  const app = await NestFactory.create(AppModule, { logger: false });
+  // The HTTP driver is supplied explicitly via `ExpressAdapter` instead of
+  // `NestFactory`'s default-driver auto-discovery. Auto-discovery resolves
+  // `@nestjs/platform-express` relative to `@nestjs/core`, so it only succeeds
+  // when both are hoisted together; constructing the adapter here resolves it
+  // from this sample's own declared dependency, independent of workspace
+  // hoisting.
+  const app = await NestFactory.create(AppModule, new ExpressAdapter(), {
+    logger: false,
+  });
   await app.listen(0, '127.0.0.1');
 
   try {

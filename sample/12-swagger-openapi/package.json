@@ -17,7 +17,7 @@
     "@libsql/client": "^0.17.3",
     "@nestjs/common": "11.1.26",
     "@nestjs/core": "11.1.26",
-    "@nestjs/platform-express": "11.1.26",
+    "@nestjs/platform-express": "^11.1.27",
     "@nestjs/swagger": "11.4.4",
     "drizzle-orm": "^0.45.2",
     "@nest-native/drizzle": "0.3.2",
