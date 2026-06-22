@@ -50,6 +50,7 @@
     "build": "npm run clean && tsc -p tsconfig.build.json",
     "typecheck": "tsc --noEmit -p tsconfig.json"
   },
+  "dependencies": {},
   "peerDependencies": {
     "@libsql/client": "*",
     "@nestjs-cls/transactional": "*",
