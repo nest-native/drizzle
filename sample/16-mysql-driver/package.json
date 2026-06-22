@@ -14,8 +14,8 @@
     "enabled": false
   },
   "dependencies": {
-    "@nestjs/common": "11.1.26",
-    "@nestjs/core": "11.1.26",
+    "@nestjs/common": "11.1.27",
+    "@nestjs/core": "11.1.27",
     "@nestjs/platform-express": "^11.1.27",
     "drizzle-orm": "^0.45.2",
     "mysql2": "^3.22.5",
