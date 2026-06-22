@@ -166,6 +166,18 @@ project constitution.
   - Transaction context leaks. Contexts must be strictly bounded to the
     request/method.
   - Secret leakage in code, tests, sample files, logs, and documentation.
+- **Audit scope.** The `security:audit` release gate audits the *published*
+  surface — `npm audit --omit=dev --audit-level=high`. Since the package
+  publishes `"dependencies": {}`, this is exactly what consumers install.
+  Advisories confined to dev/peer/build tooling or the docs `website/` are
+  tracked and patched via Dependabot but do not block releases — they cannot
+  reach consumers. Patch them in their own PRs.
+- **Strictness scope.** The non-negotiables (100% coverage,
+  cognitive-complexity ≤ 15, zero published runtime deps, isolated
+  major-version review) govern the *core* published package
+  (`packages/drizzle`). Non-core code — `sample/*`, the `website/`, and dev
+  tooling — uses lighter rules: their dependency updates (including majors) may
+  merge on green CI without the core's major-isolation ceremony.
 
 ### 10. Release Version Synchronization (MANDATORY)
 

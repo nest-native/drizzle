@@ -31,7 +31,8 @@
     "typescript": "6.0.3"
   },
   "overrides": {
-    "serialize-javascript": "7.0.5"
+    "serialize-javascript": "7.0.5",
+    "ws": "^8.21.0"
   },
   "browserslist": {
     "production": [
