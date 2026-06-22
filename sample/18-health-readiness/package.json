@@ -14,10 +14,10 @@
     "enabled": false
   },
   "dependencies": {
-    "@nestjs/common": "11.1.26",
-    "@nestjs/core": "11.1.26",
-    "@nestjs/platform-express": "11.1.26",
-    "better-sqlite3": "^12.10.0",
+    "@nestjs/common": "11.1.27",
+    "@nestjs/core": "11.1.27",
+    "@nestjs/platform-express": "11.1.27",
+    "better-sqlite3": "^12.11.1",
     "drizzle-orm": "^0.45.2",
     "@nest-native/drizzle": "0.3.2",
     "reflect-metadata": "0.2.2",
