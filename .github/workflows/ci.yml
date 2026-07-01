@@ -373,3 +373,45 @@ jobs:
 
       - name: Build docs site
         run: npm --prefix website run build
+
+  drizzle-orm-v1-rc:
+    name: drizzle-orm v1 RC compatibility (informational)
+    runs-on: ubuntu-latest
+    # Forward-looking, NON-BLOCKING probe for the next Drizzle major.
+    # drizzle-orm v1 is still a release candidate (stable `latest` is 0.45.x) and
+    # key peers do not support it yet: the CLS transactional adapter peer-pins
+    # drizzle-orm@^0, and drizzle-zod has no stable v1. This job is expected to
+    # fail until the ecosystem catches up. `continue-on-error` keeps it from ever
+    # gating `main` -- treat it as an early-warning signal: when it goes green,
+    # promote v1 in the peer range and support policy.
+    continue-on-error: true
+
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '22'
+
+      - name: Install dependencies (stable base)
+        run: npm ci
+
+      - name: Overlay drizzle-orm@rc (v1 release candidate)
+        # --legacy-peer-deps is required because @nestjs-cls/transactional-adapter-drizzle-orm
+        # peer-pins drizzle-orm@^0; --no-save keeps package.json/lock on the stable line.
+        run: npm install --no-save --legacy-peer-deps drizzle-orm@rc
+
+      - name: Record resolved drizzle-orm version
+        run: |
+          RESOLVED="$(node -e "const fs=require('node:fs');console.log(JSON.parse(fs.readFileSync('node_modules/drizzle-orm/package.json','utf8')).version)")"
+          echo "drizzle-orm resolved to ${RESOLVED}"
+          {
+            echo "### drizzle-orm v1 RC compatibility probe"
+            echo ""
+            echo "Testing \`@nest-native/drizzle\` against \`drizzle-orm@${RESOLVED}\`."
+            echo ""
+            echo "Informational and non-blocking. Expected to fail until v1 leaves RC"
+            echo "and peers (the CLS transactional adapter, drizzle-zod) ship v1 support."
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Run package tests against drizzle-orm v1 RC
+        run: npm run test
