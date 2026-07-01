@@ -61,6 +61,13 @@ native integration surface:
 | Transaction bridge | `@nestjs-cls/transactional`, optional |
 | Drivers | Bring the Drizzle driver your app uses |
 
+Drizzle ORM v1 is still a release candidate (stable `latest` is `0.45.x`) and is
+**not supported yet**: key peers (`@nestjs-cls/transactional-adapter-drizzle-orm`,
+`drizzle-zod`) do not support v1, and RQB v2 changes the `drizzle(client, { schema })`
+config shape. A non-blocking CI job installs `drizzle-orm@rc` and runs the tests so
+support can land as soon as the ecosystem catches up. See
+[Drizzle ORM v1 (release candidate)](website/docs/support-policy.md#drizzle-orm-v1-release-candidate).
+
 For peer dependency policy and API stability, see
 [website/docs/support-policy.md](website/docs/support-policy.md).
 

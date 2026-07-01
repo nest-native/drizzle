@@ -14,6 +14,27 @@ or Drizzle ORM status.
 
 Drivers are optional peers. Install and test the driver your application uses.
 
+### Drizzle ORM v1 (release candidate)
+
+Drizzle ORM v1 is currently a release candidate (`1.0.0-rc.x`); the stable
+`latest` tag is still on the `0.45.x` line. `@nest-native/drizzle` holds no
+direct dependency on Drizzle internals, but v1 ships breaking changes and its
+ecosystem is not ready yet, so v1 is **not supported today**:
+
+- Relational Queries v2 replaces the `drizzle(client, { schema })` config shape,
+  so schema-typed clients and the driver/integration tests no longer type-check
+  against v1 without changes.
+- `@nestjs-cls/transactional-adapter-drizzle-orm` peer-pins `drizzle-orm@^0`, so
+  `@Transactional()` / `@InjectTransaction()` cannot run on v1 until that adapter
+  adds v1 support.
+- `drizzle-zod` has no stable v1 release, so the optional Drizzle-Zod validation
+  path does not type-check against v1.
+
+A non-blocking CI job (`drizzle-orm v1 RC compatibility`) installs
+`drizzle-orm@rc` on every push and runs the package tests as an early-warning
+signal. When it goes green, the peer range and this policy will be updated to
+declare v1 support. Until then, stay on the `0.45.x` line.
+
 ## Public API Tiers
 
 Primary application APIs:
