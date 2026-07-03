@@ -117,6 +117,29 @@ The published package has no runtime dependencies. Nest, Drizzle, drivers,
 transactions, Swagger, class-validator, and Drizzle-Zod stay app-owned so teams
 only install the ecosystems they actually use.
 
+### Any Drizzle Client Works
+
+The module never constructs the client: `connection` accepts whatever
+drizzle-orm returns, so every driver and client helper works without a
+dedicated integration. Read replicas drop in via drizzle-orm's `withReplicas`:
+
+```ts
+import { withReplicas } from 'drizzle-orm/pg-core';
+
+DrizzleModule.forRoot({
+  schema,
+  connection: withReplicas(primaryDb, [replicaDb]),
+});
+// Reads route to replicas; writes and db.$primary hit the primary.
+// Runnable proof: sample/21-read-replicas
+```
+
+The same contract covers edge and serverless clients such as Cloudflare D1
+(`drizzle-orm/d1`) and Turso / remote libSQL (`drizzle-orm/libsql`). Those are
+bring-your-own-driver setups — not CI-tested in this repository. See
+[Production Patterns](https://nest-native.github.io/drizzle/docs/production-patterns)
+for the snippets.
+
 ## Quick Start
 
 Define schemas with standard Drizzle syntax. The library receives the schema

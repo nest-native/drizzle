@@ -42,6 +42,52 @@ DrizzleModule.forRoot({
 This keeps driver-specific configuration visible: TLS, pool sizing, timeouts,
 and connection strings all stay outside the package abstraction.
 
+### Any Drizzle Client Works
+
+The module never constructs, wraps, or rewires the client. `connection`
+accepts whatever drizzle-orm returns (or a factory that returns one), so every
+drizzle-orm driver and client helper works without a dedicated integration.
+
+Read replicas via drizzle-orm's `withReplicas` (available for the Postgres,
+MySQL, SQLite, SingleStore, and Gel dialects):
+
+```ts
+import { withReplicas } from 'drizzle-orm/pg-core';
+
+const db = withReplicas(primaryDb, [replicaOneDb, replicaTwoDb]);
+
+DrizzleModule.forRoot({ schema, connection: db, shutdown: closePools });
+// Reads route to replicas; writes, transactions, and db.$primary hit the primary.
+```
+
+The
+[`21-read-replicas`](https://github.com/nest-native/drizzle/tree/main/sample/21-read-replicas)
+sample proves this routing end to end with two local database files.
+
+Edge and serverless drivers follow the same pattern. These are
+bring-your-own-driver setups — supported by the same `connection` contract but
+not CI-tested in this repository:
+
+```ts
+// Cloudflare D1 (Workers binding)
+import { drizzle } from 'drizzle-orm/d1';
+
+DrizzleModule.forRoot({ schema, connection: drizzle(env.DB, { schema }) });
+```
+
+```ts
+// Turso / remote libSQL
+import { drizzle } from 'drizzle-orm/libsql';
+
+DrizzleModule.forRoot({
+  schema,
+  connection: drizzle({
+    connection: { url: env.TURSO_DATABASE_URL, authToken: env.TURSO_AUTH_TOKEN },
+    schema,
+  }),
+});
+```
+
 ## Multiple Databases
 
 Use named connections for multiple databases or driver instances:

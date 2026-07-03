@@ -32,6 +32,7 @@ npm run test --workspace nest-native-drizzle-sample-17-drizzle-kit-migrations
 npm run test --workspace nest-native-drizzle-sample-18-health-readiness
 npm run test --workspace nest-native-drizzle-sample-19-transaction-isolation-testing
 npm run test --workspace nest-native-drizzle-sample-20-multi-tenancy-shared-db
+npm run test --workspace nest-native-drizzle-sample-21-read-replicas
 ```
 
 `npm run sample:focused` discovers focused samples from `sample/*/package.json`
@@ -63,6 +64,7 @@ targeted local debugging.
 | `18-health-readiness` | Liveness and database readiness checks | Runnable | `npm run test --workspace nest-native-drizzle-sample-18-health-readiness` |
 | `19-transaction-isolation-testing` | Real database transaction isolation tests | Runnable | `npm run test --workspace nest-native-drizzle-sample-19-transaction-isolation-testing` |
 | `20-multi-tenancy-shared-db` | Shared-database multi-tenancy with tenant predicates and negative tests | Runnable | `npm run test --workspace nest-native-drizzle-sample-20-multi-tenancy-shared-db` |
+| `21-read-replicas` | `withReplicas` read/write routing with a `$primary` escape hatch | Runnable | `npm run test --workspace nest-native-drizzle-sample-21-read-replicas` |
 
 ## Sample Rules
 
