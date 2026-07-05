@@ -249,3 +249,45 @@ project constitution.
   samples from `sample/*/package.json`. New focused sample PRs should not need
   to edit the root script manually; keep explicit workspace commands only in
   human-facing docs for targeted debugging.
+
+## Local Full-Mode Verification (optional infra + mutation testing)
+
+Everything in this section is **opt-in and local-only**. Plain `npm test` and
+CI run without Docker and skip the gated specs; forks work out of the box.
+**CI never runs mutation testing** — it is an on-demand, local-only gate.
+
+### Gated I/O specs (real PostgreSQL / MySQL)
+
+- `npm run infra:up` — disposable containers from `compose.yaml`
+  (PostgreSQL on `127.0.0.1:54321`, MySQL on `127.0.0.1:33061`). Needs Docker.
+- `npm run test:full` — the whole suite with the gated driver specs running
+  against those containers (`NEST_DRIZZLE_NATIVE_POSTGRES_URL` /
+  `NEST_DRIZZLE_NATIVE_MYSQL_URL` are set inline to the compose URLs).
+- `npm run infra:down` — removes containers and volumes.
+- Using your own databases instead: export those two env vars and run
+  `npm test` — the specs gate purely on the env vars.
+
+**AI agents working on this repo**: when Docker is available, run
+`npm run infra:up && npm run test:full` before opening a PR that touches
+package source, and report the result (including the gated specs) in the PR
+body. When Docker is not available, run `npm test` and state that the gated
+specs were skipped. Never wire any of this into CI.
+
+### Mutation testing (Stryker — local only, never in CI)
+
+- `npm run test:mutation` — **incremental** run (cache:
+  `reports/stryker-incremental.json`; only re-tests what changed). This is the
+  pre-PR ritual for changes to package source.
+- `npm run test:mutation:full` — every mutant from scratch (`--force`).
+- `STRYKER_MUTATE='packages/drizzle/client/**,packages/drizzle/tokens.ts'` —
+  comma-separated globs to scope a run to the files a change touched.
+- `STRYKER_WITH_INFRA=1` — each mutant also runs the gated I/O specs
+  (`npm run test:full` per mutant, concurrency forced to 1 because the specs
+  share one database per dialect; run `npm run infra:up` first). Slow by
+  design; use it when a change touches driver/store-adjacent code.
+- Report: `reports/mutation/mutation.html`. Thresholds are advisory
+  (`break: null`) — the signal is *which mutants survive*, not the score.
+
+Pre-PR ritual: run `npm run test:mutation` (scope with `STRYKER_MUTATE` when
+the change is small), look at surviving mutants, and mention the outcome in
+the PR body. Keep CI fast and Docker-free — that is a deliberate contract.

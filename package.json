@@ -31,7 +31,14 @@
     "sample:focused": "node scripts/run-focused-samples.mjs",
     "sample": "npm run showcase && npm run sample:focused",
     "ci:sample": "npm run sample",
-    "ci": "npm run typecheck && npm run test:cov && npm run complexity:check && npm run complexity:report && npm run release:check && npm run ci:docs && npm run security:audit && npm run ci:sample"
+    "ci": "npm run typecheck && npm run test:cov && npm run complexity:check && npm run complexity:report && npm run release:check && npm run ci:docs && npm run security:audit && npm run ci:sample",
+    "infra:up": "docker compose up -d --wait",
+    "infra:down": "docker compose down -v",
+    "test:full": "NEST_DRIZZLE_NATIVE_POSTGRES_URL=postgres://drizzle:drizzle@127.0.0.1:54321/drizzle NEST_DRIZZLE_NATIVE_MYSQL_URL=mysql://drizzle:drizzle@127.0.0.1:33061/drizzle npm run test",
+    "test:mutation": "stryker run",
+    "test:mutation:full": "stryker run --force",
+    "test:mutant": "TS_NODE_PROJECT=tsconfig.spec.json node --require ts-node/register --require reflect-metadata --test --test-force-exit packages/drizzle/test/*.spec.ts",
+    "test:mutant:full": "NEST_DRIZZLE_NATIVE_POSTGRES_URL=postgres://drizzle:drizzle@127.0.0.1:54321/drizzle NEST_DRIZZLE_NATIVE_MYSQL_URL=mysql://drizzle:drizzle@127.0.0.1:33061/drizzle npm run test:mutant"
   },
   "engines": {
     "node": ">=20"
@@ -47,6 +54,7 @@
     "@nestjs/core": "^11.1.27",
     "@nestjs/platform-express": "^11.1.27",
     "@nestjs/testing": "^11.1.27",
+    "@stryker-mutator/core": "^9.6.1",
     "@types/node": "^26.0.1",
     "@typescript-eslint/parser": "^8.62.0",
     "better-sqlite3": "^12.11.1",
