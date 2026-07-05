@@ -16,7 +16,8 @@ ORM's functional, SQL-first, anti-magic nature**.
 - Current stabilization support line:
   - Node.js `>=20`
   - NestJS `11.x`
-  - Drizzle ORM `>=0.30.0 <2.0.0` until Drizzle v1 stabilizes
+  - Drizzle ORM `>=0.30.0 <2.0.0` stable; v1 RC (`>=1.0.0-rc.1`) core support
+    since 0.4.0, canary-guarded until GA
   - PostgreSQL, MySQL, SQLite, and libSQL-compatible drivers (`pg`, `mysql2`,
     `better-sqlite3`, `@libsql/client`, etc.)
 - Full integration with NestJS enhancer pipeline is **NON-NEGOTIABLE**:

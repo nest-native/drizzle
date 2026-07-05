@@ -378,12 +378,11 @@ jobs:
     name: drizzle-orm v1 RC compatibility (informational)
     runs-on: ubuntu-latest
     # Forward-looking, NON-BLOCKING probe for the next Drizzle major.
-    # drizzle-orm v1 is still a release candidate (stable `latest` is 0.45.x) and
-    # key peers do not support it yet: the CLS transactional adapter peer-pins
-    # drizzle-orm@^0, and drizzle-zod has no stable v1. This job is expected to
-    # fail until the ecosystem catches up. `continue-on-error` keeps it from ever
-    # gating `main` -- treat it as an early-warning signal: when it goes green,
-    # promote v1 in the peer range and support policy.
+    # Since 0.4.0 the peer range admits the v1 RC line and this suite compiles
+    # and passes against it (including the real CLS-adapter transaction spec),
+    # so this job is EXPECTED GREEN. A failure means a newer RC regressed
+    # compatibility -- revisit the support policy before v1 GA.
+    # `continue-on-error` keeps a surprise RC from gating unrelated work.
     continue-on-error: true
 
     steps:
@@ -396,8 +395,10 @@ jobs:
         run: npm ci
 
       - name: Overlay drizzle-orm@rc (v1 release candidate)
-        # --legacy-peer-deps is required because @nestjs-cls/transactional-adapter-drizzle-orm
-        # peer-pins drizzle-orm@^0; --no-save keeps package.json/lock on the stable line.
+        # --legacy-peer-deps is still required: the workspace devDeps include
+        # @nestjs-cls/transactional-adapter-drizzle-orm (peer-pins drizzle-orm@^0,
+        # see Papooch/nestjs-cls#599) and drizzle-zod (peer excludes prereleases).
+        # --no-save keeps package.json/lock on the stable line.
         run: npm install --no-save --legacy-peer-deps drizzle-orm@rc
 
       - name: Record resolved drizzle-orm version
@@ -409,8 +410,8 @@ jobs:
             echo ""
             echo "Testing \`@nest-native/drizzle\` against \`drizzle-orm@${RESOLVED}\`."
             echo ""
-            echo "Informational and non-blocking. Expected to fail until v1 leaves RC"
-            echo "and peers (the CLS transactional adapter, drizzle-zod) ship v1 support."
+            echo "Informational and non-blocking. Expected GREEN since 0.4.0 declared"
+            echo "core v1 RC support -- a failure means a newer RC regressed compatibility."
           } >> "$GITHUB_STEP_SUMMARY"
 
       - name: Run package tests against drizzle-orm v1 RC

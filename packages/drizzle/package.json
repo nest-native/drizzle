@@ -1,6 +1,6 @@
 {
   "name": "@nest-native/drizzle",
-  "version": "0.3.2",
+  "version": "0.4.0",
   "description": "Nest-native Drizzle ORM integration with DI, repositories, and transaction decorators",
   "keywords": [
     "nestjs",
@@ -50,7 +50,6 @@
     "build": "npm run clean && tsc -p tsconfig.build.json",
     "typecheck": "tsc --noEmit -p tsconfig.json"
   },
-  "dependencies": {},
   "peerDependencies": {
     "@libsql/client": "*",
     "@nestjs-cls/transactional": "*",
@@ -59,7 +58,7 @@
     "@nestjs/swagger": "^11.4.4",
     "better-sqlite3": "*",
     "class-validator": "^0.15.1",
-    "drizzle-orm": ">=0.30.0 <2.0.0",
+    "drizzle-orm": ">=0.30.0 <2.0.0 || >=1.0.0-rc.1 <2.0.0",
     "drizzle-zod": "*",
     "mysql2": "*",
     "pg": "*",

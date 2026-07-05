@@ -57,15 +57,19 @@ native integration surface:
 | --- | --- |
 | Node.js | `>=20` |
 | NestJS | `11.x` |
-| Drizzle ORM | `>=0.30.0 <2.0.0` |
+| Drizzle ORM | `>=0.30.0 <2.0.0` stable · v1 RC core support since `0.4.0` |
 | Transaction bridge | `@nestjs-cls/transactional`, optional |
 | Drivers | Bring the Drizzle driver your app uses |
 
-Drizzle ORM v1 is still a release candidate (stable `latest` is `0.45.x`) and is
-**not supported yet**: key peers (`@nestjs-cls/transactional-adapter-drizzle-orm`,
-`drizzle-zod`) do not support v1, and RQB v2 changes the `drizzle(client, { schema })`
-config shape. A non-blocking CI job installs `drizzle-orm@rc` and runs the tests so
-support can land as soon as the ecosystem catches up. See
+Drizzle ORM v1 (`1.0.0-rc.x`) is supported for the **core surface** as of `0.4.0`:
+the peer range admits `>=1.0.0-rc.1`, and the CI canary runs the full package
+suite against `drizzle-orm@rc` — module wiring, DI, repositories, testing
+helpers, and plain query building on all four drivers, including a real
+CLS-adapter transaction. Two optional paths stay gated upstream:
+`@nestjs-cls/transactional-adapter-drizzle-orm` still peer-pins `drizzle-orm@^0`
+(works today with an npm override; tracked in
+[Papooch/nestjs-cls#599](https://github.com/Papooch/nestjs-cls/issues/599)), and
+`drizzle-zod` has no v1-compatible release. Details and the override recipe:
 [Drizzle ORM v1 (release candidate)](website/docs/support-policy.md#drizzle-orm-v1-release-candidate).
 
 For peer dependency policy and API stability, see

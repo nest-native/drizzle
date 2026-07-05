@@ -10,6 +10,32 @@ package release is useful for users.
 
 No user-facing changes yet.
 
+## 0.4.0 - 2026-07-05
+
+### Added
+
+- Drizzle ORM v1 release-candidate support for the core surface: the
+  `drizzle-orm` peer range is now `>=0.30.0 <2.0.0 || >=1.0.0-rc.1 <2.0.0`, so
+  installing `drizzle-orm@rc` next to this package resolves without
+  `--legacy-peer-deps` (plain semver ranges never match prereleases; the
+  explicit RC comparator is required). The range already covers v1 GA.
+- The v1 RC CI canary is now expected green: the full package suite — module
+  wiring, DI, repositories, testing helpers, driver round-trips, and a real
+  commit/rollback through the CLS transactional adapter — compiles and passes
+  against `drizzle-orm@1.0.0-rc.4`.
+
+### Changed
+
+- Integration/driver specs use the unified `drizzle({ client })` init form and
+  schema-agnostic database types, the only shapes shared by 0.x and v1 (v1
+  removed the positional-client overloads and repurposed the database type
+  generic for Relational Queries v2). Test-only change; the public API is
+  untouched.
+- Support policy documents exactly what v1 RC support covers, what remains
+  upstream-gated (`@nestjs-cls/transactional-adapter-drizzle-orm` pins
+  `drizzle-orm@^0` — see Papooch/nestjs-cls#599 — and `drizzle-zod` has no
+  v1-compatible release), and the npm `overrides` recipe for the adapter path.
+
 ## 0.3.2 - 2026-06-13
 
 ### Changed
