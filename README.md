@@ -345,6 +345,19 @@ Run the local gate with:
 npm run ci
 ```
 
+Two **optional, local-only** layers sit on top (neither runs in CI, and forks
+work without them):
+
+- **Full mode** — `npm run infra:up && npm run test:full` runs the gated
+  PostgreSQL/MySQL driver specs against disposable Docker containers
+  (`compose.yaml`); `npm run infra:down` cleans up.
+- **Mutation testing** — `npm run test:mutation` (incremental Stryker run;
+  `test:mutation:full` re-tests everything). Scope with `STRYKER_MUTATE`,
+  include the gated I/O specs with `STRYKER_WITH_INFRA=1`.
+
+Details — including the pre-PR ritual and agent instructions — in
+[GUIDELINES_NEST_DRIZZLE.md](GUIDELINES_NEST_DRIZZLE.md#local-full-mode-verification-optional-infra--mutation-testing).
+
 ## Changelog
 
 See [CHANGELOG.md](CHANGELOG.md) for release history and unreleased user-facing

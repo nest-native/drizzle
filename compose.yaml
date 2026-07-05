@@ -1,0 +1,38 @@
+# Optional local infrastructure for the gated driver specs. Nothing in the
+# default `npm test` path or CI needs this — forks work without Docker.
+# See GUIDELINES_NEST_DRIZZLE.md, "Local full-mode verification".
+#
+#   npm run infra:up     start + wait for health
+#   npm run test:full    run the suite with the gated specs enabled
+#   npm run infra:down   remove containers and volumes
+services:
+  postgres:
+    image: postgres:17-alpine
+    container_name: nest-drizzle-postgres
+    environment:
+      POSTGRES_USER: drizzle
+      POSTGRES_PASSWORD: drizzle
+      POSTGRES_DB: drizzle
+    ports:
+      - '127.0.0.1:54321:5432'
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U drizzle -d drizzle']
+      interval: 2s
+      timeout: 3s
+      retries: 30
+
+  mysql:
+    image: mysql:8.4
+    container_name: nest-drizzle-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: drizzle
+      MYSQL_DATABASE: drizzle
+      MYSQL_USER: drizzle
+      MYSQL_PASSWORD: drizzle
+    ports:
+      - '127.0.0.1:33061:3306'
+    healthcheck:
+      test: ['CMD', 'mysqladmin', 'ping', '-h', '127.0.0.1', '-pdrizzle']
+      interval: 2s
+      timeout: 3s
+      retries: 60
