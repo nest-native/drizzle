@@ -8,7 +8,11 @@ package release is useful for users.
 
 ## Unreleased
 
-No user-facing changes yet.
+- Drizzle ORM v1 note: the Drizzle-Zod integration is built into drizzle-orm
+  on the v1 line (`drizzle-orm/zod`; zod is an optional peer there) — the
+  standalone `drizzle-zod` package stays on 0.x. Support policy corrected and
+  the v1 RC canary now smokes schema derivation + parsing through
+  `drizzle-orm/zod` (the spec skips on 0.x, where the subpath does not exist).
 
 ## 0.4.0 - 2026-07-05
 

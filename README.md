@@ -65,11 +65,12 @@ Drizzle ORM v1 (`1.0.0-rc.x`) is supported for the **core surface** as of `0.4.0
 the peer range admits `>=1.0.0-rc.1`, and the CI canary runs the full package
 suite against `drizzle-orm@rc` — module wiring, DI, repositories, testing
 helpers, and plain query building on all four drivers, including a real
-CLS-adapter transaction. Two optional paths stay gated upstream:
+CLS-adapter transaction. One optional path stays gated upstream:
 `@nestjs-cls/transactional-adapter-drizzle-orm` still peer-pins `drizzle-orm@^0`
-(works today with an npm override; tracked in
-[Papooch/nestjs-cls#599](https://github.com/Papooch/nestjs-cls/issues/599)), and
-`drizzle-zod` has no v1-compatible release. Details and the override recipe:
+(works today with an npm override; fix proposed in
+[Papooch/nestjs-cls#604](https://github.com/Papooch/nestjs-cls/pull/604)). The
+Drizzle-Zod path is already solved on v1 — it moved into drizzle-orm as
+`drizzle-orm/zod`, and the canary smokes it. Details and the override recipe:
 [Drizzle ORM v1 (release candidate)](website/docs/support-policy.md#drizzle-orm-v1-release-candidate).
 
 For peer dependency policy and API stability, see
