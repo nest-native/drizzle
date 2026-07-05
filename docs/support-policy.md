@@ -36,7 +36,9 @@ regressed compatibility.
 - `@nestjs-cls/transactional-adapter-drizzle-orm` peer-pins `drizzle-orm@^0`,
   so installing it next to v1 needs an npm override until
   [Papooch/nestjs-cls#599](https://github.com/Papooch/nestjs-cls/issues/599)
-  lands. Our canary runs the adapter's real commit/rollback against the RC and
+  lands (fix proposed in
+  [Papooch/nestjs-cls#604](https://github.com/Papooch/nestjs-cls/pull/604)).
+  Our canary runs the adapter's real commit/rollback against the RC and
   it works at runtime; the override below is a workaround, not a support claim
   for the adapter itself:
 
@@ -50,16 +52,20 @@ regressed compatibility.
   }
   ```
 
-- `drizzle-zod` has no v1-compatible release (its stable peer range excludes
-  prereleases), so the optional Drizzle-Zod validation path stays on the
-  `0.45.x` line.
+**Drizzle-Zod on v1 — already solved upstream:** the integration moved into
+drizzle-orm itself as the `drizzle-orm/zod` subpath (zod is an optional peer
+of drizzle-orm there; `/valibot`, `/typebox`, and `/arktype` moved the same
+way). The standalone `drizzle-zod` package stays on the 0.x line, so migrate
+the import — `'drizzle-zod'` → `'drizzle-orm/zod'` — when adopting v1. The RC
+canary smokes this path (schema derivation + parsing) on every push; the spec
+skips on 0.x, where the subpath does not exist.
 
 Two migration notes that live in Drizzle's API, not this package's: v1's
 Relational Queries v2 changes what the database type generic means (tables
 record → relations) and removes the positional-client init overloads — use the
 unified `drizzle({ client })` form, which works on `0.32+` and v1 alike. When
-v1 goes GA and the two packages above ship v1 support, this policy drops the
-RC caveats; the peer range already covers `1.x`.
+v1 goes GA and the CLS adapter ships v1 support, this policy drops the RC
+caveats; the peer range already covers `1.x`.
 
 ## Public API Tiers
 
