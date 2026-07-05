@@ -9,31 +9,57 @@ or Drizzle ORM status.
 | --- | --- |
 | Node.js | `>=20` |
 | NestJS | `11.x` |
-| Drizzle ORM | `>=0.30.0 <2.0.0` |
+| Drizzle ORM | `>=0.30.0 <2.0.0` stable · `>=1.0.0-rc.1 <2.0.0` (core, see below) |
 | TypeScript | Current project compiler line |
 
 Drivers are optional peers. Install and test the driver your application uses.
 
 ### Drizzle ORM v1 (release candidate)
 
-Drizzle ORM v1 is currently a release candidate (`1.0.0-rc.x`); the stable
-`latest` tag is still on the `0.45.x` line. `@nest-native/drizzle` holds no
-direct dependency on Drizzle internals, but v1 ships breaking changes and its
-ecosystem is not ready yet, so v1 is **not supported today**:
+Drizzle ORM v1 is a release candidate (`1.0.0-rc.x`); the stable `latest` tag is
+still on the `0.45.x` line. `@nest-native/drizzle` holds no dependency on
+Drizzle internals — your client is an opaque value — and as of `0.4.0` the peer
+range admits the RC line, so `npm install @nest-native/drizzle drizzle-orm@rc`
+resolves cleanly.
 
-- Relational Queries v2 replaces the `drizzle(client, { schema })` config shape,
-  so schema-typed clients and the driver/integration tests no longer type-check
-  against v1 without changes.
-- `@nestjs-cls/transactional-adapter-drizzle-orm` peer-pins `drizzle-orm@^0`, so
-  `@Transactional()` / `@InjectTransaction()` cannot run on v1 until that adapter
-  adds v1 support.
-- `drizzle-zod` has no stable v1 release, so the optional Drizzle-Zod validation
-  path does not type-check against v1.
+**Supported on v1 RC (canary-tested):** module wiring (`forRoot` /
+`forRootAsync`, named connections), `@InjectDrizzle()` / `@DrizzleRepository()`
+DI, shutdown hooks, the testing helpers, and plain query building on all four
+drivers (libSQL, better-sqlite3, node-postgres, mysql2). The non-blocking CI
+job (`drizzle-orm v1 RC compatibility`) runs the full package suite against
+`drizzle-orm@rc` on every push — including a real commit/rollback through the
+CLS transactional adapter — and is expected green; a failure means a newer RC
+regressed compatibility.
 
-A non-blocking CI job (`drizzle-orm v1 RC compatibility`) installs
-`drizzle-orm@rc` on every push and runs the package tests as an early-warning
-signal. When it goes green, the peer range and this policy will be updated to
-declare v1 support. Until then, stay on the `0.45.x` line.
+**Still gated upstream (not by this package):**
+
+- `@nestjs-cls/transactional-adapter-drizzle-orm` peer-pins `drizzle-orm@^0`,
+  so installing it next to v1 needs an npm override until
+  [Papooch/nestjs-cls#599](https://github.com/Papooch/nestjs-cls/issues/599)
+  lands. Our canary runs the adapter's real commit/rollback against the RC and
+  it works at runtime; the override below is a workaround, not a support claim
+  for the adapter itself:
+
+  ```json
+  {
+    "overrides": {
+      "@nestjs-cls/transactional-adapter-drizzle-orm": {
+        "drizzle-orm": "$drizzle-orm"
+      }
+    }
+  }
+  ```
+
+- `drizzle-zod` has no v1-compatible release (its stable peer range excludes
+  prereleases), so the optional Drizzle-Zod validation path stays on the
+  `0.45.x` line.
+
+Two migration notes that live in Drizzle's API, not this package's: v1's
+Relational Queries v2 changes what the database type generic means (tables
+record → relations) and removes the positional-client init overloads — use the
+unified `drizzle({ client })` form, which works on `0.32+` and v1 alike. When
+v1 goes GA and the two packages above ship v1 support, this policy drops the
+RC caveats; the peer range already covers `1.x`.
 
 ## Public API Tiers
 

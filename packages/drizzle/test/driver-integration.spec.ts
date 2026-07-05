@@ -12,9 +12,9 @@ import {
   type BetterSQLite3Database,
 } from 'drizzle-orm/better-sqlite3';
 import { drizzle as drizzleLibSql, type LibSQLDatabase } from 'drizzle-orm/libsql';
-import { drizzle as drizzleMysql } from 'drizzle-orm/mysql2';
+import { drizzle as drizzleMysql, type MySql2Database } from 'drizzle-orm/mysql2';
 import { int, mysqlTable, varchar } from 'drizzle-orm/mysql-core';
-import { drizzle as drizzlePg } from 'drizzle-orm/node-postgres';
+import { drizzle as drizzlePg, type NodePgDatabase } from 'drizzle-orm/node-postgres';
 import { pgTable, serial, text as pgText } from 'drizzle-orm/pg-core';
 import { integer, sqliteTable, text } from 'drizzle-orm/sqlite-core';
 import { DrizzleRepository } from '../decorators/drizzle-repository.decorator';
@@ -41,12 +41,16 @@ const mysqlSchema = { users: mysqlUsers };
 
 const databaseFiles: string[] = [];
 
-type LibSqlTestDatabase = LibSQLDatabase<typeof sqliteSchema> & {
+// Deliberately NOT parameterized with the schema: the generic changed meaning
+// in drizzle-orm v1 (tables record -> relations), and these tests never use
+// RQB (`db.query.*`) — plain query building types identically on 0.x and v1,
+// which keeps this spec compiling on both lines (the v1 RC canary runs it).
+type LibSqlTestDatabase = LibSQLDatabase & {
   $client: Client;
 };
-type BetterSqliteTestDatabase = BetterSQLite3Database<typeof sqliteSchema>;
-type PgTestDatabase = ReturnType<typeof drizzlePg<typeof pgSchema>>;
-type MysqlTestDatabase = ReturnType<typeof drizzleMysql<typeof mysqlSchema>>;
+type BetterSqliteTestDatabase = BetterSQLite3Database;
+type PgTestDatabase = NodePgDatabase;
+type MysqlTestDatabase = MySql2Database;
 
 @DrizzleRepository()
 class LibSqlUsersRepository {
@@ -168,7 +172,9 @@ describe('Drizzle driver integration', () => {
   it('works with a real libSQL client', async () => {
     const databaseFile = createDatabaseFile('libsql');
     const client = createClient({ url: `file:${databaseFile}` });
-    const db = drizzleLibSql(client, { schema: sqliteSchema });
+    // Unified config-object form: the only init shape shared by 0.x and v1
+    // (v1 removed the bare positional-client overloads).
+    const db = drizzleLibSql({ client });
     let shutdownClient: LibSqlTestDatabase | undefined;
 
     const moduleRef = await createDriverModule({
@@ -193,7 +199,7 @@ describe('Drizzle driver integration', () => {
   it('works with a real better-sqlite3 client', async () => {
     const databaseFile = createDatabaseFile('better-sqlite3');
     const sqlite = new Database(databaseFile);
-    const db = drizzleBetterSqlite(sqlite, { schema: sqliteSchema });
+    const db = drizzleBetterSqlite({ client: sqlite });
     let shutdownClient: BetterSqliteTestDatabase | undefined;
 
     const moduleRef = await createDriverModule({
@@ -229,7 +235,9 @@ describe('Drizzle driver integration', () => {
         };
       };
       const pool = new Pool({ connectionString });
-      const db = drizzlePg(pool, { schema: pgSchema });
+      // `as never`: the minimal require()-typed pool satisfies neither line's
+      // client constraint exactly; runtime shape is a real pg Pool.
+      const db = drizzlePg({ client: pool as never });
       let shutdownClient: PgTestDatabase | undefined;
 
       const moduleRef = await createDriverModule({
@@ -265,10 +273,10 @@ describe('Drizzle driver integration', () => {
       const pool = mysql.createPool(connectionString) as {
         end: () => Promise<void>;
       };
-      const db = drizzleMysql(pool as never, {
-        schema: mysqlSchema,
-        mode: 'default',
-      });
+      // No `schema`/`mode`: both only affect RQB (unused here); `mode` is
+      // required only alongside `schema` on 0.x — omitting both works on
+      // 0.x and v1.
+      const db = drizzleMysql({ client: pool as never });
       let shutdownClient: MysqlTestDatabase | undefined;
 
       const moduleRef = await createDriverModule({

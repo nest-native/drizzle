@@ -28,7 +28,11 @@ const users = sqliteTable('users', {
 const schema = { users };
 const databaseFiles: string[] = [];
 
-type TestDatabase = LibSQLDatabase<typeof schema> & {
+// Not parameterized with the schema: the generic changed meaning in
+// drizzle-orm v1 (tables record -> relations) and nothing here uses RQB, so
+// the unparameterized type compiles on both 0.x and v1 (the RC canary runs
+// this spec — including the REAL CLS adapter transaction below).
+type TestDatabase = LibSQLDatabase & {
   $client: Client;
 };
 type DrizzleTransactionalAdapter = TransactionalAdapterDrizzleOrm<TestDatabase>;
@@ -127,7 +131,8 @@ async function createIntegrationModule(
   );
   databaseFiles.push(databaseFile);
   const client = createClient({ url: `file:${databaseFile}` });
-  const db = drizzle(client, { schema });
+  // Unified config-object form: the only init shape shared by 0.x and v1.
+  const db = drizzle({ client });
 
   const module = await Test.createTestingModule({
     imports: [
