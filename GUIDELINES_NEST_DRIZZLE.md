@@ -273,7 +273,7 @@ package source, and report the result (including the gated specs) in the PR
 body. When Docker is not available, run `npm test` and state that the gated
 specs were skipped. Never wire any of this into CI.
 
-### Mutation testing (Stryker — local only, never in CI)
+### Mutation testing (Stryker — occasional targeted audit, local only, never in CI)
 
 - `npm run test:mutation` — **incremental** run (cache:
   `reports/stryker-incremental.json`; only re-tests what changed). This is the
@@ -288,6 +288,13 @@ specs were skipped. Never wire any of this into CI.
 - Report: `reports/mutation/mutation.html`. Thresholds are advisory
   (`break: null`) — the signal is *which mutants survive*, not the score.
 
-Pre-PR ritual: run `npm run test:mutation` (scope with `STRYKER_MUTATE` when
-the change is small), look at surviving mutants, and mention the outcome in
-the PR body. Keep CI fast and Docker-free — that is a deliberate contract.
+**Occasional targeted audit, not a per-PR gate.** Run mutation testing
+deliberately when you've reworked a file's logic — not on every PR. Scope
+`STRYKER_MUTATE` to that one file, keep `--concurrency 2`, and verify a kill the
+fast way: hand-apply the surviving mutation, run the plain suite, confirm your
+new test fails, then `git checkout --` to revert. Full/unscoped runs re-test
+every mutant against the whole suite and are slow to impractical — lean on
+scoped runs plus hand-verification, and `kill -9` any leftover `stryker`
+processes after a timeout. Treat survivors by the doctrine (add a test /
+simplify redundant code / `// Stryker disable` a true equivalent / assert bounds
+for timing). Keep CI fast and Docker-free — that is a deliberate contract.
