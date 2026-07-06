@@ -8,10 +8,11 @@ import {
 } from './constants';
 
 export function normalizeDrizzleConnectionName(connectionName?: string): string {
-  const normalized = connectionName?.trim();
-  return normalized && normalized.length > 0
-    ? normalized
-    : DEFAULT_DRIZZLE_CONNECTION_NAME;
+  // A non-empty trimmed string is truthy and an empty one is falsy, so `||`
+  // covers undefined, empty, and whitespace-only names in one step — an
+  // explicit `.length > 0` check would be an unreachable (equivalent-mutant)
+  // branch on top of that.
+  return connectionName?.trim() || DEFAULT_DRIZZLE_CONNECTION_NAME;
 }
 
 export function getDrizzleClientToken(connectionName?: string): string {
