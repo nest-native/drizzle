@@ -8,6 +8,11 @@ package release is useful for users.
 
 ## Unreleased
 
+- Internal: simplified `normalizeDrizzleConnectionName` to
+  `connectionName?.trim() || DEFAULT` — the previous explicit `.length > 0`
+  check was an unreachable branch (a truthy trimmed string always has a
+  positive length). Behavior-neutral; the existing connection-name tests cover
+  every input class (undefined, empty, whitespace, named).
 - Local full-mode verification and mutation testing (repo tooling; nothing
   ships in the package): `compose.yaml` + `npm run infra:up`/`infra:down`
   start disposable PostgreSQL/MySQL containers, `npm run test:full` runs the
