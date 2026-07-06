@@ -16,7 +16,7 @@
     "@nestjs/common": "11.1.27",
     "@nestjs/core": "11.1.27",
     "@nestjs/platform-express": "^11.1.27",
-    "@nestjs/swagger": "11.4.4",
+    "@nestjs/swagger": "11.4.5",
     "drizzle-orm": "^0.45.2",
     "drizzle-zod": "^0.8.3",
     "reflect-metadata": "0.2.2",
