@@ -62,7 +62,7 @@
     "drizzle-orm": "^0.45.2",
     "eslint": "^10.7.0",
     "eslint-plugin-sonarjs": "^4.1.0",
-    "mysql2": "^3.22.6",
+    "mysql2": "^3.23.1",
     "nestjs-cls": "^6.2.1",
     "pg": "^8.22.0",
     "reflect-metadata": "^0.2.2",
