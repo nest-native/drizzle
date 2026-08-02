@@ -8,6 +8,34 @@ package release is useful for users.
 
 ## Unreleased
 
+- **`describeDrizzleError(error)`** — the structured view of a constraint
+  violation: `{ kind, code, table?, constraint?, column?, detail? }`, or
+  `undefined` when the error is not one. `mapDrizzleError` tells you *which
+  HTTP status*; this tells you *which constraint fired*, so building a
+  field-level response no longer means re-parsing `error.cause` yourself.
+  Deliberately **does not** infer the column from the constraint name — that is
+  only valid for drizzle-kit's generated naming and is silently wrong on
+  hand-written migrations, renamed constraints, and composite/expression
+  indexes. `pg` does not report a column, so `column` is usually absent there.
+- **Check-constraint violations are recognised** (`23514` /
+  `ER_CHECK_CONSTRAINT_VIOLATED` / `3819` / `SQLITE_CONSTRAINT_CHECK`) via
+  `isCheckConstraintError`, mapped to 400 with an overridable `checkMessage`.
+  Previously they fell through to the generic fallback.
+- **Fixed: numeric MySQL `errno` values were never matched.** The detection
+  tables only listed the string aliases, so `{ errno: 1062 }` — which is what
+  `mysql2` actually reports — was not seen as a unique violation. The numeric
+  codes (`1062`, `1452`, `1048`, `3819`) are now listed alongside their
+  `ER_*` names, as is `SQLITE_CONSTRAINT_PRIMARYKEY`.
+- **`DrizzleExceptionFilter`** — an opt-in Nest exception filter so services can
+  stop wrapping every write in `try/catch`. It claims only errors
+  `describeDrizzleError` recognises and delegates everything else to
+  `BaseExceptionFilter` unchanged, so installing it cannot alter how your other
+  errors behave. Opt-in on purpose: the constitution says error mapping is
+  offered, never imposed. Use `@UseFilters(new DrizzleExceptionFilter())` on a
+  controller, or pass the HTTP adapter for a global registration.
+- `sample/09-error-mapping` now demonstrates the structured API alongside the
+  exception mapping.
+
 - Internal: simplified `normalizeDrizzleConnectionName` to
   `connectionName?.trim() || DEFAULT` — the previous explicit `.length > 0`
   check was an unreachable branch (a truthy trimmed string always has a

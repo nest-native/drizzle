@@ -6,6 +6,7 @@ export * from './decorators/inject-transaction.decorator';
 export * from './decorators/transactional.decorator';
 export * from './drizzle.module';
 export * from './errors/drizzle-error.mapper';
+export * from './errors/drizzle-exception.filter';
 export * from './interfaces';
 export * from './testing/drizzle-test.module';
 export * from './testing/mock-client';

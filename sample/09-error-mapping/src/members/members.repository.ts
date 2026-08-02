@@ -3,6 +3,7 @@ import { desc, sql } from 'drizzle-orm';
 import {
   DrizzleRepository,
   InjectDrizzle,
+  describeDrizzleError,
   mapDrizzleError,
 } from '@nest-native/drizzle';
 import type { AppDatabase } from '../database';
@@ -56,6 +57,40 @@ export class MembersRepository {
       throw mapDrizzleError(error, {
         uniqueMessage: 'A member with this email already exists.',
       });
+    }
+  }
+
+  /**
+   * The other half of the story: when a 409 is not enough and you need to say
+   * WHICH constraint fired — building a field-level response, or logging the
+   * constraint name. `describeDrizzleError` hands you the driver's own report
+   * flattened, so you do not re-parse `error.cause` yourself.
+   *
+   * Note what it does NOT do: it never guesses a column from the constraint
+   * name. `pg` does not report the column, so `violation.column` stays
+   * undefined there — a wrong field name in a validation response is worse
+   * than no field name.
+   */
+  async describeInsertFailure(input: {
+    email: string;
+    displayName: string;
+  }): Promise<ReturnType<typeof describeDrizzleError>> {
+    try {
+      await this.create(input);
+      return undefined;
+    } catch {
+      // create() already mapped it; re-run the raw insert to inspect the
+      // driver error itself.
+    }
+
+    try {
+      await this.db.insert(members).values({
+        ...input,
+        createdAt: new Date().toISOString(),
+      });
+      return undefined;
+    } catch (error) {
+      return describeDrizzleError(error);
     }
   }
 
