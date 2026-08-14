@@ -31,26 +31,15 @@ job (`drizzle-orm v1 RC compatibility`) runs the full package suite against
 CLS transactional adapter — and is expected green; a failure means a newer RC
 regressed compatibility.
 
-**Still gated upstream (not by this package):**
-
-- `@nestjs-cls/transactional-adapter-drizzle-orm` peer-pins `drizzle-orm@^0`,
-  so installing it next to v1 needs an npm override until
-  [Papooch/nestjs-cls#599](https://github.com/Papooch/nestjs-cls/issues/599)
-  lands (fix proposed in
-  [Papooch/nestjs-cls#604](https://github.com/Papooch/nestjs-cls/pull/604)).
-  Our canary runs the adapter's real commit/rollback against the RC and
-  it works at runtime; the override below is a workaround, not a support claim
-  for the adapter itself:
-
-  ```json
-  {
-    "overrides": {
-      "@nestjs-cls/transactional-adapter-drizzle-orm": {
-        "drizzle-orm": "$drizzle-orm"
-      }
-    }
-  }
-  ```
+**Transactional adapter on v1 — solved upstream:**
+`@nestjs-cls/transactional-adapter-drizzle-orm@1.4.0` widened its peer range to
+`^0 || >=1.0.0-rc.1 <2.0.0`
+([Papooch/nestjs-cls#604](https://github.com/Papooch/nestjs-cls/pull/604),
+closing [#599](https://github.com/Papooch/nestjs-cls/issues/599)), so it
+installs next to v1 with no override — and the range already admits stable
+`1.x`. Earlier adapter versions still peer-pin `drizzle-orm@^0`; upgrade the
+adapter rather than carrying an override. Our canary runs the adapter's real
+commit/rollback against the RC on every push.
 
 **Drizzle-Zod on v1 — already solved upstream:** the integration moved into
 drizzle-orm itself as the `drizzle-orm/zod` subpath (zod is an optional peer
