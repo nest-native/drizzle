@@ -396,8 +396,8 @@ jobs:
 
       - name: Overlay drizzle-orm@rc (v1 release candidate)
         # --legacy-peer-deps is still required: the workspace devDeps include
-        # @nestjs-cls/transactional-adapter-drizzle-orm (peer-pins drizzle-orm@^0,
-        # see Papooch/nestjs-cls#599) and drizzle-zod (peer excludes prereleases).
+        # drizzle-zod, whose peer range excludes prereleases. (The CLS adapter
+        # stopped needing it: 1.4.0 admits v1 — Papooch/nestjs-cls#604.)
         # --no-save keeps package.json/lock on the stable line.
         run: npm install --no-save --legacy-peer-deps drizzle-orm@rc
 
