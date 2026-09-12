@@ -74,12 +74,16 @@ npm refuses to install them next to 12; use a release whose peer range admits
 Nothing in the package had to change. NestJS 12 is ESM-only with an exports
 map, under which a deep import of a *directory* (`@nestjs/common/interfaces`)
 no longer resolves; this package imports only the public `@nestjs/*` entry
-points, and a test keeps it that way. The `NestJS 12 compatibility` CI job
-installs 12 on top of the 11.x lockfile in every workspace, proves each
-workspace resolves 12, and re-runs the package suite (real PostgreSQL and
-MySQL included), the build, and the whole sample matrix on every push. The
-devDependencies and lockfile stay on 11.x, so both ends of the range are
-tested rather than assumed.
+points, and a test keeps it that way. The `nestjs-compat` CI matrix installs
+each end of the range on top of the 11.x lockfile in every workspace, proves
+each workspace resolves exactly that, and re-runs the package suite (real
+PostgreSQL and MySQL included), the build, and the whole sample matrix on
+every push. The devDependencies and lockfile stay on 11.x, so both ends of the
+range are tested rather than assumed. The published range is
+`^11.0.0 || ^12.0.0`; the oldest installable 11 graph we run is framework
+`11.0.1` with `@nestjs/swagger@11.4.7`, pinned exactly, because every swagger
+11.x peers on `@nestjs/common` and `@nestjs/core` `^11.0.1` (this package
+itself uses nothing added after 11.0.0). The other leg floats on `^12.0.0`.
 
 When adopting 12:
 

@@ -93,16 +93,30 @@ not be copied into docs, samples, or logs beyond generic matrix summaries.
 
 ## Peer-Major Compatibility Legs
 
-The lockfile keeps each peer's devDependency on the oldest supported major, so
-the main jobs test that end of every range. Two extra jobs cover the other end:
+The lockfile keeps each peer's devDependency in the middle of its supported
+range, so the main jobs test that. Extra jobs cover the ends:
 
 | Job | What it installs | Blocking |
 | --- | --- | --- |
-| `NestJS 12 compatibility (Node 22)` | `@nestjs/*` 12 (plus the `nestjs-cls` 6.3 line, which is the first to admit 12) on top of the 11.x lockfile, in every workspace, with `--no-save`; asserts each workspace resolves 12, then re-runs the package suite with the driver services, the build, and the sample matrix | Yes |
+| `NestJS 11 floor compatibility (Node 22)` | framework `11.0.1` and `@nestjs/swagger@11.4.7`, pinned exactly, on top of the 11.x lockfile in every workspace with `--no-save`. 11.0.1 because every swagger 11.x peers on common/core `^11.0.1` (this package itself uses nothing added after 11.0.0); 11.4.7 is the low end of the package's own optional swagger peer range. Then the same proof, package suite with the driver services, build, and sample matrix as the 12 leg | Yes |
+| `NestJS 12 compatibility (Node 22)` | `@nestjs/*` and `@nestjs/swagger` at `^12` on top of the 11.x lockfile, in every workspace, with `--no-save`; then the proof, the package suite with the driver services, the build, and the sample matrix | Yes |
 | `drizzle-orm v1 RC compatibility` | `drizzle-orm@rc` on top of the stable lockfile | No (informational) |
 
-To reproduce the NestJS 12 leg locally, run the job's `npm install --no-save ...`
-line from `.github/workflows/ci.yml`, then `npm test` and `npm run ci:sample`;
+The two NestJS legs are one `nestjs-compat` matrix job. Before either runs
+anything, `scripts/check-nestjs-resolution.mjs` proves the tree is the one the
+leg claims: exactly the pinned version from inside every workspace (a
+downgrade that silently no-ops would leave the lockfile's 11.x in place and
+still "be 11"), no nested copies, and every peer range in the NestJS ecosystem
+satisfied by the tree the suite will run on. That final-tree check is the gate
+because npm's own signal is not one: a peer conflict npm can override is a
+warning plus exit 0 that neither `npm ls` nor `--strict-peer-deps` reports, and
+the same warning appears for transitional states that end coherent. The
+`nestjs-cls` line (6.3.0 and up peers `>= 10 < 13`) serves both ends unchanged.
+The same script runs against the lockfile in `release:check`.
+
+To reproduce a leg locally, run the job's `npm install --no-save ...` and
+`node scripts/check-nestjs-resolution.mjs ...` lines from
+`.github/workflows/ci.yml`, then `npm test` and `npm run ci:sample`;
 `npm ci` restores the lockfile state afterwards.
 
 ## Release And Security

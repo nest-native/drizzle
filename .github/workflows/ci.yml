@@ -417,21 +417,52 @@ jobs:
       - name: Run package tests against drizzle-orm v1 RC
         run: npm run test
 
-  nestjs-latest-major:
-    name: NestJS 12 compatibility (Node 22)
+  nestjs-compat:
+    name: NestJS ${{ matrix.nest.label }} compatibility (Node 22)
     runs-on: ubuntu-latest
-    # The published peer range admits @nestjs/* ^11 || ^12, but the
-    # devDependencies and the lockfile every other job installs stay on 11.x so
-    # the default suite keeps testing the older end. This leg installs 12 on top
-    # of that lockfile with --no-save and re-runs the package suite (gated
-    # driver specs included), the build, and the sample matrix, which makes the
-    # 12 end of the range a tested claim rather than an assumption.
-    # --workspaces matters: the samples pin @nestjs/* to an exact 11.x, and a
-    # root-only install would leave them a nested 11 while the root moved to 12.
-    # The nestjs-cls line rides along because 6.2.x peer-pins @nestjs/* to
-    # `< 12`; 6.3.0 / transactional 3.3.0 / adapter 1.5.0 admit 12 and sit
-    # inside the declared caret ranges, so that part is a within-range overlay,
-    # not a second major.
+    # The published peer range admits @nestjs/* ^11 || ^12 (and the optional
+    # @nestjs/swagger peer ^11.4.7 || ^12). The devDependencies and the
+    # lockfile every other job installs stay on the 11.x in the middle of that
+    # range, so this matrix is what makes its two ENDS tested claims: each leg
+    # installs one end on top of the lockfile with --no-save and re-runs the
+    # package suite (gated driver specs included), the build, and the sample
+    # matrix against it.
+    #
+    # Two things keep a leg honest, because npm makes it easy to run a suite
+    # against a tree that is not the one you asked for:
+    # - --workspaces --include-workspace-root: the samples pin @nestjs/* to an
+    #   exact 11.x, and a root-only install leaves them a nested 11 while the
+    #   root moves.
+    # - scripts/check-nestjs-resolution.mjs proves the version from inside
+    #   every workspace (exactly, at the floor), fails on nested copies, and
+    #   checks every peer range in the NestJS ecosystem against the tree the
+    #   suite will run on. That final-tree check is the gate; the install log
+    #   is printed for diagnosis only. npm prints `ERESOLVE overriding peer
+    #   dependency` and exits 0 both for a real override and for transitional
+    #   states that end coherent — replacing @nestjs/* under the nestjs-cls
+    #   line, whose peers admit both majors, produces dozens on the 12 leg.
+    # The nestjs-cls line is not named here: the lockfile's 6.3.0 /
+    # transactional 3.3.0 / adapter 1.5.0 peer `>= 10 < 13`, so they serve
+    # both ends unchanged, and the check verifies that.
+    # Node is not a dimension here on purpose: 22 floats to a current 22.x,
+    # which is what require(esm) on the 12 end needs (>=22.12), and the build
+    # job already covers 24.
+    strategy:
+      fail-fast: false
+      matrix:
+        nest:
+          # 11.0.1, not 11.0.0: this package imports @nestjs/* roots only and
+          # uses nothing added by a later 11.x, but every @nestjs/swagger 11.x
+          # peers on @nestjs/common and @nestjs/core ^11.0.1, so 11.0.1 is the
+          # oldest framework that installs next to any swagger 11 at all.
+          # swagger is on its own version line and pinned at 11.4.7, the low
+          # end of this package's own optional peer range. Both pinned exactly
+          # so a downgrade that silently no-ops cannot pass as a floor run.
+          # Neither pin is a peer-range correction: no consumer can reach the
+          # versions below them.
+          - { label: '11 floor', spec: '11.0.1', swagger: '11.4.7' }
+          # ^12.0.0 floats, so a new 12.x patch is tested on the next run.
+          - { label: '12', spec: '^12.0.0', swagger: '^12.0.0' }
     services:
       postgres:
         image: postgres:16
@@ -470,46 +501,32 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Install NestJS 12 (this job only, never saved)
+      - name: Install NestJS ${{ matrix.nest.label }} (this job only, never saved)
         run: |
           npm install --no-save --workspaces --include-workspace-root \
-            @nestjs/common@^12.0.0 \
-            @nestjs/core@^12.0.0 \
-            @nestjs/platform-express@^12.0.0 \
-            @nestjs/swagger@^12.0.0 \
-            @nestjs/testing@^12.0.0 \
-            nestjs-cls@^6.3.0 \
-            @nestjs-cls/transactional@^3.3.0 \
-            @nestjs-cls/transactional-adapter-drizzle-orm@^1.5.0
+            "@nestjs/common@${{ matrix.nest.spec }}" \
+            "@nestjs/core@${{ matrix.nest.spec }}" \
+            "@nestjs/platform-express@${{ matrix.nest.spec }}" \
+            "@nestjs/testing@${{ matrix.nest.spec }}" \
+            "@nestjs/swagger@${{ matrix.nest.swagger }}"
 
-      - name: Prove the package and every sample resolve NestJS 12
-        # NestJS 12 does not export ./package.json, so the version is read next
-        # to the resolved entry point, from inside each workspace directory.
+      - name: Prove every workspace resolves NestJS ${{ matrix.nest.label }}
         run: |
-          for dir in packages/drizzle sample/*/; do
-            (
-              cd "$dir" && node -e "
-                const path = require('node:path');
-                const root = path.dirname(require.resolve('@nestjs/core'));
-                const { version } = require(path.join(root, 'package.json'));
-                console.log(process.cwd(), '@nestjs/core', version, '<-', root);
-                if (!version.startsWith('12.')) process.exit(1);
-              "
-            )
-          done
+          node scripts/check-nestjs-resolution.mjs "${{ matrix.nest.spec }}" \
+            "@nestjs/swagger@${{ matrix.nest.swagger }}"
 
-      - name: Typecheck and build the package against NestJS 12
+      - name: Typecheck and build the package against NestJS ${{ matrix.nest.label }}
         run: |
           npm run typecheck --workspace @nest-native/drizzle
           npm run build --workspace @nest-native/drizzle
 
-      - name: Run the package suite against NestJS 12
+      - name: Run the package suite against NestJS ${{ matrix.nest.label }}
         env:
           NEST_DRIZZLE_NATIVE_MYSQL_URL: mysql://drizzle:drizzle@127.0.0.1:3306/drizzle
           NEST_DRIZZLE_NATIVE_POSTGRES_URL: postgresql://drizzle:drizzle@127.0.0.1:5432/drizzle
         run: npm test
 
-      - name: Run the sample matrix against NestJS 12
+      - name: Run the sample matrix against NestJS ${{ matrix.nest.label }}
         env:
           NEST_DRIZZLE_NATIVE_MYSQL_URL: mysql://drizzle:drizzle@127.0.0.1:3306/drizzle
           NEST_DRIZZLE_NATIVE_POSTGRES_URL: postgresql://drizzle:drizzle@127.0.0.1:5432/drizzle

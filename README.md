@@ -341,10 +341,13 @@ The repository starts with the same review posture as `nest-trpc-native` while
 using `node:test` and `c8` for this package:
 
 - package build, typecheck, and coverage on Node.js 22 and 24
-- NestJS 12 compatibility leg: installs `@nestjs/*` 12 on top of the 11.x
-  lockfile in every workspace, proves each workspace resolves 12, and re-runs
-  the package suite, build, and sample matrix, so both ends of the peer range
-  are tested
+- NestJS compatibility matrix: installs each end of the published peer range
+  on top of the 11.x lockfile in every workspace — framework `11.0.1` with
+  `@nestjs/swagger@11.4.7`, pinned exactly (every swagger 11.x peers on
+  common/core `^11.0.1`, so that is the oldest graph the range can produce),
+  and `^12` — proves each workspace resolves exactly that and every peer range
+  in the NestJS ecosystem is satisfied, and re-runs the package suite, build,
+  and sample matrix, so both ends of the peer range are tested
 - coverage with `c8`, enforced at 100% for statements, branches, functions, and lines
 - sticky PR comments for coverage, test performance, and cognitive complexity
 - cognitive complexity enforcement with SonarJS threshold `15`
