@@ -175,7 +175,18 @@ project constitution.
   publishes `"dependencies": {}`, this is exactly what consumers install.
   Advisories confined to dev/peer/build tooling or the docs `website/` are
   tracked and patched via Dependabot but do not block releases — they cannot
-  reach consumers. Patch them in their own PRs.
+  reach consumers. Patch them in their own PRs. Two things Dependabot cannot
+  do for those trees, both learned clearing a 34-alert backlog (2026-09): a
+  transitive package that its parent pins *exactly* (`@nestjs/platform-express`
+  → `multer`, `typed-rest-client` → `qs`, `sockjs` → `uuid`, Docusaurus'
+  bundler → `serialize-javascript`) only moves through an `overrides` entry
+  in that tree's `package.json` — keep the override a caret range at the
+  first fixed version and drop it once the parent catches up (the root and
+  `website/` each carry their own); and the `@nestjs/*` 11 line has to be
+  bumped by hand while the grouped peer PR proposes 12, because Dependabot
+  offers the latest major, not the latest 11.x, so the samples' exact pins go
+  stale (11.2.1 while 11.2.5 existed) and carry the parent's old transitive
+  pins with them.
 - **The docs audit reports, it does not gate.** `security:audit` hard-fails only
   on the *published* surface; `security:audit:docs` still runs and prints, but
   cannot fail the build. This makes the gate match the rule above — website
