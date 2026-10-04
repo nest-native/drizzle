@@ -16,6 +16,8 @@ Before treating an app as production-ready:
 - create the driver or pool in application code
 - pass a ready Drizzle client to `DrizzleModule`
 - provide a shutdown hook for owned driver resources
+- on node-postgres, give the pool an `error` listener (see
+  [Connection Loss On node-postgres](transactions.md#connection-loss-on-node-postgres))
 - generate and apply migrations with standard Drizzle tooling
 - expose separate liveness and readiness endpoints for deployment platforms
 - place `@Transactional()` on workflow service methods, not every query method
@@ -44,8 +46,10 @@ and connection strings all stay outside the package abstraction.
 
 ### Any Drizzle Client Works
 
-The module never constructs, wraps, or rewires the client. `connection`
-accepts whatever drizzle-orm returns (or a factory that returns one), so every
+The module never constructs, wraps, or rewires the client; on a node-postgres
+pool it only adds the `error` listeners described in
+[Connection Loss On node-postgres](transactions.md#connection-loss-on-node-postgres).
+`connection` accepts whatever drizzle-orm returns (or a factory that returns one), so every
 drizzle-orm driver and client helper works without a dedicated integration.
 
 Read replicas via drizzle-orm's `withReplicas` (available for the Postgres,
