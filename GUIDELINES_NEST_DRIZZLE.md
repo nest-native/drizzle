@@ -179,10 +179,16 @@ project constitution.
   do for those trees, both learned clearing a 34-alert backlog (2026-09): a
   transitive package that its parent pins *exactly* (`@nestjs/platform-express`
   → `multer`, `typed-rest-client` → `qs`, `sockjs` → `uuid`, Docusaurus'
-  bundler → `serialize-javascript`) only moves through an `overrides` entry
-  in that tree's `package.json` — keep the override a caret range at the
-  first fixed version and drop it once the parent catches up (the root and
-  `website/` each carry their own); and the `@nestjs/*` 11 line has to be
+  bundler → `serialize-javascript`, `@nestjs/swagger` 11.4.7 → `js-yaml`)
+  only moves through an `overrides` entry in that tree's `package.json` —
+  keep the override a caret range at the first fixed version and drop it
+  once the parent catches up (the root and `website/` each carry their own;
+  scope it to the parent, `"@nestjs/swagger": { "js-yaml": "^5.4.1" }`, when
+  another package needs a different major of the same dependency). npm does
+  not re-resolve a lockfile entry for a new override: drop the pinned
+  package's *parent* entry from `package-lock.json` and reinstall, then
+  confirm with `npm ls --all` that nothing non-optional is UNMET (dropping
+  only the child's entry leaves it uninstalled). And the `@nestjs/*` 11 line has to be
   bumped by hand while the grouped peer PR proposes 12, because Dependabot
   offers the latest major, not the latest 11.x, so the samples' exact pins go
   stale (11.2.1 while 11.2.5 existed) and carry the parent's old transitive
@@ -195,8 +201,12 @@ project constitution.
   package-only. Trigger: `image-size` (GHSA-w3rx-r6r6-pgpr,
   GHSA-5p2g-fcmc-qvqq) has NO patched version — 2.0.2 is both the latest
   release and vulnerable — and arrives through `@docusaurus/mdx-loader`, so the
-  gate was unfixable by any dependency change. Dependabot still tracks the
-  website tree; fix docs advisories when a fix exists.
+  gate was unfixable by any dependency change. Nothing else reports the
+  website tree (Dependabot alerts do not cover it), so the soft audit's output
+  is the signal: fix docs advisories when a fix exists. `braces`
+  (GHSA-vfj7-8cjw-p6xm, through chokidar and micromatch) is the standing
+  unfixable one since 2026-10: every version up to the latest, 3.0.3, is in
+  range.
 
 - **Strictness scope.** The non-negotiables (100% coverage,
   cognitive-complexity ≤ 15, zero published runtime deps, isolated
