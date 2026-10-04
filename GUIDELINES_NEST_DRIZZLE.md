@@ -201,9 +201,11 @@ project constitution.
   package-only. Trigger: `image-size` (GHSA-w3rx-r6r6-pgpr,
   GHSA-5p2g-fcmc-qvqq) has NO patched version — 2.0.2 is both the latest
   release and vulnerable — and arrives through `@docusaurus/mdx-loader`, so the
-  gate was unfixable by any dependency change. Nothing else reports the
-  website tree (Dependabot alerts do not cover it), so the soft audit's output
-  is the signal: fix docs advisories when a fix exists. `braces`
+  gate was unfixable by any dependency change. Dependabot alerts do report
+  the website tree (`website/package-lock.json`), but not reliably: on
+  2026-10-04 the same `braces` advisory raised an alert in three repos and
+  none in six with identical Docusaurus trees. Treat the soft audit's output
+  as the signal, not the alert list: fix docs advisories when a fix exists. `braces`
   (GHSA-vfj7-8cjw-p6xm, through chokidar and micromatch) is the standing
   unfixable one since 2026-10: every version up to the latest, 3.0.3, is in
   range.
