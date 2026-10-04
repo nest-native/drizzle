@@ -59,7 +59,8 @@ they are.
 
 ## Cognitive Complexity
 
-Cognitive complexity uses SonarJS through ESLint:
+Cognitive complexity is enforced by Biome's
+`complexity/noExcessiveCognitiveComplexity` rule (config in `biome.json`):
 
 ```bash
 npm run complexity:check
@@ -71,7 +72,8 @@ npm run complexity:report
 totals, per-file aggregates, and the most complex functions.
 
 The PR comment treats complexity as a review signal. The hard gate remains the
-ESLint threshold.
+Biome threshold. Biome cannot report below a complexity of 2, so the report
+lists every function scoring 2 or more.
 
 ## Driver Integration
 
