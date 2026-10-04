@@ -40,7 +40,7 @@
     "test:mutation:full": "stryker run --force",
     "test:mutant": "TS_NODE_PROJECT=tsconfig.spec.json node --require ts-node/register --require reflect-metadata --test --test-force-exit packages/drizzle/test/*.spec.ts",
     "test:mutant:full": "NEST_DRIZZLE_NATIVE_POSTGRES_URL=postgres://drizzle:drizzle@127.0.0.1:54321/drizzle NEST_DRIZZLE_NATIVE_MYSQL_URL=mysql://drizzle:drizzle@127.0.0.1:33061/drizzle npm run test:mutant",
-    "security:audit:docs:soft": "npm run security:audit:docs || node -e \"console.log('\\\\n[non-blocking] Docs-site advisories reported above. They live in the website/ tree, which is never published to consumers, so per the guidelines they do not gate releases \u2014 and nothing else reports them (Dependabot alerts do not cover this tree): fix them when a fix exists.')\""
+    "security:audit:docs:soft": "npm run security:audit:docs || node -e \"console.log('\\\\n[non-blocking] Docs-site advisories reported above. They live in the website/ tree, which is never published to consumers, so per the guidelines they do not gate releases \u2014 and Dependabot alerts do not reliably report them: fix them when a fix exists.')\""
   },
   "engines": {
     "node": ">=22"
