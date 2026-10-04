@@ -360,6 +360,22 @@ project constitution.
   must express that as a dependency (inject it, or move the work to an
   earlier phase), never as an assumption about hook sequencing. No test
   asserts a within-phase hook order, and none should.
+- **node-postgres pools are guarded, never wrapped.** drizzle-orm's
+  node-postgres `transaction()` (0.45 and the v1 RCs) checks a client out of
+  the pool without an `error` listener, so a connection the server drops
+  mid-transaction ends the process; `@nest-native/messaging` and
+  `@nest-native/jobs` hit the same trap in their own stores. `DrizzleModule`
+  therefore gives every client a node-postgres pool hands out an `error`
+  listener (`client/node-postgres-guard.ts`, recognizing the pool by shape so
+  `pg` never loads) and warns once when the pool has no `error` listener of
+  its own. That is the whole intervention: the module still never constructs,
+  wraps or replaces the client, and it does not re-implement `transaction()`
+  (a replacement would have to reproduce drizzle's savepoints and
+  `tx.rollback()`). The two remaining drizzle-orm defects (the failed
+  `rollback` masks the connection error; a connection lost at `BEGIN` leaks
+  its pool slot) belong upstream. The real-PostgreSQL spec that kills a
+  `@Transactional()` backend mid-transaction is the gate: removing the guard
+  must fail it.
 - **Dual CommonJS/ESM publishing is a dated non-goal; revisit in 2027.**
   NestJS 12 is ESM-only and this package is CommonJS: it loads 12 through
   Node's `require(esm)`, unflagged from 22.12. Every community NestJS library

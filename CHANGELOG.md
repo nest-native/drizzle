@@ -8,6 +8,23 @@ package release is useful for users.
 
 ## Unreleased
 
+- **A dropped Postgres connection no longer crashes the process inside
+  `@Transactional()`.** On a node-postgres `Pool`, drizzle-orm's
+  `transaction()`, which every `@Transactional()` method runs through, checks
+  a client out of the pool without an `error` listener. A failover, a restart,
+  `pg_terminate_backend` or `idle_in_transaction_session_timeout` during the
+  transaction emitted `error` on that client, and Node ended the process,
+  whatever listened on the pool. `DrizzleModule` now gives every client a
+  node-postgres pool hands out an `error` listener that logs a warning: the
+  transaction rejects, and the pool discards the broken client. The module
+  also warns once at startup when the pool has no `error` listener, which
+  node-postgres requires. Other drivers are untouched. A real-PostgreSQL spec
+  kills a `@Transactional()` method's backend mid-transaction; without the
+  guard, the process dies. Two drizzle-orm behaviours remain, upstream: the
+  rejection carries drizzle's failed `rollback` rather than the connection
+  error, and a connection lost while `BEGIN` runs is never returned to the
+  pool.
+
 - **Both ends of the NestJS peer range are now CI legs.** The single
   `nestjs-latest-major` job that installed `^12` is replaced by a
   `nestjs-compat` matrix: an `11 floor` leg pinned exactly to framework

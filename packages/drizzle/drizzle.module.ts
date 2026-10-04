@@ -1,6 +1,7 @@
 import { DynamicModule, Module, Provider } from '@nestjs/common';
 import { DrizzleConnectionManager } from './client/drizzle-connection.manager';
 import { resolveDrizzleConnection } from './client/connection.util';
+import { guardNodePgPool } from './client/node-postgres-guard';
 import {
   DrizzleModuleAsyncOptions,
   DrizzleModuleOptions,
@@ -86,6 +87,7 @@ function createConnectionProviders(connectionName?: string): Provider[] {
       provide: managerToken,
       useFactory: async (options: DrizzleModuleOptions) => {
         const client = await resolveDrizzleConnection(options.connection);
+        guardNodePgPool(client, connectionName);
         return new DrizzleConnectionManager(client, options.shutdown);
       },
       inject: [optionsToken],

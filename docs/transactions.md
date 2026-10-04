@@ -82,6 +82,37 @@ Rollback behavior is owned by the configured CLS transaction adapter. In the
 package integration tests, a thrown error inside a `@Transactional()` method
 rolls back the real libSQL Drizzle transaction, and a successful method commits.
 
+## Connection Loss On node-postgres
+
+On a node-postgres `Pool`, drizzle-orm's `transaction()`, which every
+`@Transactional()` method runs through, checks a client out of the pool and
+gives it no `error` listener. When the database drops that connection while
+the transaction is open (a failover, a restart, `pg_terminate_backend`,
+`idle_in_transaction_session_timeout`), node-postgres emits `error` on the
+client and Node ends the process, even when the pool has an `error` listener.
+
+`DrizzleModule` closes that gap for every connection it registers. When the
+Drizzle client runs on a node-postgres pool, each client the pool hands out
+gets an `error` listener that logs a warning, so the transaction rejects
+instead and the pool discards the broken client. The module also warns once at
+startup when the pool has no `error` listener of its own. node-postgres
+requires one, because it reports a connection an idle client loses on the
+pool:
+
+```ts
+const pool = new Pool({ connectionString: process.env.DATABASE_URL });
+pool.on('error', (error) => logger.warn(`idle Postgres client: ${error.message}`));
+```
+
+Two drizzle-orm behaviours remain until drizzle-orm fixes them:
+
+- The rejection carries drizzle's failed `rollback` (`Failed query: rollback`)
+  rather than the connection error. The module's warning logs the real cause.
+- A connection lost while `BEGIN` runs is never returned to the pool.
+
+A pool you use outside `DrizzleModule` needs the same per-client listener:
+`pool.on('connect', (client) => client.on('error', handleError))`.
+
 ## Testing Transactions
 
 Use real Drizzle clients for transaction tests. Mocking a transaction decorator
