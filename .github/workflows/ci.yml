@@ -174,11 +174,18 @@ jobs:
 
           git worktree add --detach "$BASE_DIR" "${{ github.event.pull_request.base.sha }}"
           ln -s "$GITHUB_WORKSPACE/node_modules" "$BASE_DIR/node_modules"
+          # The base tree runs against THIS PR's node_modules, so a PR that
+          # changes the complexity tooling itself cannot produce a baseline.
+          # That is a missing comparison, not a broken build: the report step
+          # already renders fine without a base.
           (
             cd "$BASE_DIR"
             node scripts/collect-cognitive-complexity.mjs \
               --output "$GITHUB_WORKSPACE/base-cognitive-complexity-summary.json"
-          )
+          ) || {
+            echo "::notice::Base complexity report unavailable (tooling changed since the base commit); reporting without a baseline."
+            rm -f "$GITHUB_WORKSPACE/base-cognitive-complexity-summary.json"
+          }
 
       - name: Cache CI data for base branch
         if: github.event_name == 'push'

@@ -233,7 +233,7 @@ project constitution.
 
 - When changes touch `packages/drizzle/**/*.ts`, AI agents should run
   `npm run complexity:check` and `npm run complexity:report`.
-- CI enforces SonarJS' default cognitive-complexity threshold of `15` per package
+- CI enforces a cognitive-complexity threshold of `15`, with Biome (`complexity/noExcessiveCognitiveComplexity`, config in `biome.json`), per package
   source function.
 - Treat the PR complexity report as a review signal for deltas and hotspots, not
   an automatic refactor mandate.
