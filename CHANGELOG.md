@@ -8,6 +8,8 @@ package release is useful for users.
 
 ## Unreleased
 
+## 0.5.1
+
 - **A dropped Postgres connection no longer crashes the process inside
   `@Transactional()`.** On a node-postgres `Pool`, drizzle-orm's
   `transaction()`, which every `@Transactional()` method runs through, checks
