@@ -58,7 +58,7 @@
     "@nestjs/platform-express": "^11.2.7",
     "@nestjs/testing": "^11.2.7",
     "@stryker-mutator/core": "^10.0.0",
-    "@types/node": "^26.6.2",
+    "@types/node": "^26.6.4",
     "better-sqlite3": "^12.11.1",
     "c8": "^12.0.0",
     "drizzle-orm": "^0.45.2",
