@@ -42,6 +42,12 @@ const config: Config = {
   ],
 
   themeConfig: {
+    announcementBar: {
+      id: 'deprecated-use-nestjs-drizzle',
+      content:
+        '@nest-native/drizzle is deprecated: NestJS now ships an official Drizzle module. <a href="/drizzle/docs/migrate-to-nestjs-drizzle">Migrate to @nestjs/drizzle</a>.',
+      isCloseable: false,
+    },
     image: 'img/social-card.png',
     colorMode: {
       respectPrefersColorScheme: true,
