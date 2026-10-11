@@ -1,5 +1,9 @@
 # GUIDELINES_NEST_DRIZZLE.md
 
+> **Archived (2026-10-11).** `@nest-native/drizzle` is deprecated in favor of
+> the official `@nestjs/drizzle`; 0.5.2 was the last release. These guidelines
+> are kept as a record of how the package was built.
+
 ## Core Philosophy - This library MUST feel native in NestJS projects
 
 Every single decision must follow NestJS philosophy exactly as `@nestjs/graphql`,

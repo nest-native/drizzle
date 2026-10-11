@@ -1,7 +1,7 @@
 {
   "name": "@nest-native/drizzle",
-  "version": "0.5.1",
-  "description": "Nest-native Drizzle ORM integration with DI, repositories, and transaction decorators",
+  "version": "0.5.2",
+  "description": "Deprecated: use the official @nestjs/drizzle (see the migration guide). Nest-native Drizzle ORM integration with DI, repositories, and transaction decorators",
   "keywords": [
     "nestjs",
     "drizzle",

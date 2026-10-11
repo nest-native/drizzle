@@ -10,14 +10,14 @@
   <a href="https://nest-native.github.io/drizzle/"><img src="https://img.shields.io/badge/docs-%40nest--native%2Fdrizzle-0f766e.svg" alt="Documentation" /></a>
 </p>
 
-> [!IMPORTANT]
-> **Renamed package.** This project was previously published as `nest-drizzle-native`. It is now **`@nest-native/drizzle`** (repo: [`nest-native/drizzle`](https://github.com/nest-native/drizzle)).
+> [!CAUTION]
+> **Deprecated.** NestJS now ships an official Drizzle module, [`@nestjs/drizzle`](https://docs.nestjs.com/data/drizzle), which covers what this package was for. `@nest-native/drizzle` 0.5.2 is the last release and this repository is archived: existing installs keep working, but nothing will be fixed.
 >
 > ```bash
-> npm uninstall nest-drizzle-native
-> npm install @nest-native/drizzle
+> npm uninstall @nest-native/drizzle
+> npm install @nestjs/drizzle
 > ```
-> Update imports from `nest-drizzle-native` to `@nest-native/drizzle`. The old package is frozen at `0.2.1` and no longer maintained.
+> Most of the move is renaming; repositories become plain providers and transactions come straight from `@nestjs-cls/transactional`. See the [migration guide](https://nest-native.github.io/drizzle/docs/migrate-to-nestjs-drizzle).
 
 ## What This Is
 

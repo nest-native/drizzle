@@ -8,6 +8,18 @@ package release is useful for users.
 
 ## Unreleased
 
+## 0.5.2
+
+- **Deprecated in favor of the official `@nestjs/drizzle`.** NestJS now ships
+  its own Drizzle module, and it covers what this package was for. This is the
+  last release: the repository is archived and the package is deprecated on
+  npm. Existing installs keep working. The
+  [migration guide](https://nest-native.github.io/drizzle/docs/migrate-to-nestjs-drizzle)
+  maps every API to its replacement: most of it is renaming, repositories
+  become plain providers, transactions come straight from
+  `@nestjs-cls/transactional`, and the error-mapping helpers can be copied into
+  the application. No code change in this release.
+
 - **Dependency advisories, published package unchanged.** The dev tree takes
   `proxy-addr` 2.0.8 (GHSA-jqcg-44mw-7w3h, critical, through Express). In
   `website/`: `shell-quote` 1.12, `compression` 1.8.2, `source-map-js` 1.2.2 and
