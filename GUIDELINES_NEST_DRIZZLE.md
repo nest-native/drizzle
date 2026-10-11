@@ -210,6 +210,19 @@ project constitution.
   unfixable one since 2026-10: every version up to the latest, 3.0.3, is in
   range.
 
+- **When the only fix is a major the parent does not admit, the build proves
+  the override first.** In 2026-10 two website advisories had no fix on the
+  line their parent asks for: `tinypool` (GHSA-5gmw-xhrv-c9v3,
+  GHSA-85c8-ppgw-ccpr; fixed in 2.1.2, while `@docusaurus/core` 3.10 asks for
+  `^1`) and `postcss-selector-parser` (GHSA-rj75-hqrm-r3gf; fixed in 7.1.6,
+  while cssnano 6's plugins ask for `^6`). `website/package.json` overrides
+  both across the major, proven on a Docusaurus site build (nest-native/trpc,
+  2026-10-11): with `postcss-selector-parser` 7 the built CSS and every asset
+  except webpack's runtime chunk are byte-identical, and with
+  `future.faster.ssgWorkerThreads` switched on (it is off here, so Docusaurus
+  never loads `tinypool`) the site builds through a `tinypool` 2 worker pool.
+  Drop both overrides once Docusaurus moves to those majors.
+
 - **Strictness scope.** The non-negotiables (100% coverage,
   cognitive-complexity ≤ 15, zero published runtime deps, isolated
   major-version review) govern the *core* published package
